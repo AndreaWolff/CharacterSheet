@@ -6,7 +6,6 @@ CharacterRace::CharacterRace()
 {
 }
 
-
 CharacterRace::~CharacterRace()
 {
 }

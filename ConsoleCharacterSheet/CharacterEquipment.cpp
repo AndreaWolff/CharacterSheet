@@ -6,7 +6,6 @@ CharacterEquipment::CharacterEquipment()
 {
 }
 
-
 CharacterEquipment::~CharacterEquipment()
 {
 }
