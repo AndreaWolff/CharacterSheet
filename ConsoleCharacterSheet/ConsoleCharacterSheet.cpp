@@ -3,12 +3,15 @@
 
 #include "stdafx.h"
 #include <iostream>
+#include <string>
 #include <conio.h>
+#include "Die.h"
 using namespace std;
 
 int main()
 {
-	cout << "Hello World!"
+	Die die(1, 5);
+
 	_getch();
     return 0;
 }
