@@ -4,14 +4,14 @@
 
 class Die
 {
-public:
-	Die();
-	Die(int, int);
-	~Die();
-	int rollDie();
-private:
-	int maxValue;
-	int minValue;
+	public:
+		Die();
+		~Die();
+		int rollDie(int, int);
+	private:
+		int maxValue;
+		int minValue;
+		int value;
 };
 
 #endif

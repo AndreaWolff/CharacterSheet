@@ -1,4 +1,8 @@
 #include "stdafx.h"
+#include <cstdlib>
+#include <stdio.h>
+#include <stdlib.h>   
+#include <time.h> 
 #include <iostream>
 #include "Die.h"
 
@@ -8,19 +12,17 @@ Die::Die()
 {
 }
 
-Die::Die(int min, int max)
-{
-	minValue = min;
-	maxValue = max;
-	rollDie();
-}
-
 Die::~Die()
 {
 }
 
-int Die::rollDie()
+int Die::rollDie(int max, int min)
 {
-	cout << minValue << endl << maxValue;
+	//randomly generates any numbers that we call into this
+	//used for alot of different class - pointers?
+
+	//srand(time(NULL));
+	//return value = rand() % maxValue + minValue;
+	cout << maxValue << endl << minValue;
 	return 0;
 }

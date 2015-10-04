@@ -11,6 +11,8 @@ class CharacterClass
 	public:
 		CharacterClass();
 		~CharacterClass();
+		void setHitPoints(int, int);
+		int getHitPoints();
 	private:
 		int maxNumber;
 		int minNumber;

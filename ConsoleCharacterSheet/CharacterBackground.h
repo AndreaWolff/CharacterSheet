@@ -12,11 +12,16 @@ class CharacterBackground
 		CharacterBackground();
 		CharacterBackground(string);
 		~CharacterBackground();
-		//void setPersonalityTraits(string);
 		string getPersonalityTraits();
+		string getIdeal();
+		string getBond();
+		string getFlaw();
 	private:
 		string charBackground;
 		string personalityTrait;
+		string ideal;
+		string bond;
+		string flaw;
 };
 
 #endif
