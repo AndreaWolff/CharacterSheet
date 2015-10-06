@@ -8,16 +8,16 @@
 #include <cstdlib>
 #include <conio.h>
 #include "CharacterGenerator.h"
+#include "MyForm1.h"
 using namespace std;
+using namespace ConsoleCharacterSheet;
+
 
 int main()
-{
-	srand(time(0));
-	CharacterGenerator * char1 = new CharacterGenerator("","","","Criminal");
-
-	delete char1;
-
-	_getch();
+{	
+	Application::Run(gcnew MyForm);
+//	srand(time(0));
+	CharacterGenerator * char1 = new CharacterGenerator("", "", "", "Criminal");
     return 0;
 }
 
