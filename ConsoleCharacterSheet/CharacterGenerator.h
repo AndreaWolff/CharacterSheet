@@ -4,6 +4,7 @@
 #include <iostream>
 #include <string>
 #include "Die.h"
+#include "CharacterBackground.h"
 
 using namespace std;
 
@@ -13,6 +14,20 @@ class CharacterGenerator
 		CharacterGenerator();
 		CharacterGenerator(string, string, string, string);
 		~CharacterGenerator();
+
+		void setStrength();
+		void setDexterity();
+		void setConstitution();
+		void setWisdom();
+		void setIntelligence();
+		void setCharisma();
+		void setStrModifier();
+		void setDexModifier();
+		void setConsModifier();
+		void setWisModifier();
+		void setIntModifier();
+		void setCharModifier();
+
 		int getStrength();
 		int getDexterity();
 		int getConstitution();
@@ -25,17 +40,20 @@ class CharacterGenerator
 		int getWisModifier();
 		int getIntModifier();
 		int getCharModifier();
+
 		void setLevel(int);
 		int getLevel();
 		void setPlayerName(string);
 		string getPlayerName();
 		void setProficiencyBonus(int);
 		int getProficiencyBonus();
+
 	private:
+		void generateStats();
+		void printStats();
 		string charRace;
 		string charClass;
 		string charGender;
-		string charBackground;
 		string playerName;
 		int minNum;
 		int maxNum;
@@ -53,7 +71,8 @@ class CharacterGenerator
 		int charModifier;
 		int level;
 		int proficiencyBonus;
-		Die dice;
+		Die * statGenDice;
+		CharacterBackground * charBackground;
 };
 
 #endif

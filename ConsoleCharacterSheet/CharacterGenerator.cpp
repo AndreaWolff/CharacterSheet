@@ -2,6 +2,7 @@
 #include <iostream>
 #include <string>
 #include "CharacterGenerator.h"
+#include <conio.h>
 
 using namespace std;
 
@@ -15,70 +16,173 @@ CharacterGenerator::CharacterGenerator(string race, string chClass, string gende
 	charRace = race;
 	charClass = chClass;
 	charGender = gender;
-	charBackground = background;
+
 	level = 1;
-	minNum = 8;
-	maxNum = 18;
+	
+	statGenDice = new Die(18,8);
+
+	charBackground = new CharacterBackground( background );
+	
+	generateStats();
+	printStats();
+
 }
 
 CharacterGenerator::~CharacterGenerator()
 {
+	delete statGenDice;
+	delete charBackground;
 }
 
-int CharacterGenerator::getStrength() 
+// set methods
+
+void CharacterGenerator::setStrength() 
 {
-	return strength = dice.rollDie(minNum, maxNum);
+	 strength = statGenDice->rollDie();
 }
-int CharacterGenerator::getDexterity() 
+void CharacterGenerator::setDexterity()
 {
-	return dexterity = dice.rollDie(minNum, maxNum);
+	 dexterity = statGenDice->rollDie();
+}
+void CharacterGenerator::setConstitution()
+{
+	 constitution = statGenDice->rollDie();
+}
+void CharacterGenerator::setWisdom()
+{
+	 wisdom = statGenDice->rollDie();
+}
+void CharacterGenerator::setIntelligence()
+{
+	 intelligence = statGenDice->rollDie();
+}
+void CharacterGenerator::setCharisma()
+{
+	 charisma = statGenDice->rollDie();
+}
+
+void CharacterGenerator::setStrModifier()
+{
+	 strModifier = (strength - 10) / 2;
+}
+
+void CharacterGenerator::setDexModifier()
+{
+	 dexModifier = (dexterity - 10) / 2;
+}
+
+void CharacterGenerator::setConsModifier()
+{
+	 consModifier = (constitution - 10) / 2;
+}
+
+void CharacterGenerator::setWisModifier()
+{
+	 wisModifier = (wisdom - 10) / 2;
+}
+
+void CharacterGenerator::setIntModifier()
+{
+	 intModifier = (intelligence - 10) / 2;
+}
+
+void CharacterGenerator::setCharModifier()
+{
+	 charModifier = (charisma - 10) / 2;
+}
+
+void CharacterGenerator::generateStats()
+{
+	setStrength();
+	setDexterity();
+	setConstitution();
+	setWisdom();
+	setIntelligence();
+	setCharisma();
+	setStrModifier();
+	setDexModifier();
+	setConsModifier();
+	setWisModifier();
+	setIntModifier();
+	setCharModifier();
+}
+
+void CharacterGenerator::printStats() 
+{
+	cout << "Strength = " << getStrength() << endl;
+	cout << "Dexterity = " << getDexterity() << endl;
+	cout << "Constitution = " << getConstitution() << endl;
+	cout << "Wisdom = " << getWisdom() << endl;
+	cout << "Intelligence = " << getIntelligence() << endl;
+	cout << "Charisma = " << getCharisma() << endl;
+	cout << "StrMod = " << getStrModifier() << endl;
+	cout << "DexMod = " << getDexModifier() << endl;
+	cout << "ConsMod = " << getConsModifier() << endl;
+	cout << "WisMod = " << getWisModifier() << endl;
+	cout << "IntMod = " << getIntModifier() << endl;
+	cout << "CharMod = " << getCharModifier() << endl;
+}
+
+// get methods
+
+int CharacterGenerator::getStrength()
+{
+	return strength;
+}
+int CharacterGenerator::getDexterity()
+{
+	return dexterity;
 }
 int CharacterGenerator::getConstitution()
 {
-	return constitution = dice.rollDie(minNum, maxNum);
+	return constitution;
 }
 int CharacterGenerator::getWisdom()
 {
-	return wisdom = dice.rollDie(minNum, maxNum);
+	return wisdom;
 }
 int CharacterGenerator::getIntelligence()
 {
-	return intelligence = dice.rollDie(minNum, maxNum);
+	return intelligence;
 }
 int CharacterGenerator::getCharisma()
 {
-	return charisma = dice.rollDie(minNum, maxNum);
+	return charisma;
 }
 
 int CharacterGenerator::getStrModifier()
 {
-	return strModifier = (strength - 10) / 2;
+	return strModifier;
 }
 
 int CharacterGenerator::getDexModifier()
 {
-	return dexModifier = (dexterity - 10) / 2;
+	return dexModifier;
 }
 
 int CharacterGenerator::getConsModifier()
 {
-	return consModifier = (constitution - 10) / 2;
+	return consModifier;
 }
 
 int CharacterGenerator::getWisModifier()
 {
-	return wisModifier = (wisdom - 10) / 2;
+	return wisModifier;
 }
 
 int CharacterGenerator::getIntModifier()
 {
-	return intModifier = (intelligence - 10) / 2;
+	return intModifier;
 }
 
 int CharacterGenerator::getCharModifier()
 {
-	return charModifier = (charisma - 10) / 2;
+	return charModifier;
 }
+
+
+//
+
 
 void CharacterGenerator::setLevel(int levelUpDown)
 {

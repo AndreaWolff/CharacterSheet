@@ -6,8 +6,9 @@ class Die
 {
 	public:
 		Die();
+		Die(int, int);
 		~Die();
-		int rollDie(int, int);
+		int rollDie();
 	private:
 		int maxValue;
 		int minValue;
