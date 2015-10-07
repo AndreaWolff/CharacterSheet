@@ -1,5 +1,4 @@
 #pragma once
-//#include <msclrmarshal_cppstd.h>
 #include <msclr/marshal.h>
 #include <sstream>
 #include <string>
@@ -28,14 +27,15 @@ namespace ConsoleCharacterSheet {
 			//TODO: Add the constructor code here
 			//
 		}
+
 		void MarshalString(String ^ s, string& os)
 		{
 			using namespace Runtime::InteropServices;
-			const char* chars =
-				(const char*)(Marshal::StringToHGlobalAnsi(s)).ToPointer();
+			const char* chars = (const char*)(Marshal::StringToHGlobalAnsi(s)).ToPointer();
 			os = chars;
 			Marshal::FreeHGlobal(IntPtr((void*)chars));
 		}
+
 	protected:
 		/// <summary>
 		/// Clean up any resources being used.
@@ -44,23 +44,41 @@ namespace ConsoleCharacterSheet {
 		{
 			delete char1;
 			delete background;
+			delete raceClass;
+			delete personality;
+			delete ideal;
+			delete bond;
+			delete flaw;
+
 			if (components)
 			{
 				delete components;
 			}
 		}
+
+	private: System::Windows::Forms::ComboBox^  raceBox;
+	private: System::Windows::Forms::ComboBox^  ClassBox;
+	private: System::Windows::Forms::ComboBox^  GenderBox;
 	private: System::Windows::Forms::ComboBox^  BackgroundGenBox;
-	private: System::Windows::Forms::Button^  StartGeneration;
-	private: System::Windows::Forms::TextBox^  PersonalityTextBox;
-	private: String^ bGItem;
-	private: CharacterGenerator * char1;
-	private: CharacterBackground * background;
+
 	private: System::Windows::Forms::TextBox^  personalityBox;
 	private: System::Windows::Forms::TextBox^  idealBox;
 	private: System::Windows::Forms::TextBox^  bondBox;
 	private: System::Windows::Forms::TextBox^  flawBox;
 
+	private: System::Windows::Forms::Button^  StartGeneration;
 
+	private: CharacterGenerator * char1;
+	private: CharacterBackground * background;
+	private: CharacterRace * raceClass;
+
+	private: String^ genItem;
+	private: String^ racItem;
+	private: String^ bGItem;
+	private: String^ personality;
+	private: String^ ideal;
+	private: String^ bond;
+	private: String^ flaw;
 
 	private:
 		/// <summary>
@@ -77,18 +95,20 @@ namespace ConsoleCharacterSheet {
 		{
 			this->BackgroundGenBox = (gcnew System::Windows::Forms::ComboBox());
 			this->StartGeneration = (gcnew System::Windows::Forms::Button());
-			this->PersonalityTextBox = (gcnew System::Windows::Forms::TextBox());
 			this->personalityBox = (gcnew System::Windows::Forms::TextBox());
 			this->idealBox = (gcnew System::Windows::Forms::TextBox());
 			this->bondBox = (gcnew System::Windows::Forms::TextBox());
 			this->flawBox = (gcnew System::Windows::Forms::TextBox());
+			this->GenderBox = (gcnew System::Windows::Forms::ComboBox());
+			this->raceBox = (gcnew System::Windows::Forms::ComboBox());
+			this->ClassBox = (gcnew System::Windows::Forms::ComboBox());
 			this->SuspendLayout();
 			// 
 			// BackgroundGenBox
 			// 
 			this->BackgroundGenBox->FormattingEnabled = true;
 			this->BackgroundGenBox->Items->AddRange(gcnew cli::array< System::Object^  >(3) { L"Criminal", L"Folk Hero", L"Hermit" });
-			this->BackgroundGenBox->Location = System::Drawing::Point(42, 46);
+			this->BackgroundGenBox->Location = System::Drawing::Point(42, 231);
 			this->BackgroundGenBox->Name = L"BackgroundGenBox";
 			this->BackgroundGenBox->Size = System::Drawing::Size(121, 21);
 			this->BackgroundGenBox->TabIndex = 0;
@@ -96,20 +116,13 @@ namespace ConsoleCharacterSheet {
 			// 
 			// StartGeneration
 			// 
-			this->StartGeneration->Location = System::Drawing::Point(42, 97);
+			this->StartGeneration->Location = System::Drawing::Point(42, 301);
 			this->StartGeneration->Name = L"StartGeneration";
 			this->StartGeneration->Size = System::Drawing::Size(147, 23);
 			this->StartGeneration->TabIndex = 1;
 			this->StartGeneration->Text = L"Start Generation";
 			this->StartGeneration->UseVisualStyleBackColor = true;
 			this->StartGeneration->Click += gcnew System::EventHandler(this, &MyForm::StartGeneration_Click);
-			// 
-			// PersonalityTextBox
-			// 
-			this->PersonalityTextBox->Location = System::Drawing::Point(0, 0);
-			this->PersonalityTextBox->Name = L"PersonalityTextBox";
-			this->PersonalityTextBox->Size = System::Drawing::Size(100, 20);
-			this->PersonalityTextBox->TabIndex = 0;
 			// 
 			// personalityBox
 			// 
@@ -143,11 +156,43 @@ namespace ConsoleCharacterSheet {
 			this->flawBox->TabIndex = 5;
 			this->flawBox->TextChanged += gcnew System::EventHandler(this, &MyForm::flawBox_TextChanged);
 			// 
+			// GenderBox
+			// 
+			this->GenderBox->FormattingEnabled = true;
+			this->GenderBox->Items->AddRange(gcnew cli::array< System::Object^  >(2) { L"Male", L"Female" });
+			this->GenderBox->Location = System::Drawing::Point(42, 174);
+			this->GenderBox->Name = L"GenderBox";
+			this->GenderBox->Size = System::Drawing::Size(121, 21);
+			this->GenderBox->TabIndex = 6;
+			this->GenderBox->SelectedIndexChanged += gcnew System::EventHandler(this, &MyForm::GenderBox_SelectedIndexChanged);
+			// 
+			// raceBox
+			// 
+			this->raceBox->FormattingEnabled = true;
+			this->raceBox->Items->AddRange(gcnew cli::array< System::Object^  >(3) { L"Human", L"Elf", L"Dwarf" });
+			this->raceBox->Location = System::Drawing::Point(42, 50);
+			this->raceBox->Name = L"raceBox";
+			this->raceBox->Size = System::Drawing::Size(121, 21);
+			this->raceBox->TabIndex = 7;
+			this->raceBox->SelectedIndexChanged += gcnew System::EventHandler(this, &MyForm::raceBox_SelectedIndexChanged);
+			// 
+			// ClassBox
+			// 
+			this->ClassBox->FormattingEnabled = true;
+			this->ClassBox->Items->AddRange(gcnew cli::array< System::Object^  >(4) { L"Fighter", L"Cleric", L"Wizard", L"Ranger" });
+			this->ClassBox->Location = System::Drawing::Point(42, 110);
+			this->ClassBox->Name = L"ClassBox";
+			this->ClassBox->Size = System::Drawing::Size(121, 21);
+			this->ClassBox->TabIndex = 8;
+			// 
 			// MyForm
 			// 
 			this->AutoScaleDimensions = System::Drawing::SizeF(6, 13);
 			this->AutoScaleMode = System::Windows::Forms::AutoScaleMode::Font;
 			this->ClientSize = System::Drawing::Size(933, 557);
+			this->Controls->Add(this->ClassBox);
+			this->Controls->Add(this->raceBox);
+			this->Controls->Add(this->GenderBox);
 			this->Controls->Add(this->flawBox);
 			this->Controls->Add(this->bondBox);
 			this->Controls->Add(this->idealBox);
@@ -162,40 +207,82 @@ namespace ConsoleCharacterSheet {
 
 		}
 #pragma endregion
-	private: System::Void BackgroundGenBox_SelectedIndexChanged(System::Object^  sender, System::EventArgs^  e)
+	private: System::Void raceBox_SelectedIndexChanged(System::Object^  sender, System::EventArgs^  e) 
 	{
 	}
 
+	private: System::Void GenderBox_SelectedIndexChanged(System::Object^  sender, System::EventArgs^  e)
+	{
+	}
+
+	private: System::Void BackgroundGenBox_SelectedIndexChanged(System::Object^  sender, System::EventArgs^  e)
+	{
+	}
+			 
 	private: System::Void StartGeneration_Click(System::Object^  sender, System::EventArgs^  e) 
 	{
+		//GUI HAS A ROUGH LAYOUT!!! IT NEEDS SOME LOVING!!!
+
+		//Completed all of the background Class tho....for now.....
+		//Starting on CharacterRace class next.......looking at the Human race first
+		//tried to make it really straight forward, let me know if you have ANY questions!!
+		//So much done!!!!!!! :)
+		
 		std::string backgroundString;
+		std::string raceString;
+		std::string genderString;
 		std::string personalityTrait;
 		std::string idealTrait;
 		std::string bondTrait;
 		std::string flawTrait;
 
+		//generates race drop down box
+		int raceIndex = raceBox->SelectedIndex;
+		Object^ raceItem = raceBox->SelectedItem;
+		racItem = raceItem->ToString();
+		MarshalString( racItem, raceString );
+
+		//generates gender drop down box
+		int genIndex = GenderBox->SelectedIndex;
+		Object^ genderItem = GenderBox->SelectedItem;
+		genItem = genderItem->ToString();
+		MarshalString( genItem, genderString );
+
+		//generates background drop down box
 		int backgroundIndex = BackgroundGenBox->SelectedIndex;
 		Object^ backgroundItem = BackgroundGenBox->SelectedItem;
 		bGItem = backgroundItem->ToString();
-		MarshalString(bGItem, backgroundString);
+		MarshalString( bGItem, backgroundString );
 
-		char1 = new CharacterGenerator(backgroundString);
+		//calls CharacterGenerator constructor
+		char1 = new CharacterGenerator( raceString, genderString, backgroundString );
+
+		//raceClass = new CharacterRace(raceString, genderString);
+
+		//starting with human race first
+		//sets race text boxes
+		//code to come
+		
+		//sets gender text boxes
+		//code to come
+		//this is allow them to have a boy or girl name
+
+		//sets background text boxes
 		background = new CharacterBackground(backgroundString);
-
 		personalityTrait = background->getPersonalityTrait();
-		String^ personality = gcnew String(personalityTrait.c_str());
+		String^ personality = gcnew String( personalityTrait.c_str() );
 		this->personalityBox->Text = personality;
 
 		idealTrait = background->getIdeal();
-		String^ ideal = gcnew String(idealTrait.c_str());
+		String^ ideal = gcnew String( idealTrait.c_str() );
 		this->idealBox->Text = ideal;
 
 		bondTrait = background->getBond();
-		String^ bond = gcnew String(bondTrait.c_str());
+		String^ bond = gcnew String( bondTrait.c_str() );
 		this->bondBox->Text = bond;
 
 		flawTrait = background->getFlaw();
-		String^ flaw = gcnew String(flawTrait.c_str());
+		String^ flaw = gcnew String( flawTrait.c_str() );
 		this->flawBox->Text = flaw;
 
 		//MessageBox::Show(personality);

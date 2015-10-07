@@ -5,6 +5,7 @@
 #include <string>
 #include "Die.h"
 #include "CharacterBackground.h"
+#include "CharacterRace.h"
 
 using namespace std;
 
@@ -12,8 +13,8 @@ class CharacterGenerator
 {
 	public:
 		CharacterGenerator();
-		CharacterGenerator(string);
-		CharacterGenerator(string, string, string, string);
+		CharacterGenerator(string, string, string);
+		//CharacterGenerator( string, string, string, string );
 		~CharacterGenerator();
 
 		void setStrength();
@@ -42,11 +43,11 @@ class CharacterGenerator
 		int getIntModifier();
 		int getCharModifier();
 
-		void setLevel(int);
+		void setLevel( int );
 		int getLevel();
-		void setPlayerName(string);
+		void setPlayerName( string );
 		string getPlayerName();
-		void setProficiencyBonus(int);
+		void setProficiencyBonus( int );
 		int getProficiencyBonus();
 
 	private:
@@ -74,6 +75,7 @@ class CharacterGenerator
 		int proficiencyBonus;
 		Die * statGenDice;
 		CharacterBackground * charBackground;
+		CharacterRace * charRaceClass;
 };
 
 #endif

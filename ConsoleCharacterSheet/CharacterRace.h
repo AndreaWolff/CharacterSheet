@@ -10,12 +10,15 @@ class CharacterRace
 {
 	public:
 		CharacterRace();
+		CharacterRace(string, string);
 		~CharacterRace();
 	private:
-		int ability;
-		int age;
-		int speed;
+		string charRace;
+		string charGender;
 		string charName;
+		int age;
+		int ability;
+		int speed;
 		bool darkvision;
 };
 

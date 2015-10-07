@@ -1,8 +1,8 @@
 #include "stdafx.h"
 #include <iostream>
 #include <string>
-#include "CharacterGenerator.h"
 #include <conio.h>
+#include "CharacterGenerator.h"
 
 using namespace std;
 
@@ -11,43 +11,47 @@ CharacterGenerator::CharacterGenerator()
 }
 
 //for testing the GUI
-CharacterGenerator::CharacterGenerator(string background)
+CharacterGenerator::CharacterGenerator( string rRace, string gGender, string background )
 {
 	//charRace, Class, Gender and Background brought in from the sheet generator on form 1
-
+	//Starting with Human Race first
 	level = 1;
 
 	statGenDice = new Die(18, 8);
 
 	charBackground = new CharacterBackground(background);
+	charRaceClass = new CharacterRace(rRace, gGender);
 
 	generateStats();
 	printStats();
 
 }
-
-CharacterGenerator::CharacterGenerator(string race, string chClass, string gender, string background)
+/*
+CharacterGenerator::CharacterGenerator( string race1, string chClass, string gender2, string background )
 {
 	//charRace, Class, Gender and Background brought in from the sheet generator on form 1
-	charRace = race;
+	charRace = race1;
 	charClass = chClass;
-	charGender = gender;
+	charGender = gender2;
 
 	level = 1;
 	
 	statGenDice = new Die(18,8);
 
 	charBackground = new CharacterBackground( background );
+	charRace = new CharacterRace(race1);
+	charGender = new CharacterRace(gender1);
 	
 	generateStats();
 	printStats();
 
 }
-
+*/
 CharacterGenerator::~CharacterGenerator()
 {
 	delete statGenDice;
 	delete charBackground;
+	delete charRaceClass;
 }
 
 // set methods
