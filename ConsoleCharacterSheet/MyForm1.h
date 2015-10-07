@@ -57,6 +57,8 @@ namespace ConsoleCharacterSheet {
 	private: CharacterBackground * background;
 	private: System::Windows::Forms::TextBox^  personalityBox;
 	private: System::Windows::Forms::TextBox^  idealBox;
+	private: System::Windows::Forms::TextBox^  bondBox;
+	private: System::Windows::Forms::TextBox^  flawBox;
 
 
 
@@ -78,6 +80,8 @@ namespace ConsoleCharacterSheet {
 			this->PersonalityTextBox = (gcnew System::Windows::Forms::TextBox());
 			this->personalityBox = (gcnew System::Windows::Forms::TextBox());
 			this->idealBox = (gcnew System::Windows::Forms::TextBox());
+			this->bondBox = (gcnew System::Windows::Forms::TextBox());
+			this->flawBox = (gcnew System::Windows::Forms::TextBox());
 			this->SuspendLayout();
 			// 
 			// BackgroundGenBox
@@ -100,6 +104,13 @@ namespace ConsoleCharacterSheet {
 			this->StartGeneration->UseVisualStyleBackColor = true;
 			this->StartGeneration->Click += gcnew System::EventHandler(this, &MyForm::StartGeneration_Click);
 			// 
+			// PersonalityTextBox
+			// 
+			this->PersonalityTextBox->Location = System::Drawing::Point(0, 0);
+			this->PersonalityTextBox->Name = L"PersonalityTextBox";
+			this->PersonalityTextBox->Size = System::Drawing::Size(100, 20);
+			this->PersonalityTextBox->TabIndex = 0;
+			// 
 			// personalityBox
 			// 
 			this->personalityBox->Location = System::Drawing::Point(42, 366);
@@ -116,11 +127,29 @@ namespace ConsoleCharacterSheet {
 			this->idealBox->TabIndex = 3;
 			this->idealBox->TextChanged += gcnew System::EventHandler(this, &MyForm::idealBox_TextChanged);
 			// 
+			// bondBox
+			// 
+			this->bondBox->Location = System::Drawing::Point(42, 420);
+			this->bondBox->Name = L"bondBox";
+			this->bondBox->Size = System::Drawing::Size(655, 20);
+			this->bondBox->TabIndex = 4;
+			this->bondBox->TextChanged += gcnew System::EventHandler(this, &MyForm::bondBox_TextChanged);
+			// 
+			// flawBox
+			// 
+			this->flawBox->Location = System::Drawing::Point(42, 447);
+			this->flawBox->Name = L"flawBox";
+			this->flawBox->Size = System::Drawing::Size(655, 20);
+			this->flawBox->TabIndex = 5;
+			this->flawBox->TextChanged += gcnew System::EventHandler(this, &MyForm::flawBox_TextChanged);
+			// 
 			// MyForm
 			// 
 			this->AutoScaleDimensions = System::Drawing::SizeF(6, 13);
 			this->AutoScaleMode = System::Windows::Forms::AutoScaleMode::Font;
 			this->ClientSize = System::Drawing::Size(933, 557);
+			this->Controls->Add(this->flawBox);
+			this->Controls->Add(this->bondBox);
 			this->Controls->Add(this->idealBox);
 			this->Controls->Add(this->personalityBox);
 			this->Controls->Add(this->StartGeneration);
@@ -142,9 +171,11 @@ namespace ConsoleCharacterSheet {
 		std::string backgroundString;
 		std::string personalityTrait;
 		std::string idealTrait;
+		std::string bondTrait;
+		std::string flawTrait;
+
 		int backgroundIndex = BackgroundGenBox->SelectedIndex;
 		Object^ backgroundItem = BackgroundGenBox->SelectedItem;
-		
 		bGItem = backgroundItem->ToString();
 		MarshalString(bGItem, backgroundString);
 
@@ -159,13 +190,30 @@ namespace ConsoleCharacterSheet {
 		String^ ideal = gcnew String(idealTrait.c_str());
 		this->idealBox->Text = ideal;
 
+		bondTrait = background->getBond();
+		String^ bond = gcnew String(bondTrait.c_str());
+		this->bondBox->Text = bond;
+
+		flawTrait = background->getFlaw();
+		String^ flaw = gcnew String(flawTrait.c_str());
+		this->flawBox->Text = flaw;
+
 		//MessageBox::Show(personality);
 	}
 
 	private: System::Void personalityBox_TextChanged(System::Object^  sender, System::EventArgs^  e) 
 	{
 	}
+
 	private: System::Void idealBox_TextChanged(System::Object^  sender, System::EventArgs^  e)
+	{
+	}
+
+	private: System::Void bondBox_TextChanged(System::Object^  sender, System::EventArgs^  e)
+	{
+	}
+
+	private: System::Void flawBox_TextChanged(System::Object^  sender, System::EventArgs^  e) 
 	{
 	}
 };
