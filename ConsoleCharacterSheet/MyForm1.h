@@ -56,6 +56,8 @@ namespace ConsoleCharacterSheet {
 	private: CharacterGenerator * char1;
 	private: CharacterBackground * background;
 	private: System::Windows::Forms::TextBox^  personalityBox;
+	private: System::Windows::Forms::TextBox^  idealBox;
+
 
 
 	private:
@@ -75,13 +77,14 @@ namespace ConsoleCharacterSheet {
 			this->StartGeneration = (gcnew System::Windows::Forms::Button());
 			this->PersonalityTextBox = (gcnew System::Windows::Forms::TextBox());
 			this->personalityBox = (gcnew System::Windows::Forms::TextBox());
+			this->idealBox = (gcnew System::Windows::Forms::TextBox());
 			this->SuspendLayout();
 			// 
 			// BackgroundGenBox
 			// 
 			this->BackgroundGenBox->FormattingEnabled = true;
 			this->BackgroundGenBox->Items->AddRange(gcnew cli::array< System::Object^  >(3) { L"Criminal", L"Folk Hero", L"Hermit" });
-			this->BackgroundGenBox->Location = System::Drawing::Point(114, 86);
+			this->BackgroundGenBox->Location = System::Drawing::Point(42, 46);
 			this->BackgroundGenBox->Name = L"BackgroundGenBox";
 			this->BackgroundGenBox->Size = System::Drawing::Size(121, 21);
 			this->BackgroundGenBox->TabIndex = 0;
@@ -89,7 +92,7 @@ namespace ConsoleCharacterSheet {
 			// 
 			// StartGeneration
 			// 
-			this->StartGeneration->Location = System::Drawing::Point(114, 360);
+			this->StartGeneration->Location = System::Drawing::Point(42, 97);
 			this->StartGeneration->Name = L"StartGeneration";
 			this->StartGeneration->Size = System::Drawing::Size(147, 23);
 			this->StartGeneration->TabIndex = 1;
@@ -99,17 +102,26 @@ namespace ConsoleCharacterSheet {
 			// 
 			// personalityBox
 			// 
-			this->personalityBox->Location = System::Drawing::Point(63, 258);
+			this->personalityBox->Location = System::Drawing::Point(42, 366);
 			this->personalityBox->Name = L"personalityBox";
 			this->personalityBox->Size = System::Drawing::Size(655, 20);
 			this->personalityBox->TabIndex = 2;
 			this->personalityBox->TextChanged += gcnew System::EventHandler(this, &MyForm::personalityBox_TextChanged);
 			// 
+			// idealBox
+			// 
+			this->idealBox->Location = System::Drawing::Point(42, 393);
+			this->idealBox->Name = L"idealBox";
+			this->idealBox->Size = System::Drawing::Size(655, 20);
+			this->idealBox->TabIndex = 3;
+			this->idealBox->TextChanged += gcnew System::EventHandler(this, &MyForm::idealBox_TextChanged);
+			// 
 			// MyForm
 			// 
 			this->AutoScaleDimensions = System::Drawing::SizeF(6, 13);
 			this->AutoScaleMode = System::Windows::Forms::AutoScaleMode::Font;
-			this->ClientSize = System::Drawing::Size(774, 441);
+			this->ClientSize = System::Drawing::Size(933, 557);
+			this->Controls->Add(this->idealBox);
 			this->Controls->Add(this->personalityBox);
 			this->Controls->Add(this->StartGeneration);
 			this->Controls->Add(this->BackgroundGenBox);
@@ -129,28 +141,32 @@ namespace ConsoleCharacterSheet {
 	{
 		std::string backgroundString;
 		std::string personalityTrait;
+		std::string idealTrait;
 		int backgroundIndex = BackgroundGenBox->SelectedIndex;
 		Object^ backgroundItem = BackgroundGenBox->SelectedItem;
-
-
+		
 		bGItem = backgroundItem->ToString();
 		MarshalString(bGItem, backgroundString);
 
-		//char1 = new CharacterGenerator(backgroundString);
+		char1 = new CharacterGenerator(backgroundString);
 		background = new CharacterBackground(backgroundString);
-
 
 		personalityTrait = background->getPersonalityTrait();
 		String^ personality = gcnew String(personalityTrait.c_str());
+		this->personalityBox->Text = personality;
 
-		PersonalityTextBox->Text = personality;
-		
-		//MessageBox::Show("Selected Item Text: " + bGItem + "\n" + "Index: " + backgroundIndex);
+		idealTrait = background->getIdeal();
+		String^ ideal = gcnew String(idealTrait.c_str());
+		this->idealBox->Text = ideal;
+
+		//MessageBox::Show(personality);
 	}
 
 	private: System::Void personalityBox_TextChanged(System::Object^  sender, System::EventArgs^  e) 
 	{
-
+	}
+	private: System::Void idealBox_TextChanged(System::Object^  sender, System::EventArgs^  e)
+	{
 	}
 };
 }
