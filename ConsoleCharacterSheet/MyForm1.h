@@ -1,4 +1,9 @@
 #pragma once
+//#include <msclrmarshal_cppstd.h>
+#include <msclr/marshal.h>
+#include <sstream>
+#include <string>
+#include "CharacterGenerator.h"
 
 namespace ConsoleCharacterSheet {
 
@@ -8,6 +13,7 @@ namespace ConsoleCharacterSheet {
 	using namespace System::Windows::Forms;
 	using namespace System::Data;
 	using namespace System::Drawing;
+	using namespace std;
 
 	/// <summary>
 	/// Summary for MyForm
@@ -22,18 +28,35 @@ namespace ConsoleCharacterSheet {
 			//TODO: Add the constructor code here
 			//
 		}
-
+		void MarshalString(String ^ s, string& os)
+		{
+			using namespace Runtime::InteropServices;
+			const char* chars =
+				(const char*)(Marshal::StringToHGlobalAnsi(s)).ToPointer();
+			os = chars;
+			Marshal::FreeHGlobal(IntPtr((void*)chars));
+		}
 	protected:
 		/// <summary>
 		/// Clean up any resources being used.
 		/// </summary>
 		~MyForm()
 		{
+			delete char1;
+			delete background;
 			if (components)
 			{
 				delete components;
 			}
 		}
+	private: System::Windows::Forms::ComboBox^  BackgroundGenBox;
+	private: System::Windows::Forms::Button^  StartGeneration;
+	private: System::Windows::Forms::TextBox^  PersonalityTextBox;
+	private: String^ bGItem;
+	private: CharacterGenerator * char1;
+	private: CharacterBackground * background;
+	private: System::Windows::Forms::TextBox^  personalityBox;
+
 
 	private:
 		/// <summary>
@@ -48,12 +71,86 @@ namespace ConsoleCharacterSheet {
 		/// </summary>
 		void InitializeComponent(void)
 		{
-			this->components = gcnew System::ComponentModel::Container();
-			this->Size = System::Drawing::Size(300,300);
-			this->Text = L"MyForm";
-			this->Padding = System::Windows::Forms::Padding(0);
+			this->BackgroundGenBox = (gcnew System::Windows::Forms::ComboBox());
+			this->StartGeneration = (gcnew System::Windows::Forms::Button());
+			this->PersonalityTextBox = (gcnew System::Windows::Forms::TextBox());
+			this->personalityBox = (gcnew System::Windows::Forms::TextBox());
+			this->SuspendLayout();
+			// 
+			// BackgroundGenBox
+			// 
+			this->BackgroundGenBox->FormattingEnabled = true;
+			this->BackgroundGenBox->Items->AddRange(gcnew cli::array< System::Object^  >(3) { L"Criminal", L"Folk Hero", L"Hermit" });
+			this->BackgroundGenBox->Location = System::Drawing::Point(114, 86);
+			this->BackgroundGenBox->Name = L"BackgroundGenBox";
+			this->BackgroundGenBox->Size = System::Drawing::Size(121, 21);
+			this->BackgroundGenBox->TabIndex = 0;
+			this->BackgroundGenBox->SelectedIndexChanged += gcnew System::EventHandler(this, &MyForm::BackgroundGenBox_SelectedIndexChanged);
+			// 
+			// StartGeneration
+			// 
+			this->StartGeneration->Location = System::Drawing::Point(114, 360);
+			this->StartGeneration->Name = L"StartGeneration";
+			this->StartGeneration->Size = System::Drawing::Size(147, 23);
+			this->StartGeneration->TabIndex = 1;
+			this->StartGeneration->Text = L"Start Generation";
+			this->StartGeneration->UseVisualStyleBackColor = true;
+			this->StartGeneration->Click += gcnew System::EventHandler(this, &MyForm::StartGeneration_Click);
+			// 
+			// personalityBox
+			// 
+			this->personalityBox->Location = System::Drawing::Point(63, 258);
+			this->personalityBox->Name = L"personalityBox";
+			this->personalityBox->Size = System::Drawing::Size(655, 20);
+			this->personalityBox->TabIndex = 2;
+			this->personalityBox->TextChanged += gcnew System::EventHandler(this, &MyForm::personalityBox_TextChanged);
+			// 
+			// MyForm
+			// 
+			this->AutoScaleDimensions = System::Drawing::SizeF(6, 13);
 			this->AutoScaleMode = System::Windows::Forms::AutoScaleMode::Font;
+			this->ClientSize = System::Drawing::Size(774, 441);
+			this->Controls->Add(this->personalityBox);
+			this->Controls->Add(this->StartGeneration);
+			this->Controls->Add(this->BackgroundGenBox);
+			this->Name = L"MyForm";
+			this->ShowIcon = false;
+			this->Text = L"MyForm";
+			this->ResumeLayout(false);
+			this->PerformLayout();
+
 		}
 #pragma endregion
-	};
+	private: System::Void BackgroundGenBox_SelectedIndexChanged(System::Object^  sender, System::EventArgs^  e)
+	{
+	}
+
+	private: System::Void StartGeneration_Click(System::Object^  sender, System::EventArgs^  e) 
+	{
+		std::string backgroundString;
+		std::string personalityTrait;
+		int backgroundIndex = BackgroundGenBox->SelectedIndex;
+		Object^ backgroundItem = BackgroundGenBox->SelectedItem;
+
+
+		bGItem = backgroundItem->ToString();
+		MarshalString(bGItem, backgroundString);
+
+		//char1 = new CharacterGenerator(backgroundString);
+		background = new CharacterBackground(backgroundString);
+
+
+		personalityTrait = background->getPersonalityTrait();
+		String^ personality = gcnew String(personalityTrait.c_str());
+
+		PersonalityTextBox->Text = personality;
+		
+		//MessageBox::Show("Selected Item Text: " + bGItem + "\n" + "Index: " + backgroundIndex);
+	}
+
+	private: System::Void personalityBox_TextChanged(System::Object^  sender, System::EventArgs^  e) 
+	{
+
+	}
+};
 }

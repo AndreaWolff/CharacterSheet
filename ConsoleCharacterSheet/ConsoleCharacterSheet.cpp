@@ -16,8 +16,8 @@ using namespace ConsoleCharacterSheet;
 int main()
 {	
 	Application::Run(gcnew MyForm);
-//	srand(time(0));
-	CharacterGenerator * char1 = new CharacterGenerator("", "", "", "Criminal");
+	srand(time(0));
+	//CharacterGenerator * char1 = new CharacterGenerator("", "", "", "Criminal");
     return 0;
 }
 

@@ -10,6 +10,22 @@ CharacterGenerator::CharacterGenerator()
 {
 }
 
+//for testing the GUI
+CharacterGenerator::CharacterGenerator(string background)
+{
+	//charRace, Class, Gender and Background brought in from the sheet generator on form 1
+
+	level = 1;
+
+	statGenDice = new Die(18, 8);
+
+	charBackground = new CharacterBackground(background);
+
+	generateStats();
+	printStats();
+
+}
+
 CharacterGenerator::CharacterGenerator(string race, string chClass, string gender, string background)
 {
 	//charRace, Class, Gender and Background brought in from the sheet generator on form 1

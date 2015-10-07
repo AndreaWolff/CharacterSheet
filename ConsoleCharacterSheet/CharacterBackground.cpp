@@ -19,7 +19,7 @@ CharacterBackground::CharacterBackground(string background)
 
 	populateCrimMap();
 	setPersonalityTrait( background );
-	cout << getPersonalityTrait() << endl;
+	//cout << getPersonalityTrait() << endl;
 }
 
 void CharacterBackground::populateCrimMap()
@@ -65,10 +65,6 @@ void CharacterBackground::setFlaw()
 
 string CharacterBackground::getPersonalityTrait()
 {
-	//from charBackground, get the background of the character
-	//call rollDie() to get a random number
-	//call a textfile to find the background that does with the random number
-	//assign background to variable for this function
 	return personalityTrait; 
 }
 
