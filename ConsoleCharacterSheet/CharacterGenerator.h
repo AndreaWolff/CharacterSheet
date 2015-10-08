@@ -45,7 +45,7 @@ class CharacterGenerator
 		int getCharModifier();
 
 		void setClass( string );
-		void setBackGround( string );
+		void setBackGround( string, string );
 		void setRace( string, string );
 		void setLevel( int );
 		int getLevel();
@@ -57,12 +57,7 @@ class CharacterGenerator
 	private:
 		void generateStats();
 		void printStats();
-		//string charRace;
-		//string charClass;
-		//string charGender;
 		string playerName;
-		int minNum;
-		int maxNum;
 		int strength;
 		int dexterity;
 		int constitution;

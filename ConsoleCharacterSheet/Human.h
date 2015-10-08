@@ -16,7 +16,7 @@ class Human : public CharacterRace
 		void populateHumanNameMap();
 		virtual string getName();
 	private:
-		virtual void chooseName( string );
+		virtual void setName( string );
 		map <int, string> humanMaleName;
 		map <int, string> humanFemaleName;
 };

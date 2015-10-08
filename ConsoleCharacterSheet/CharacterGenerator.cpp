@@ -26,7 +26,7 @@ CharacterGenerator::CharacterGenerator( string rRace, string gGender, string bac
 	
 	setRace( rRace, gGender );
 	//setClass("Fighter");
-	setBackGround(background);
+	setBackGround( background, "Lawful Neutral" );
 	
 	printStats();
 
@@ -57,6 +57,7 @@ CharacterGenerator::~CharacterGenerator()
 	delete statGenDice;
 	delete charBackground;
 	delete charRace;
+	//delete charClass;
 }
 
 // set methods
@@ -218,9 +219,9 @@ void CharacterGenerator::setClass( string chosenClass )
 	
 }
 
-void CharacterGenerator::setBackGround( string background )
+void CharacterGenerator::setBackGround( string background, string alignment )
 {
-	charBackground = new CharacterBackground(background);
+	charBackground = new CharacterBackground( background, alignment );
 }
 
 void CharacterGenerator::setRace( string race, string gender )

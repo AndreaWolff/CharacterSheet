@@ -13,7 +13,7 @@ Human::Human( string gender ) : CharacterRace( gender )
 	darkvision = false;
 
 	populateHumanNameMap();
-	chooseName( gender );
+	setName( gender );
 }
 
 Human::~Human()
@@ -37,7 +37,7 @@ void Human::populateHumanNameMap()
 	humanFemaleName.insert( { 6, "Quara Falone" } );
 }
 
- void Human::chooseName( string gender) 
+ void Human::setName( string gender) 
 {
 	if (gender.compare("Male") == 0)
 	{
