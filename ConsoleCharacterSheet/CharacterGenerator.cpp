@@ -4,7 +4,11 @@
 #include <conio.h>
 #include "CharacterGenerator.h"
 #include "Human.h"
+#include "Dwarf.h"
+#include "Elf.h"
 #include "Fighter.h"
+#include "Cleric.h"
+#include "Ranger.h"
 
 using namespace std;
 
@@ -18,6 +22,9 @@ CharacterGenerator::CharacterGenerator( string rRace, string gGender, string bac
 	//charRace, Class, Gender and Background brought in from the sheet generator on form 1
 	//Starting with Human Race first
 	level = 1;
+	raceType = rRace;
+	gender = gGender;
+	backgroundType = background;
 
 	statGenDice = new Die(18, 8);
 	generateStats();
@@ -25,7 +32,7 @@ CharacterGenerator::CharacterGenerator( string rRace, string gGender, string bac
 	// Moved object creation to respective functions. I thought it tidied things up, but feel free to move them back
 	
 	setRace( rRace, gGender );
-	//setClass("Fighter");
+	setClass("Fighter");
 	setBackGround( background, "Lawful Neutral" );
 	
 	printStats();
@@ -147,7 +154,6 @@ void CharacterGenerator::printStats()
 	cout << "WisMod = " << getWisModifier() << endl;
 	cout << "IntMod = " << getIntModifier() << endl;
 	cout << "CharMod = " << getCharModifier() << endl;
-	//cout << charRace->getName << endl;
 }
 
 // get methods
@@ -210,11 +216,20 @@ int CharacterGenerator::getCharModifier()
 
 //
 
-
 void CharacterGenerator::setClass( string chosenClass )
 {
 	if (chosenClass.compare("Fighter") == 0) {
-		charClass = new Fighter( constitution );
+		charClass = new Fighter( consModifier );
+	}
+	else {
+		if (chosenClass.compare("Ranger") == 0) {
+			charClass = new Ranger( consModifier );
+		}
+		else {
+			if (chosenClass.compare("Cleric") == 0) {
+				charClass = new Cleric( consModifier );
+			}
+		}
 	}
 	
 }
@@ -232,6 +247,18 @@ void CharacterGenerator::setRace( string race, string gender )
 	if ( race.compare( "Human" ) == 0 )
 	{
 		charRace = new Human( gender );
+	}
+	else {
+		if (race.compare("Elf") == 0)
+		{
+			charRace = new Elf( gender );
+		}
+		else {
+			if (race.compare("Dwarf") == 0)
+			{
+				charRace = new Dwarf( gender );
+			}
+		}
 	}
 }
 

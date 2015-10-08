@@ -8,8 +8,6 @@ class Fighter :	public CharacterClass
 		Fighter();
 		Fighter( int );
 		~Fighter();
-		virtual void setHitPoints( int );
-		virtual int getHitPoints();
 	private:
 		CharacterEquipment * mainWeapon;
 		CharacterEquipment * armor;

@@ -8,18 +8,14 @@ Fighter::Fighter()
 Fighter::Fighter( int constitMod )
 {
 	hitPointsMax = 10 + constitMod;
+	hasLightArmorProf = true;
+	hasMediumArmorProf = true;
+	hasHeavyArmorProf = true;
+	hasShieldProf = true;
 }
 
 Fighter::~Fighter()
 {
 }
 
-void Fighter::setHitPoints( int newHitPointsMax )
-{
-	hitPointsMax = newHitPointsMax;
-}
 
-int Fighter::getHitPoints()
-{
-	return hitPointsMax;
-}

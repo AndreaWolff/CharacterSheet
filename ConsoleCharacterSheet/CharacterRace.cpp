@@ -26,5 +26,14 @@ CharacterRace::~CharacterRace()
 	delete die1D6;
 }
 
+void CharacterRace::setName(string)
+{
+}
+
+string CharacterRace::getName()
+{
+	return charName;
+}
+
 
 

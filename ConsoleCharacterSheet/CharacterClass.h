@@ -12,11 +12,19 @@ class CharacterClass
 		CharacterClass();
 		//CharacterClass( int, int);
 		~CharacterClass();
-		virtual void setHitPoints( int ) = 0; // Pure virtual function
-		virtual int getHitPoints() = 0; // Pure virtual function
+		void setHitPoints( int );
+		int getHitPoints();
+		bool getLightArmorProf();
+		bool getMediumArmorProf();
+		bool getHeavyArmorProf();
+		bool getShieldArmorProf();
 	protected:
 		int hitPointsMax;
 		int	skill;
+		bool hasLightArmorProf;
+		bool hasMediumArmorProf;
+		bool hasHeavyArmorProf;
+		bool hasShieldProf;
 };
 
 #endif

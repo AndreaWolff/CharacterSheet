@@ -5,6 +5,7 @@ class Ranger : public CharacterClass
 {
 	public:
 		Ranger();
+		Ranger( int );
 		~Ranger();
 	private:
 };

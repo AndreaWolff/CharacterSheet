@@ -58,6 +58,10 @@ class CharacterGenerator
 		void generateStats();
 		void printStats();
 		string playerName;
+		string classType;
+		string raceType;
+		string backgroundType;
+		string gender;
 		int strength;
 		int dexterity;
 		int constitution;

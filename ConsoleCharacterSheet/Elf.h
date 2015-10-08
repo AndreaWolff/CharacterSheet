@@ -10,8 +10,8 @@ class Elf : public CharacterRace
 		~Elf();
 		void populateElfNameMap();
 		virtual string getName();
-	private:
 		virtual void setName(string);
+	private:
 		map <int, string> elfMaleName;
 		map <int, string> elfFemaleName;
 };

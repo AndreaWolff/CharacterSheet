@@ -5,6 +5,7 @@ class Cleric : public CharacterClass
 {
 	public:
 		Cleric();
+		Cleric( int );
 		~Cleric();
 	private:
 };

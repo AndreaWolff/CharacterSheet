@@ -13,7 +13,7 @@ class CharacterRace
 	public:
 		CharacterRace();
 		CharacterRace( string );
-		~CharacterRace();
+		virtual ~CharacterRace();
 		virtual void setName( string ) = 0; // Pure virtual function denoting this class as an abstract class, from which Derived objects will override
 		virtual string getName() = 0;
 	protected:
