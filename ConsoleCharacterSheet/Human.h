@@ -11,11 +11,13 @@ class Human : public CharacterRace
 {
 	public:
 		Human();
+		Human( string );
 		~Human();
 		void populateHumanNameMap();
+		virtual string getName();
 	private:
+		virtual void chooseName( string );
 		map <int, string> humanMaleName;
 		map <int, string> humanFemaleName;
-		string humanName;
 };
 

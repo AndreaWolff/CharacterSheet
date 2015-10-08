@@ -3,6 +3,7 @@
 #include <string>
 #include <conio.h>
 #include "CharacterGenerator.h"
+#include "Human.h"
 
 using namespace std;
 
@@ -11,7 +12,7 @@ CharacterGenerator::CharacterGenerator()
 }
 
 //for testing the GUI
-CharacterGenerator::CharacterGenerator( string rRace, string gGender, string background )
+CharacterGenerator::CharacterGenerator( string rRace, string gGender, string background)
 {
 	//charRace, Class, Gender and Background brought in from the sheet generator on form 1
 	//Starting with Human Race first
@@ -19,8 +20,10 @@ CharacterGenerator::CharacterGenerator( string rRace, string gGender, string bac
 
 	statGenDice = new Die(18, 8);
 
-	charBackground = new CharacterBackground(background);
-	charRaceClass = new CharacterRace(rRace, gGender);
+	// Moved object creation to respective functions. I thought it tidied things up, but feel free to move them back
+	setBackGround( background );
+	setRace( rRace, gGender );
+	
 
 	generateStats();
 	printStats();
@@ -51,7 +54,7 @@ CharacterGenerator::~CharacterGenerator()
 {
 	delete statGenDice;
 	delete charBackground;
-	delete charRaceClass;
+	delete charRace;
 }
 
 // set methods
@@ -141,6 +144,7 @@ void CharacterGenerator::printStats()
 	cout << "WisMod = " << getWisModifier() << endl;
 	cout << "IntMod = " << getIntModifier() << endl;
 	cout << "CharMod = " << getCharModifier() << endl;
+	//cout << charRace->getName << endl;
 }
 
 // get methods
@@ -203,6 +207,22 @@ int CharacterGenerator::getCharModifier()
 
 //
 
+
+void CharacterGenerator::setBackGround( string background )
+{
+	charBackground = new CharacterBackground(background);
+}
+
+void CharacterGenerator::setRace( string race, string gender )
+{
+	// Hard coded human object instantiation to test inheritence
+	// Will turn into a decision based on race chosen in form
+
+	if ( race.compare( "Human" ) == 0 )
+	{
+		charRace = new Human( gender );
+	}
+}
 
 void CharacterGenerator::setLevel(int levelUpDown)
 {

@@ -2,6 +2,7 @@
 #include <iostream>
 #include <string>
 #include "CharacterRace.h"
+#include "Die.h"
 
 using namespace std;
 
@@ -9,25 +10,21 @@ CharacterRace::CharacterRace()
 {
 }
 
-CharacterRace::CharacterRace(string race, string gender)
+CharacterRace::CharacterRace( string gender )
 {
-	charRace = race;
 	charGender = gender;
+	// Will add these at later stage
+	//charSpeed = speed;
+	//charAge = age;
 
-	//example for name
-	//use the map set up in Human - use inheritance to get this?
-
-	//this should be the set function created for name
-	//if gender == male
-	//use male names
-	//dice 1d6
-	//if gender == female
-	//use female names
-	//dice 1d6
-	//get name to put into a text box in the form
+	// Die here should mean all derived classes can access it
+	die1D6 = new Die(6, 1);
 }
 
 CharacterRace::~CharacterRace()
 {
+	delete die1D6;
 }
+
+
 

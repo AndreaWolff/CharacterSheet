@@ -3,8 +3,17 @@
 
 Human::Human()
 {
-	//inheritance from CharacterRace class
-	//not sure how to do this??
+
+}
+
+Human::Human( string gender ) : CharacterRace( gender )
+{
+	//									^ This calls the base class on instantiation of the derived object
+
+	darkvision = false;
+
+	populateHumanNameMap();
+	chooseName( gender );
 }
 
 Human::~Human()
@@ -27,3 +36,19 @@ void Human::populateHumanNameMap()
 	humanFemaleName.insert( { 5, "Jia Ling" } );
 	humanFemaleName.insert( { 6, "Quara Falone" } );
 }
+
+ void Human::chooseName( string gender) 
+{
+	if (gender.compare("Male") == 0)
+	{
+		charName = humanMaleName.at(die1D6->rollDie());
+	}
+	else // Defaults to Female character
+	{
+		charName = humanFemaleName.at(die1D6->rollDie());
+	}
+}
+ string Human::getName()
+ {
+	 return charName;
+ }

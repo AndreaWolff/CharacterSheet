@@ -43,6 +43,8 @@ class CharacterGenerator
 		int getIntModifier();
 		int getCharModifier();
 
+		void setBackGround( string );
+		void setRace( string, string );
 		void setLevel( int );
 		int getLevel();
 		void setPlayerName( string );
@@ -53,9 +55,9 @@ class CharacterGenerator
 	private:
 		void generateStats();
 		void printStats();
-		string charRace;
-		string charClass;
-		string charGender;
+		//string charRace;
+		//string charClass;
+		//string charGender;
 		string playerName;
 		int minNum;
 		int maxNum;
@@ -75,7 +77,7 @@ class CharacterGenerator
 		int proficiencyBonus;
 		Die * statGenDice;
 		CharacterBackground * charBackground;
-		CharacterRace * charRaceClass;
+		CharacterRace * charRace;
 };
 
 #endif
