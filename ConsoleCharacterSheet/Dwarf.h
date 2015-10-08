@@ -5,10 +5,13 @@ class Dwarf : public CharacterRace
 {
 	public:
 		Dwarf();
+		Dwarf( string );
 		~Dwarf();
-		void populateDwardNameMap();
+		void populateDwarfNameMap();
+		virtual string getName();
 	private:
-		//map <int, string> dwarfName;
-		string dwarfName;
+		virtual void setName(string);
+		map <int, string> dwarfMaleName;
+		map <int, string> dwarfFemaleName;
 };
 
