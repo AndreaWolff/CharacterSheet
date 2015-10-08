@@ -268,7 +268,7 @@ namespace ConsoleCharacterSheet {
 		//this is allow them to have a boy or girl name
 
 		//sets background text boxes
-		background = new CharacterBackground(backgroundString);
+		background = new CharacterBackground(backgroundString, "Lawful Neutral" );
 		personalityTrait = background->getPersonalityTrait();
 		String^ personality = gcnew String( personalityTrait.c_str() );
 		this->personalityBox->Text = personality;

@@ -3,6 +3,7 @@
 #define CharacterRaceH
 #include <iostream>
 #include <string>
+#include <map>
 #include "Die.h"
 
 using namespace std;
