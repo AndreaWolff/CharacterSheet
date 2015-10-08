@@ -6,6 +6,7 @@
 #include "Die.h"
 #include "CharacterBackground.h"
 #include "CharacterRace.h"
+#include "CharacterClass.h"
 
 using namespace std;
 
@@ -43,6 +44,7 @@ class CharacterGenerator
 		int getIntModifier();
 		int getCharModifier();
 
+		void setClass( string );
 		void setBackGround( string );
 		void setRace( string, string );
 		void setLevel( int );
@@ -78,6 +80,7 @@ class CharacterGenerator
 		Die * statGenDice;
 		CharacterBackground * charBackground;
 		CharacterRace * charRace;
+		CharacterClass * charClass;
 };
 
 #endif

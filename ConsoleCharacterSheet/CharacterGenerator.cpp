@@ -4,6 +4,7 @@
 #include <conio.h>
 #include "CharacterGenerator.h"
 #include "Human.h"
+#include "Fighter.h"
 
 using namespace std;
 
@@ -19,13 +20,14 @@ CharacterGenerator::CharacterGenerator( string rRace, string gGender, string bac
 	level = 1;
 
 	statGenDice = new Die(18, 8);
+	generateStats();
 
 	// Moved object creation to respective functions. I thought it tidied things up, but feel free to move them back
-	setBackGround( background );
-	setRace( rRace, gGender );
 	
-
-	generateStats();
+	setRace( rRace, gGender );
+	//setClass("Fighter");
+	setBackGround(background);
+	
 	printStats();
 
 }
@@ -207,6 +209,14 @@ int CharacterGenerator::getCharModifier()
 
 //
 
+
+void CharacterGenerator::setClass( string chosenClass )
+{
+	if (chosenClass.compare("Fighter") == 0) {
+		charClass = new Fighter( constitution );
+	}
+	
+}
 
 void CharacterGenerator::setBackGround( string background )
 {

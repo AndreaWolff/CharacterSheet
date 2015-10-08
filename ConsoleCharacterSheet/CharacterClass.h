@@ -10,13 +10,12 @@ class CharacterClass
 {
 	public:
 		CharacterClass();
+		//CharacterClass( int, int);
 		~CharacterClass();
-		void setHitPoints(int, int);
-		int getHitPoints();
-	private:
-		int maxNumber;
-		int minNumber;
-		int hitPoints;
+		virtual void setHitPoints( int ) = 0; // Pure virtual function
+		virtual int getHitPoints() = 0; // Pure virtual function
+	protected:
+		int hitPointsMax;
 		int	skill;
 };
 
