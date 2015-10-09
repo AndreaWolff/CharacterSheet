@@ -74,11 +74,23 @@ namespace ConsoleCharacterSheet {
 
 	private: String^ genItem;
 	private: String^ racItem;
+	private: String^ clasItem;
 	private: String^ bGItem;
 	private: String^ personality;
 	private: String^ ideal;
 	private: String^ bond;
 	private: String^ flaw;
+	private: System::Windows::Forms::TextBox^  characterName;
+	private: System::Windows::Forms::TextBox^  playerName;
+
+	private: System::Windows::Forms::Label^  raceLabel;
+	private: System::Windows::Forms::Label^  classLabel;
+	private: System::Windows::Forms::Label^  genderLabel;
+	private: System::Windows::Forms::Label^  backgroundLabel;
+	private: System::Windows::Forms::Label^  playernameLabel;
+	private: System::Windows::Forms::Label^  charnameLabel;
+
+
 
 	private:
 		/// <summary>
@@ -102,6 +114,14 @@ namespace ConsoleCharacterSheet {
 			this->GenderBox = (gcnew System::Windows::Forms::ComboBox());
 			this->raceBox = (gcnew System::Windows::Forms::ComboBox());
 			this->ClassBox = (gcnew System::Windows::Forms::ComboBox());
+			this->characterName = (gcnew System::Windows::Forms::TextBox());
+			this->playerName = (gcnew System::Windows::Forms::TextBox());
+			this->raceLabel = (gcnew System::Windows::Forms::Label());
+			this->classLabel = (gcnew System::Windows::Forms::Label());
+			this->genderLabel = (gcnew System::Windows::Forms::Label());
+			this->backgroundLabel = (gcnew System::Windows::Forms::Label());
+			this->playernameLabel = (gcnew System::Windows::Forms::Label());
+			this->charnameLabel = (gcnew System::Windows::Forms::Label());
 			this->SuspendLayout();
 			// 
 			// BackgroundGenBox
@@ -185,11 +205,88 @@ namespace ConsoleCharacterSheet {
 			this->ClassBox->Size = System::Drawing::Size(121, 21);
 			this->ClassBox->TabIndex = 8;
 			// 
+			// characterName
+			// 
+			this->characterName->Location = System::Drawing::Point(290, 111);
+			this->characterName->Name = L"characterName";
+			this->characterName->Size = System::Drawing::Size(100, 20);
+			this->characterName->TabIndex = 10;
+			// 
+			// playerName
+			// 
+			this->playerName->Location = System::Drawing::Point(290, 48);
+			this->playerName->Name = L"playerName";
+			this->playerName->Size = System::Drawing::Size(100, 20);
+			this->playerName->TabIndex = 11;
+			// 
+			// raceLabel
+			// 
+			this->raceLabel->AutoSize = true;
+			this->raceLabel->Location = System::Drawing::Point(42, 31);
+			this->raceLabel->Name = L"raceLabel";
+			this->raceLabel->Size = System::Drawing::Size(76, 13);
+			this->raceLabel->TabIndex = 12;
+			this->raceLabel->Text = L"Choose a race";
+			this->raceLabel->Click += gcnew System::EventHandler(this, &MyForm::label1_Click);
+			// 
+			// classLabel
+			// 
+			this->classLabel->AutoSize = true;
+			this->classLabel->Location = System::Drawing::Point(45, 91);
+			this->classLabel->Name = L"classLabel";
+			this->classLabel->Size = System::Drawing::Size(79, 13);
+			this->classLabel->TabIndex = 13;
+			this->classLabel->Text = L"Choose a class";
+			// 
+			// genderLabel
+			// 
+			this->genderLabel->AutoSize = true;
+			this->genderLabel->Location = System::Drawing::Point(42, 158);
+			this->genderLabel->Name = L"genderLabel";
+			this->genderLabel->Size = System::Drawing::Size(88, 13);
+			this->genderLabel->TabIndex = 14;
+			this->genderLabel->Text = L"Choose a gender";
+			// 
+			// backgroundLabel
+			// 
+			this->backgroundLabel->AutoSize = true;
+			this->backgroundLabel->Location = System::Drawing::Point(42, 215);
+			this->backgroundLabel->Name = L"backgroundLabel";
+			this->backgroundLabel->Size = System::Drawing::Size(112, 13);
+			this->backgroundLabel->TabIndex = 15;
+			this->backgroundLabel->Text = L"Choose a background";
+			// 
+			// playernameLabel
+			// 
+			this->playernameLabel->AutoSize = true;
+			this->playernameLabel->Location = System::Drawing::Point(290, 30);
+			this->playernameLabel->Name = L"playernameLabel";
+			this->playernameLabel->Size = System::Drawing::Size(84, 13);
+			this->playernameLabel->TabIndex = 16;
+			this->playernameLabel->Text = L"Enter your name";
+			// 
+			// charnameLabel
+			// 
+			this->charnameLabel->AutoSize = true;
+			this->charnameLabel->Location = System::Drawing::Point(287, 91);
+			this->charnameLabel->Name = L"charnameLabel";
+			this->charnameLabel->Size = System::Drawing::Size(139, 13);
+			this->charnameLabel->TabIndex = 17;
+			this->charnameLabel->Text = L"Enter your character\'s name";
+			// 
 			// MyForm
 			// 
 			this->AutoScaleDimensions = System::Drawing::SizeF(6, 13);
 			this->AutoScaleMode = System::Windows::Forms::AutoScaleMode::Font;
 			this->ClientSize = System::Drawing::Size(933, 557);
+			this->Controls->Add(this->charnameLabel);
+			this->Controls->Add(this->playernameLabel);
+			this->Controls->Add(this->backgroundLabel);
+			this->Controls->Add(this->genderLabel);
+			this->Controls->Add(this->classLabel);
+			this->Controls->Add(this->raceLabel);
+			this->Controls->Add(this->playerName);
+			this->Controls->Add(this->characterName);
 			this->Controls->Add(this->ClassBox);
 			this->Controls->Add(this->raceBox);
 			this->Controls->Add(this->GenderBox);
@@ -230,6 +327,7 @@ namespace ConsoleCharacterSheet {
 		
 		std::string backgroundString;
 		std::string raceString;
+		std::string classString;
 		std::string genderString;
 		std::string personalityTrait;
 		std::string idealTrait;
@@ -241,6 +339,12 @@ namespace ConsoleCharacterSheet {
 		Object^ raceItem = raceBox->SelectedItem;
 		racItem = raceItem->ToString();
 		MarshalString( racItem, raceString );
+
+		//generates class drop down box
+		int classIndex = ClassBox->SelectedIndex;
+		Object^ classItem = ClassBox->SelectedItem;
+		clasItem = classItem->ToString();
+		MarshalString( clasItem, classString );
 
 		//generates gender drop down box
 		int genIndex = GenderBox->SelectedIndex;
@@ -255,7 +359,7 @@ namespace ConsoleCharacterSheet {
 		MarshalString( bGItem, backgroundString );
 
 		//calls CharacterGenerator constructor
-		char1 = new CharacterGenerator( raceString, genderString, backgroundString );
+		char1 = new CharacterGenerator( raceString, genderString, backgroundString, classString );
 
 		//raceClass = new CharacterRace(raceString, genderString);
 
@@ -303,5 +407,7 @@ namespace ConsoleCharacterSheet {
 	private: System::Void flawBox_TextChanged(System::Object^  sender, System::EventArgs^  e) 
 	{
 	}
+private: System::Void label1_Click(System::Object^  sender, System::EventArgs^  e) {
+}
 };
 }

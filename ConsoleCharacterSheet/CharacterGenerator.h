@@ -14,7 +14,7 @@ class CharacterGenerator
 {
 	public:
 		CharacterGenerator();
-		CharacterGenerator(string, string, string);
+		CharacterGenerator(string, string, string, string );
 		//CharacterGenerator( string, string, string, string );
 		~CharacterGenerator();
 

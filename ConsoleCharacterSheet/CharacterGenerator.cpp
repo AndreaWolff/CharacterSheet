@@ -17,13 +17,14 @@ CharacterGenerator::CharacterGenerator()
 }
 
 //for testing the GUI
-CharacterGenerator::CharacterGenerator( string rRace, string gGender, string background)
+CharacterGenerator::CharacterGenerator( string rRace, string gGender, string background, string cClass)
 {
 	//charRace, Class, Gender and Background brought in from the sheet generator on form 1
 	//Starting with Human Race first
 	level = 1;
 	raceType = rRace;
 	gender = gGender;
+	classType = cClass;
 	backgroundType = background;
 
 	statGenDice = new Die(18, 8);
@@ -32,7 +33,7 @@ CharacterGenerator::CharacterGenerator( string rRace, string gGender, string bac
 	// Moved object creation to respective functions. I thought it tidied things up, but feel free to move them back
 	
 	setRace( rRace, gGender );
-	setClass("Fighter");
+	setClass(cClass);
 	setBackGround( background, "Lawful Neutral" );
 	
 	printStats();
