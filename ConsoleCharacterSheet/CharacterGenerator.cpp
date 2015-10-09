@@ -9,6 +9,7 @@
 #include "Fighter.h"
 #include "Cleric.h"
 #include "Ranger.h"
+#include "Wizard.h"
 
 using namespace std;
 
@@ -26,7 +27,10 @@ CharacterGenerator::CharacterGenerator( string player, string character, string 
 	level = 1;
 	age = aAge;
 	alignment = aAlignment;
+
 	setPlayerName( player );
+
+	// Still unsure how to handle this, since conceptually CharacterRace will pick a name if not set.
 	setCharName(character);
 
 	
@@ -67,7 +71,7 @@ CharacterGenerator::~CharacterGenerator()
 	delete statGenDice;
 	delete charBackground;
 	delete charRace;
-	//delete charClass;
+	delete charClass;
 }
 
 // set methods
@@ -146,7 +150,7 @@ void CharacterGenerator::generateStats()
 void CharacterGenerator::printStats() 
 {
 	cout << "Player Name = " << getPlayerName() << endl;
-	cout << "Character Name = " << getCharName() << endl;
+	cout << "Character Name = " << charRace->getName() << endl;
 	cout << "Strength = " << getStrength() << endl;
 	cout << "Dexterity = " << getDexterity() << endl;
 	cout << "Constitution = " << getConstitution() << endl;
@@ -161,6 +165,8 @@ void CharacterGenerator::printStats()
 	cout << "CharMod = " << getCharModifier() << endl;
 	cout << "Alignment = " << getAlignment() << endl;
 	cout << "Age = " << getAge() << endl;
+	cout << "HP =" << charClass->getHitPoints() << endl;
+	cout << "Trait" << charBackground->getPersonalityTrait() << endl;
 }
 
 // get methods
@@ -235,6 +241,11 @@ void CharacterGenerator::setClass( string chosenClass )
 		else {
 			if (chosenClass.compare("Cleric") == 0) {
 				charClass = new Cleric( consModifier );
+			}
+			else {
+				if (chosenClass.compare("Wizard") == 0) {
+					charClass = new Wizard(consModifier);
+				}
 			}
 		}
 	}

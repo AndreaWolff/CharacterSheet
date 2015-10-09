@@ -5,6 +5,7 @@ class Wizard : public CharacterClass
 {
 	public:
 		Wizard();
+		Wizard( int );
 		~Wizard();
 	private:
 };

@@ -449,7 +449,7 @@ namespace ConsoleCharacterSheet {
 		//this is allow them to have a boy or girl name
 
 		//sets background text boxes
-		/*
+		
 		background = new CharacterBackground(backgroundString );
 		personalityTrait = background->getPersonalityTrait();
 		String^ personality = gcnew String( personalityTrait.c_str() );
@@ -466,7 +466,7 @@ namespace ConsoleCharacterSheet {
 		flawTrait = background->getFlaw();
 		String^ flaw = gcnew String( flawTrait.c_str() );
 		this->flawBox->Text = flaw;
-		*/
+		
 		//MessageBox::Show(personality);
 	}
 

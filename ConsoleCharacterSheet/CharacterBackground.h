@@ -22,7 +22,6 @@ class CharacterBackground
 		string getIdeal();
 		string getBond();
 		string getFlaw();
-		string getAlignment();
 		string getBackgroundType();
 	private:
 		void populateCrimMap();
