@@ -17,24 +17,26 @@ CharacterGenerator::CharacterGenerator()
 }
 
 //for testing the GUI
-CharacterGenerator::CharacterGenerator( string rRace, string gGender, string background, string cClass)
+CharacterGenerator::CharacterGenerator( string player, string character, string rRace, string gGender, string background, string cClass, string aAlignment, int aAge )
 {
 	//charRace, Class, Gender and Background brought in from the sheet generator on form 1
 	//Starting with Human Race first
-	level = 1;
-	raceType = rRace;
-	gender = gGender;
-	classType = cClass;
-	backgroundType = background;
-
 	statGenDice = new Die(18, 8);
+
+	level = 1;
+	age = aAge;
+	alignment = aAlignment;
+	setPlayerName( player );
+	setCharName(character);
+
+	
 	generateStats();
 
 	// Moved object creation to respective functions. I thought it tidied things up, but feel free to move them back
 	
 	setRace( rRace, gGender );
 	setClass(cClass);
-	setBackGround( background, "Lawful Neutral" );
+	setBackGround( background );
 	
 	printStats();
 
@@ -143,6 +145,8 @@ void CharacterGenerator::generateStats()
 
 void CharacterGenerator::printStats() 
 {
+	cout << "Player Name = " << getPlayerName() << endl;
+	cout << "Character Name = " << getCharName() << endl;
 	cout << "Strength = " << getStrength() << endl;
 	cout << "Dexterity = " << getDexterity() << endl;
 	cout << "Constitution = " << getConstitution() << endl;
@@ -155,6 +159,8 @@ void CharacterGenerator::printStats()
 	cout << "WisMod = " << getWisModifier() << endl;
 	cout << "IntMod = " << getIntModifier() << endl;
 	cout << "CharMod = " << getCharModifier() << endl;
+	cout << "Alignment = " << getAlignment() << endl;
+	cout << "Age = " << getAge() << endl;
 }
 
 // get methods
@@ -235,9 +241,9 @@ void CharacterGenerator::setClass( string chosenClass )
 	
 }
 
-void CharacterGenerator::setBackGround( string background, string alignment )
+void CharacterGenerator::setBackGround( string background )
 {
-	charBackground = new CharacterBackground( background, alignment );
+	charBackground = new CharacterBackground( background );
 }
 
 void CharacterGenerator::setRace( string race, string gender )
@@ -273,6 +279,16 @@ int CharacterGenerator::getLevel()
 	return level;
 }
 
+void CharacterGenerator::setCharName( string name )
+{
+	charName = name;
+}
+
+string CharacterGenerator::getCharName()
+{
+	return charName;
+}
+
 void CharacterGenerator::setPlayerName(string name)
 {
 	//have to get the user to input their own name on the sheet
@@ -291,5 +307,15 @@ void CharacterGenerator::setProficiencyBonus(int bonus)
 int CharacterGenerator::getProficiencyBonus()
 {
 	return proficiencyBonus;
+}
+
+int CharacterGenerator::getAge()
+{
+	return age;
+}
+
+string CharacterGenerator::getAlignment()
+{
+	return alignment;
 }
 

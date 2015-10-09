@@ -9,6 +9,7 @@ Dwarf::Dwarf( string gender ) : CharacterRace( gender )
 {
 	darkvision = true;
 
+	charRace = "Elf";
 	populateDwarfNameMap();
 	setName(gender);
 }

@@ -75,6 +75,9 @@ namespace ConsoleCharacterSheet {
 	private: String^ genItem;
 	private: String^ racItem;
 	private: String^ clasItem;
+	private: String^ player;
+	private: String^ character;
+	private: String^ aliItem;
 	private: String^ bGItem;
 	private: String^ personality;
 	private: String^ ideal;
@@ -89,6 +92,11 @@ namespace ConsoleCharacterSheet {
 	private: System::Windows::Forms::Label^  backgroundLabel;
 	private: System::Windows::Forms::Label^  playernameLabel;
 	private: System::Windows::Forms::Label^  charnameLabel;
+	private: System::Windows::Forms::ComboBox^  alignmentBox;
+	private: System::Windows::Forms::Label^  alignmentLabel;
+
+	private: System::Windows::Forms::Label^  ageLabel;
+	private: System::Windows::Forms::NumericUpDown^  ageBox;
 
 
 
@@ -122,13 +130,18 @@ namespace ConsoleCharacterSheet {
 			this->backgroundLabel = (gcnew System::Windows::Forms::Label());
 			this->playernameLabel = (gcnew System::Windows::Forms::Label());
 			this->charnameLabel = (gcnew System::Windows::Forms::Label());
+			this->alignmentBox = (gcnew System::Windows::Forms::ComboBox());
+			this->alignmentLabel = (gcnew System::Windows::Forms::Label());
+			this->ageLabel = (gcnew System::Windows::Forms::Label());
+			this->ageBox = (gcnew System::Windows::Forms::NumericUpDown());
+			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->ageBox))->BeginInit();
 			this->SuspendLayout();
 			// 
 			// BackgroundGenBox
 			// 
 			this->BackgroundGenBox->FormattingEnabled = true;
 			this->BackgroundGenBox->Items->AddRange(gcnew cli::array< System::Object^  >(3) { L"Criminal", L"Folk Hero", L"Hermit" });
-			this->BackgroundGenBox->Location = System::Drawing::Point(42, 231);
+			this->BackgroundGenBox->Location = System::Drawing::Point(410, 230);
 			this->BackgroundGenBox->Name = L"BackgroundGenBox";
 			this->BackgroundGenBox->Size = System::Drawing::Size(121, 21);
 			this->BackgroundGenBox->TabIndex = 0;
@@ -136,7 +149,7 @@ namespace ConsoleCharacterSheet {
 			// 
 			// StartGeneration
 			// 
-			this->StartGeneration->Location = System::Drawing::Point(42, 301);
+			this->StartGeneration->Location = System::Drawing::Point(293, 300);
 			this->StartGeneration->Name = L"StartGeneration";
 			this->StartGeneration->Size = System::Drawing::Size(147, 23);
 			this->StartGeneration->TabIndex = 1;
@@ -180,7 +193,7 @@ namespace ConsoleCharacterSheet {
 			// 
 			this->GenderBox->FormattingEnabled = true;
 			this->GenderBox->Items->AddRange(gcnew cli::array< System::Object^  >(2) { L"Male", L"Female" });
-			this->GenderBox->Location = System::Drawing::Point(42, 174);
+			this->GenderBox->Location = System::Drawing::Point(410, 173);
 			this->GenderBox->Name = L"GenderBox";
 			this->GenderBox->Size = System::Drawing::Size(121, 21);
 			this->GenderBox->TabIndex = 6;
@@ -190,7 +203,7 @@ namespace ConsoleCharacterSheet {
 			// 
 			this->raceBox->FormattingEnabled = true;
 			this->raceBox->Items->AddRange(gcnew cli::array< System::Object^  >(3) { L"Human", L"Elf", L"Dwarf" });
-			this->raceBox->Location = System::Drawing::Point(42, 50);
+			this->raceBox->Location = System::Drawing::Point(410, 49);
 			this->raceBox->Name = L"raceBox";
 			this->raceBox->Size = System::Drawing::Size(121, 21);
 			this->raceBox->TabIndex = 7;
@@ -200,29 +213,29 @@ namespace ConsoleCharacterSheet {
 			// 
 			this->ClassBox->FormattingEnabled = true;
 			this->ClassBox->Items->AddRange(gcnew cli::array< System::Object^  >(4) { L"Fighter", L"Cleric", L"Wizard", L"Ranger" });
-			this->ClassBox->Location = System::Drawing::Point(42, 110);
+			this->ClassBox->Location = System::Drawing::Point(410, 109);
 			this->ClassBox->Name = L"ClassBox";
 			this->ClassBox->Size = System::Drawing::Size(121, 21);
 			this->ClassBox->TabIndex = 8;
 			// 
 			// characterName
 			// 
-			this->characterName->Location = System::Drawing::Point(290, 111);
+			this->characterName->Location = System::Drawing::Point(220, 111);
 			this->characterName->Name = L"characterName";
-			this->characterName->Size = System::Drawing::Size(100, 20);
+			this->characterName->Size = System::Drawing::Size(121, 20);
 			this->characterName->TabIndex = 10;
 			// 
 			// playerName
 			// 
-			this->playerName->Location = System::Drawing::Point(290, 48);
+			this->playerName->Location = System::Drawing::Point(220, 48);
 			this->playerName->Name = L"playerName";
-			this->playerName->Size = System::Drawing::Size(100, 20);
+			this->playerName->Size = System::Drawing::Size(121, 20);
 			this->playerName->TabIndex = 11;
 			// 
 			// raceLabel
 			// 
 			this->raceLabel->AutoSize = true;
-			this->raceLabel->Location = System::Drawing::Point(42, 31);
+			this->raceLabel->Location = System::Drawing::Point(410, 30);
 			this->raceLabel->Name = L"raceLabel";
 			this->raceLabel->Size = System::Drawing::Size(76, 13);
 			this->raceLabel->TabIndex = 12;
@@ -232,7 +245,7 @@ namespace ConsoleCharacterSheet {
 			// classLabel
 			// 
 			this->classLabel->AutoSize = true;
-			this->classLabel->Location = System::Drawing::Point(45, 91);
+			this->classLabel->Location = System::Drawing::Point(413, 90);
 			this->classLabel->Name = L"classLabel";
 			this->classLabel->Size = System::Drawing::Size(79, 13);
 			this->classLabel->TabIndex = 13;
@@ -241,7 +254,7 @@ namespace ConsoleCharacterSheet {
 			// genderLabel
 			// 
 			this->genderLabel->AutoSize = true;
-			this->genderLabel->Location = System::Drawing::Point(42, 158);
+			this->genderLabel->Location = System::Drawing::Point(410, 157);
 			this->genderLabel->Name = L"genderLabel";
 			this->genderLabel->Size = System::Drawing::Size(88, 13);
 			this->genderLabel->TabIndex = 14;
@@ -250,7 +263,7 @@ namespace ConsoleCharacterSheet {
 			// backgroundLabel
 			// 
 			this->backgroundLabel->AutoSize = true;
-			this->backgroundLabel->Location = System::Drawing::Point(42, 215);
+			this->backgroundLabel->Location = System::Drawing::Point(410, 214);
 			this->backgroundLabel->Name = L"backgroundLabel";
 			this->backgroundLabel->Size = System::Drawing::Size(112, 13);
 			this->backgroundLabel->TabIndex = 15;
@@ -259,7 +272,7 @@ namespace ConsoleCharacterSheet {
 			// playernameLabel
 			// 
 			this->playernameLabel->AutoSize = true;
-			this->playernameLabel->Location = System::Drawing::Point(290, 30);
+			this->playernameLabel->Location = System::Drawing::Point(220, 30);
 			this->playernameLabel->Name = L"playernameLabel";
 			this->playernameLabel->Size = System::Drawing::Size(84, 13);
 			this->playernameLabel->TabIndex = 16;
@@ -268,17 +281,60 @@ namespace ConsoleCharacterSheet {
 			// charnameLabel
 			// 
 			this->charnameLabel->AutoSize = true;
-			this->charnameLabel->Location = System::Drawing::Point(287, 91);
+			this->charnameLabel->Location = System::Drawing::Point(217, 91);
 			this->charnameLabel->Name = L"charnameLabel";
 			this->charnameLabel->Size = System::Drawing::Size(139, 13);
 			this->charnameLabel->TabIndex = 17;
 			this->charnameLabel->Text = L"Enter your character\'s name";
 			// 
+			// alignmentBox
+			// 
+			this->alignmentBox->FormattingEnabled = true;
+			this->alignmentBox->Items->AddRange(gcnew cli::array< System::Object^  >(9) {
+				L"Lawful Good", L"Neutral Good", L"Chaotic Good",
+					L"Lawful Neutral", L"Neutral", L"Chaotic Neutral", L"Lawful Evil", L"Neutral Evil", L"Chaotic Evil"
+			});
+			this->alignmentBox->Location = System::Drawing::Point(220, 174);
+			this->alignmentBox->Name = L"alignmentBox";
+			this->alignmentBox->Size = System::Drawing::Size(121, 21);
+			this->alignmentBox->TabIndex = 18;
+			// 
+			// alignmentLabel
+			// 
+			this->alignmentLabel->AutoSize = true;
+			this->alignmentLabel->Location = System::Drawing::Point(220, 157);
+			this->alignmentLabel->Name = L"alignmentLabel";
+			this->alignmentLabel->Size = System::Drawing::Size(114, 13);
+			this->alignmentLabel->TabIndex = 19;
+			this->alignmentLabel->Text = L"Choose your alignment";
+			// 
+			// ageLabel
+			// 
+			this->ageLabel->AutoSize = true;
+			this->ageLabel->Location = System::Drawing::Point(220, 211);
+			this->ageLabel->Name = L"ageLabel";
+			this->ageLabel->Size = System::Drawing::Size(87, 13);
+			this->ageLabel->TabIndex = 21;
+			this->ageLabel->Text = L"Choose your age";
+			// 
+			// ageBox
+			// 
+			this->ageBox->Location = System::Drawing::Point(220, 230);
+			this->ageBox->Minimum = System::Decimal(gcnew cli::array< System::Int32 >(4) { 15, 0, 0, 0 });
+			this->ageBox->Name = L"ageBox";
+			this->ageBox->Size = System::Drawing::Size(120, 20);
+			this->ageBox->TabIndex = 22;
+			this->ageBox->Value = System::Decimal(gcnew cli::array< System::Int32 >(4) { 15, 0, 0, 0 });
+			// 
 			// MyForm
 			// 
 			this->AutoScaleDimensions = System::Drawing::SizeF(6, 13);
 			this->AutoScaleMode = System::Windows::Forms::AutoScaleMode::Font;
-			this->ClientSize = System::Drawing::Size(933, 557);
+			this->ClientSize = System::Drawing::Size(767, 503);
+			this->Controls->Add(this->ageBox);
+			this->Controls->Add(this->ageLabel);
+			this->Controls->Add(this->alignmentLabel);
+			this->Controls->Add(this->alignmentBox);
 			this->Controls->Add(this->charnameLabel);
 			this->Controls->Add(this->playernameLabel);
 			this->Controls->Add(this->backgroundLabel);
@@ -299,6 +355,7 @@ namespace ConsoleCharacterSheet {
 			this->Name = L"MyForm";
 			this->ShowIcon = false;
 			this->Text = L"MyForm";
+			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->ageBox))->EndInit();
 			this->ResumeLayout(false);
 			this->PerformLayout();
 
@@ -327,8 +384,11 @@ namespace ConsoleCharacterSheet {
 		
 		std::string backgroundString;
 		std::string raceString;
+		std::string playerString;
+		std::string characterString;
 		std::string classString;
 		std::string genderString;
+		std::string alignmentString;
 		std::string personalityTrait;
 		std::string idealTrait;
 		std::string bondTrait;
@@ -339,6 +399,23 @@ namespace ConsoleCharacterSheet {
 		Object^ raceItem = raceBox->SelectedItem;
 		racItem = raceItem->ToString();
 		MarshalString( racItem, raceString );
+
+		//Converts decimal to int for age
+		int ageVal = (int)ageBox->Value;
+
+		// Player Name
+		player = playerName->Text;
+		MarshalString(player, playerString);
+
+		// Character Name
+		character = characterName->Text;
+		MarshalString(character, characterString);
+
+		//generates alignment drop down box
+		int alignIndex = alignmentBox->SelectedIndex;
+		Object^ alignItem = alignmentBox->SelectedItem;
+		aliItem = alignItem->ToString();
+		MarshalString(aliItem, alignmentString);
 
 		//generates class drop down box
 		int classIndex = ClassBox->SelectedIndex;
@@ -359,7 +436,7 @@ namespace ConsoleCharacterSheet {
 		MarshalString( bGItem, backgroundString );
 
 		//calls CharacterGenerator constructor
-		char1 = new CharacterGenerator( raceString, genderString, backgroundString, classString );
+		char1 = new CharacterGenerator( playerString, characterString, raceString, genderString, backgroundString, classString, alignmentString, ageVal );
 
 		//raceClass = new CharacterRace(raceString, genderString);
 
@@ -372,7 +449,8 @@ namespace ConsoleCharacterSheet {
 		//this is allow them to have a boy or girl name
 
 		//sets background text boxes
-		background = new CharacterBackground(backgroundString, "Lawful Neutral" );
+		/*
+		background = new CharacterBackground(backgroundString );
 		personalityTrait = background->getPersonalityTrait();
 		String^ personality = gcnew String( personalityTrait.c_str() );
 		this->personalityBox->Text = personality;
@@ -388,7 +466,7 @@ namespace ConsoleCharacterSheet {
 		flawTrait = background->getFlaw();
 		String^ flaw = gcnew String( flawTrait.c_str() );
 		this->flawBox->Text = flaw;
-
+		*/
 		//MessageBox::Show(personality);
 	}
 

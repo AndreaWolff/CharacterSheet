@@ -11,7 +11,7 @@ CharacterBackground::CharacterBackground()
 {
 }
 
-CharacterBackground::CharacterBackground( string background, string chosenAlignment )
+CharacterBackground::CharacterBackground( string background )
 {
 	//initialized the charBackground to the one the user chose
 	die1D6 = new Die( 6, 1 );
@@ -21,8 +21,7 @@ CharacterBackground::CharacterBackground( string background, string chosenAlignm
 	populateFolkMap();
 	populateHermitMap();
 
-	alignment = chosenAlignment;
-
+	backgroundType = background;
 	setPersonalityTrait( background );
 	setIdeal( background );
 	setBond( background );
@@ -194,7 +193,7 @@ string CharacterBackground::getFlaw()
 	return flaw;
 }
 
-string CharacterBackground::getAlignment()
+string CharacterBackground::getBackgroundType()
 {
-	return alignment;
+	return backgroundType;
 }

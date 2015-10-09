@@ -10,7 +10,7 @@ class CharacterClass
 {
 	public:
 		CharacterClass();
-		//CharacterClass( int, int);
+		CharacterClass( string );
 		~CharacterClass();
 		void setHitPoints( int );
 		int getHitPoints();
@@ -18,7 +18,9 @@ class CharacterClass
 		bool getMediumArmorProf();
 		bool getHeavyArmorProf();
 		bool getShieldArmorProf();
+		string getClassType();
 	protected:
+		string classType;
 		int hitPointsMax;
 		int	skill;
 		bool hasLightArmorProf;

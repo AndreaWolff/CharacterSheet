@@ -12,6 +12,7 @@ Cleric::Cleric( int constitMod )
 	hasMediumArmorProf = true;
 	hasHeavyArmorProf = false;
 	hasShieldProf = true;
+	classType = "Cleric";
 }
 
 Cleric::~Cleric()

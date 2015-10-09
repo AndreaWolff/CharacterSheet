@@ -12,7 +12,7 @@ class CharacterBackground
 {
 	public:
 		CharacterBackground();
-		CharacterBackground( string, string );
+		CharacterBackground( string );
 		~CharacterBackground();
 		void setPersonalityTrait( string );
 		void setIdeal( string );
@@ -23,11 +23,12 @@ class CharacterBackground
 		string getBond();
 		string getFlaw();
 		string getAlignment();
+		string getBackgroundType();
 	private:
 		void populateCrimMap();
 		void populateFolkMap();
 		void populateHermitMap();
-		string alignment;
+		string backgroundType;
 		string personalityTrait;
 		string ideal;
 		string bond;

@@ -12,6 +12,7 @@ Fighter::Fighter( int constitMod )
 	hasMediumArmorProf = true;
 	hasHeavyArmorProf = true;
 	hasShieldProf = true;
+	classType = "Fighter";
 }
 
 Fighter::~Fighter()

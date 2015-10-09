@@ -12,6 +12,7 @@ Human::Human( string gender ) : CharacterRace( gender )
 
 	darkvision = false;
 
+	charRace = "Human";
 	populateHumanNameMap();
 	setName( gender );
 }

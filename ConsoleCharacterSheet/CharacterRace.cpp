@@ -35,5 +35,10 @@ string CharacterRace::getName()
 	return charName;
 }
 
+string CharacterRace::getRaceType()
+{
+	return charRace;
+}
+
 
 

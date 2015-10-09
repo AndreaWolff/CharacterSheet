@@ -5,6 +5,11 @@ CharacterClass::CharacterClass()
 {
 }
 
+CharacterClass::CharacterClass( string cClass )
+{
+	classType = cClass;
+}
+
 
 CharacterClass::~CharacterClass()
 {
@@ -38,6 +43,11 @@ bool CharacterClass::getHeavyArmorProf()
 bool CharacterClass::getShieldArmorProf()
 {
 	return hasShieldProf;
+}
+
+string CharacterClass::getClassType()
+{
+	return classType;
 }
 
 

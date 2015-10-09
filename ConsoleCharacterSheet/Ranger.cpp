@@ -12,6 +12,7 @@ Ranger::Ranger( int constitMod )
 	hasMediumArmorProf = true;
 	hasHeavyArmorProf = false;
 	hasShieldProf = true;
+	classType = "Ranger";
 }
 
 Ranger::~Ranger()
