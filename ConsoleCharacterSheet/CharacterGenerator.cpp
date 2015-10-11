@@ -18,17 +18,18 @@ CharacterGenerator::CharacterGenerator()
 }
 
 //for testing the GUI
-CharacterGenerator::CharacterGenerator( string player, string character, string rRace, string gGender, string background, string cClass, string aAlignment, int aAge )
+CharacterGenerator::CharacterGenerator( string character, string rRace, string gGender, string background, string cClass, string aAlignment, int aAge )
 {
 	//charRace, Class, Gender and Background brought in from the sheet generator on form 1
 	//Starting with Human Race first
 	statGenDice = new Die(18, 8);
 
 	level = 1;
+	proficiencyBonus = 2;
 	age = aAge;
 	alignment = aAlignment;
 
-	setPlayerName( player );
+	//setPlayerName( player );
 
 	// Still unsure how to handle this, since conceptually CharacterRace will pick a name if not set.
 	setCharName(character);
@@ -41,10 +42,8 @@ CharacterGenerator::CharacterGenerator( string player, string character, string 
 	setRace( rRace, gGender );
 	setClass(cClass);
 	setBackGround( background );
-	
-	printStats();
-
 }
+
 /*
 CharacterGenerator::CharacterGenerator( string race1, string chClass, string gender2, string background )
 {
@@ -62,8 +61,6 @@ CharacterGenerator::CharacterGenerator( string race1, string chClass, string gen
 	charGender = new CharacterRace(gender1);
 	
 	generateStats();
-	printStats();
-
 }
 */
 CharacterGenerator::~CharacterGenerator()
@@ -147,30 +144,7 @@ void CharacterGenerator::generateStats()
 	setCharModifier();
 }
 
-void CharacterGenerator::printStats() 
-{
-	cout << "Player Name = " << getPlayerName() << endl;
-	cout << "Character Name = " << charRace->getName() << endl;
-	cout << "Strength = " << getStrength() << endl;
-	cout << "Dexterity = " << getDexterity() << endl;
-	cout << "Constitution = " << getConstitution() << endl;
-	cout << "Wisdom = " << getWisdom() << endl;
-	cout << "Intelligence = " << getIntelligence() << endl;
-	cout << "Charisma = " << getCharisma() << endl;
-	cout << "StrMod = " << getStrModifier() << endl;
-	cout << "DexMod = " << getDexModifier() << endl;
-	cout << "ConsMod = " << getConsModifier() << endl;
-	cout << "WisMod = " << getWisModifier() << endl;
-	cout << "IntMod = " << getIntModifier() << endl;
-	cout << "CharMod = " << getCharModifier() << endl;
-	cout << "Alignment = " << getAlignment() << endl;
-	cout << "Age = " << getAge() << endl;
-	cout << "HP =" << charClass->getHitPoints() << endl;
-	cout << "Trait" << charBackground->getPersonalityTrait() << endl;
-}
-
 // get methods
-
 int CharacterGenerator::getStrength()
 {
 	return strength;
@@ -231,21 +205,17 @@ int CharacterGenerator::getCharModifier()
 
 void CharacterGenerator::setClass( string chosenClass )
 {
-	if (chosenClass.compare("Fighter") == 0) {
+	if (chosenClass.compare("Fighter") == 0) 
 		charClass = new Fighter( consModifier );
-	}
 	else {
-		if (chosenClass.compare("Ranger") == 0) {
+		if (chosenClass.compare("Ranger") == 0) 
 			charClass = new Ranger( consModifier );
-		}
 		else {
-			if (chosenClass.compare("Cleric") == 0) {
+			if (chosenClass.compare("Cleric") == 0) 
 				charClass = new Cleric( consModifier );
-			}
 			else {
-				if (chosenClass.compare("Wizard") == 0) {
+				if (chosenClass.compare("Wizard") == 0) 
 					charClass = new Wizard(consModifier);
-				}
 			}
 		}
 	}
@@ -263,19 +233,13 @@ void CharacterGenerator::setRace( string race, string gender )
 	// Will turn into a decision based on race chosen in form
 
 	if ( race.compare( "Human" ) == 0 )
-	{
 		charRace = new Human( gender );
-	}
 	else {
 		if (race.compare("Elf") == 0)
-		{
 			charRace = new Elf( gender );
-		}
 		else {
 			if (race.compare("Dwarf") == 0)
-			{
 				charRace = new Dwarf( gender );
-			}
 		}
 	}
 }
@@ -300,15 +264,15 @@ string CharacterGenerator::getCharName()
 	return charName;
 }
 
-void CharacterGenerator::setPlayerName(string name)
-{
+//void CharacterGenerator::setPlayerName(string name)
+//{
 	//have to get the user to input their own name on the sheet
-	playerName = name; 
-}
-string CharacterGenerator::getPlayerName()
-{
-	return playerName;
-}
+//	playerName = name; 
+//}
+//string CharacterGenerator::getPlayerName()
+//{
+//	return playerName;
+//}
 
 void CharacterGenerator::setProficiencyBonus(int bonus)
 {

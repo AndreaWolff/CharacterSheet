@@ -9,6 +9,7 @@
 #include "CharacterGenerator.h"
 #include "MyForm1.h"
 
+
 using namespace std;
 using namespace ConsoleCharacterSheet;
 

@@ -40,15 +40,12 @@ void Human::populateHumanNameMap()
 
  void Human::setName( string gender) 
 {
-	if (gender.compare("Male") == 0)
-	{
+	if ( gender.compare("Male") == 0 )
 		charName = humanMaleName.at(die1D6->rollDie());
-	}
 	else // Defaults to Female character
-	{
 		charName = humanFemaleName.at(die1D6->rollDie());
-	}
 }
+
  string Human::getName()
  {
 	 return charName;
