@@ -43,7 +43,6 @@ namespace ConsoleCharacterSheet {
 		~MyForm()
 		{
 			delete char1;
-			delete background;
 			delete raceClass;
 			delete personality;
 			delete ideal;
@@ -1431,6 +1430,7 @@ private: System::Windows::Forms::PictureBox^  charImageBox;
 		
 		std::string backgroundString;
 		std::string raceString;
+		std::string charName2;
 		std::string playerString;
 		std::string characterString;
 		std::string classString;
@@ -1488,8 +1488,10 @@ private: System::Windows::Forms::PictureBox^  charImageBox;
 		//calls CharacterGenerator constructor
 		char1 = new CharacterGenerator( characterString, raceString, genderString, backgroundString, classString, alignmentString, ageVal );
 
-		//raceClass = new CharacterRace(raceString, genderString);
-
+		raceClass = char1->getCharacterRace();
+		charName2 = raceClass->getName();
+		String^ charName = gcnew String(charName2.c_str());
+		this->charNameBox->Text = charName;
 		//starting with human race first
 		//sets race text boxes
 		//code to come
@@ -1499,7 +1501,7 @@ private: System::Windows::Forms::PictureBox^  charImageBox;
 		//this is allow them to have a boy or girl name
 
 		//sets background text boxes
-		background = new CharacterBackground( backgroundString );
+		background = char1->getCharacterBackground();
 		personalityTrait = background->getPersonalityTrait();
 		String^ personality = gcnew String( personalityTrait.c_str() );
 		this->personalityBox->Text = personality;

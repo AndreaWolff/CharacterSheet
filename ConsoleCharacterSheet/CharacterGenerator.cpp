@@ -244,6 +244,16 @@ void CharacterGenerator::setRace( string race, string gender )
 	}
 }
 
+CharacterBackground * CharacterGenerator::getCharacterBackground()
+{
+	return charBackground;
+}
+
+CharacterRace * CharacterGenerator::getCharacterRace()
+{
+	return charRace;
+}
+
 void CharacterGenerator::setLevel(int levelUpDown)
 {
 	//character starts at level one but can manually be input to level 2?? for expanding??
