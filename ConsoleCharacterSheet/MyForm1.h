@@ -1454,8 +1454,7 @@ private: System::Windows::Forms::PictureBox^  charImageBox;
 
 		// Player Name
 		player = playerName->Text;
-		//MarshalString( player, playerString );
-		this->playerNameBox1->Text = player;
+		MarshalString( player, playerString );
 
 		//generates alignment drop down box
 		alignIndex = alignmentBox->SelectedIndex;
@@ -1486,19 +1485,16 @@ private: System::Windows::Forms::PictureBox^  charImageBox;
 		this->charBackgroungBox->Text = bGItem;
 
 		//calls CharacterGenerator constructor
-		char1 = new CharacterGenerator( characterString, raceString, genderString, backgroundString, classString, alignmentString, ageVal );
+		char1 = new CharacterGenerator( playerString, characterString, raceString, genderString, backgroundString, classString, alignmentString, ageVal );
+
+		playerString = char1->getPlayerName();
+		player = gcnew String(playerString.c_str());
+		this->playerNameBox1->Text = player;
 
 		raceClass = char1->getCharacterRace();
 		charName2 = raceClass->getName();
 		String^ charName = gcnew String(charName2.c_str());
 		this->charNameBox->Text = charName;
-		//starting with human race first
-		//sets race text boxes
-		//code to come
-		
-		//sets gender text boxes
-		//code to come
-		//this is allow them to have a boy or girl name
 
 		//sets background text boxes
 		background = char1->getCharacterBackground();

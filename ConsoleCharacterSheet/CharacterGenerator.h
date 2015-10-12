@@ -14,7 +14,7 @@ class CharacterGenerator
 {
 	public:
 		CharacterGenerator();
-		CharacterGenerator( string, string, string, string, string, string, int );
+		CharacterGenerator( string, string, string, string, string, string, string, int );
 		~CharacterGenerator();
 
 		void setStrength();
@@ -54,8 +54,8 @@ class CharacterGenerator
 		int getLevel();
 		void setCharName( string );
 		string getCharName();
-		//void setPlayerName( string);
-		//string getPlayerName();
+		void setPlayerName( string);
+		string getPlayerName();
 		void setProficiencyBonus( int );
 		int getProficiencyBonus();
 		int getAge();
@@ -63,7 +63,7 @@ class CharacterGenerator
 
 	private:
 		void generateStats();
-		//string playerName;
+		string playerName;
 		string charName;
 		string alignment;
 		int age;

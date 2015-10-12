@@ -18,7 +18,7 @@ CharacterGenerator::CharacterGenerator()
 }
 
 //for testing the GUI
-CharacterGenerator::CharacterGenerator( string character, string rRace, string gGender, string background, string cClass, string aAlignment, int aAge )
+CharacterGenerator::CharacterGenerator( string player, string character, string rRace, string gGender, string background, string cClass, string aAlignment, int aAge )
 {
 	//charRace, Class, Gender and Background brought in from the sheet generator on form 1
 	//Starting with Human Race first
@@ -29,7 +29,7 @@ CharacterGenerator::CharacterGenerator( string character, string rRace, string g
 	age = aAge;
 	alignment = aAlignment;
 
-	//setPlayerName( player );
+	setPlayerName( player );
 
 	// Still unsure how to handle this, since conceptually CharacterRace will pick a name if not set.
 	setCharName(character);
@@ -274,15 +274,16 @@ string CharacterGenerator::getCharName()
 	return charName;
 }
 
-//void CharacterGenerator::setPlayerName(string name)
-//{
+void CharacterGenerator::setPlayerName(string name)
+{
 	//have to get the user to input their own name on the sheet
-//	playerName = name; 
-//}
-//string CharacterGenerator::getPlayerName()
-//{
-//	return playerName;
-//}
+	playerName = name; 
+}
+
+string CharacterGenerator::getPlayerName()
+{
+	return playerName;
+}
 
 void CharacterGenerator::setProficiencyBonus(int bonus)
 {
