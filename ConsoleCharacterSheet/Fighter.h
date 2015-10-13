@@ -1,6 +1,6 @@
 #pragma once
 #include "CharacterClass.h"
-#include "CharacterEquipment.h"
+
 
 class Fighter :	public CharacterClass
 {
@@ -9,7 +9,7 @@ class Fighter :	public CharacterClass
 		Fighter( int );
 		~Fighter();
 	private:
-		CharacterEquipment * mainWeapon;
-		CharacterEquipment * armor;
+		//CharacterEquipment * mainWeapon;
+		//CharacterEquipment * armor;
 };
 

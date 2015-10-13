@@ -41,7 +41,7 @@ CharacterGenerator::CharacterGenerator( string player, string character, string 
 	
 	setRace( rRace, gGender );
 	setClass(cClass);
-	setBackGround( background );
+	setBackGround( background, alignment );
 }
 
 /*
@@ -222,9 +222,9 @@ void CharacterGenerator::setClass( string chosenClass )
 	
 }
 
-void CharacterGenerator::setBackGround( string background )
+void CharacterGenerator::setBackGround( string background, string alignment )
 {
-	charBackground = new CharacterBackground( background );
+	charBackground = new CharacterBackground( background, alignment );
 }
 
 void CharacterGenerator::setRace( string race, string gender )

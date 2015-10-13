@@ -11,7 +11,7 @@ CharacterBackground::CharacterBackground()
 {
 }
 
-CharacterBackground::CharacterBackground( string background )
+CharacterBackground::CharacterBackground( string background, string align )
 {
 	//initialized the charBackground to the one the user chose
 	die1D6 = new Die( 6, 1 );
@@ -21,9 +21,10 @@ CharacterBackground::CharacterBackground( string background )
 	populateFolkMap();
 	populateHermitMap();
 
+	alignment = align;
 	backgroundType = background;
 	setPersonalityTrait( background );
-	setIdeal( background );
+	setIdeal( background, alignment );
 	setBond( background );
 	setFlaw( background );
 }
@@ -39,12 +40,11 @@ void CharacterBackground::populateCrimMap()
 	crimTrait.insert( { 7, "The best way to get me to do something is to tell me I can't do it." } );
 	crimTrait.insert( { 8, "I blow up at the slightest insult." } );
 
-	crimIdeal.insert( { 1, "I don't steal from others in the trade." } );
-	crimIdeal.insert( { 2, "Chains are meant to be broken, as are those who would forge them." } );
-	crimIdeal.insert( { 3, "I steal from the wealthy so that I can help people in need." } );
-	crimIdeal.insert( { 4, "I will do whatever it takes to become wealthy." } );
-	crimIdeal.insert( { 5, "I'm loyal to my friends, not to any ideals, and everyone else can take a trip down the Styx for all I care." } );
-	crimIdeal.insert( { 6, "There's a spark of good in everyone." } );
+	crimIdeal.insert( { "Lawful", "I don't steal from others in the trade." } );
+	crimIdeal.insert( { "Chaotic", "Chains are meant to be broken, as are those who would forge them." });
+	crimIdeal.insert( { "Evil", "I will do whatever it takes to become wealthy." } );
+	crimIdeal.insert( { "Neutral", "I'm loyal to my friends, not to any ideals, and everyone else can take a trip down the Styx for all I care." } );
+	crimIdeal.insert( { "Good", "There's a spark of good in everyone." } );
 
 	crimBond.insert( { 1, "I'm trying to pay off an old debt I owe to a generous benefactor." } );
 	crimBond.insert( { 2, "My ill gotten gains go to support my family." } );
@@ -72,12 +72,11 @@ void CharacterBackground::populateFolkMap()
 	folkTrait.insert( { 7, "I misuse long words in an attempt to sound smarter." } );
 	folkTrait.insert( { 8, "I get bored easily. When am I going to get on with my destiny?" } );
 
-	folkIdeal.insert( { 1, "People deserve to be treated with dignity and respect." } );
-	folkIdeal.insert( { 2, "No one should get preferential treatment before the law, and no one is above the law." } );
-	folkIdeal.insert( { 3, "Tyrants must not be allowed to oppress the people." } );
-	folkIdeal.insert( { 4, "If I become strong, I can take what I want - what I deserve." } );
-	folkIdeal.insert( { 5, "There's no good in pretending to be something I'm not." } );
-	folkIdeal.insert( { 6, "Nothing and no one can steer me away from my higher calling." } );
+	folkIdeal.insert( { "Good", "People deserve to be treated with dignity and respect." } );
+	folkIdeal.insert( { "Lawful", "No one should get preferential treatment before the law, and no one is above the law." } );
+	folkIdeal.insert( { "Chaotic", "Tyrants must not be allowed to oppress the people." } );
+	folkIdeal.insert( { "Evil", "If I become strong, I can take what I want - what I deserve." } );
+	folkIdeal.insert( { "Neutral", "There's no good in pretending to be something I'm not." } );
 
 	folkBond.insert( { 1, "I have family, but I have no idea where they are.One day, I hope to see them again." } );
 	folkBond.insert( { 2, "I worked the land, I love the land, and I will protect the land." } );
@@ -105,12 +104,11 @@ void CharacterBackground::populateHermitMap()
 	hermitTrait.insert( { 7, "I often get lost in my own thoughts and contemplation, becoming oblivious to my surroundings." } );
 	hermitTrait.insert( { 8, "I am working on a grand philosophical theory and love sharing my ideas." } );
 
-	hermitIdeal.insert( { 1, "Greater Good.My gifts are meant to be shared with all, not used for my own benefit." } );
-	hermitIdeal.insert( { 2, "Logic.Emotions must not cloud our sense of what is right and true, or our logical thinking." } );
-	hermitIdeal.insert( { 3, "Free Thinking.Inquiry and curiosty are the pillars of progress." } );
-	hermitIdeal.insert( { 4, "Power.Solitude and contemplation are paths toward mytical or magical power." } );
-	hermitIdeal.insert( { 5, "Live and Let Live.Meddling in the affairs of others only causes trouble." } );
-	hermitIdeal.insert( { 6, "Self - Knowledge.If you know yourself, there's nothing left to know." } );
+	hermitIdeal.insert( { "Good", "Greater Good.My gifts are meant to be shared with all, not used for my own benefit." } );
+	hermitIdeal.insert( { "Lawful", "Logic.Emotions must not cloud our sense of what is right and true, or our logical thinking." } );
+	hermitIdeal.insert( { "Chaotic", "Free Thinking.Inquiry and curiosty are the pillars of progress." } );
+	hermitIdeal.insert( { "Evil", "Power.Solitude and contemplation are paths toward mytical or magical power." } );
+	hermitIdeal.insert( { "Neutral", "Live and Let Live.Meddling in the affairs of others only causes trouble." } );
 	
 	hermitBond.insert( { 1, "Nothing is more important than the other memebers of my hermitage, order, or association." } );
 	hermitBond.insert( { 2, "I entered seclusion to hide from the ones who might still be hunting me.I must someday confront them." } );
@@ -143,14 +141,14 @@ void CharacterBackground::setPersonalityTrait( string background )
 		personalityTrait = hermitTrait.at( die1D8->rollDie() );
 }
 
-void CharacterBackground::setIdeal( string background ) 
+void CharacterBackground::setIdeal( string background, string alignment ) 
 {
-	if ( background.compare("Criminal") == 0 )
-		ideal = crimIdeal.at( die1D6->rollDie() );
+	if (background.compare("Criminal") == 0)
+		ideal = crimIdeal.at( alignment );
 	else if (background.compare("Folk Hero") == 0)
-		ideal = folkIdeal.at( die1D6->rollDie() );
+		ideal = folkIdeal.at( alignment );
 	else if (background.compare("Hermit") == 0)
-		ideal = hermitIdeal.at( die1D6->rollDie() );
+		ideal = hermitIdeal.at( alignment );
 }
 
 void CharacterBackground::setBond( string background ) 

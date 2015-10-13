@@ -12,10 +12,10 @@ class CharacterBackground
 {
 	public:
 		CharacterBackground();
-		CharacterBackground( string );
+		CharacterBackground( string, string );
 		~CharacterBackground();
 		void setPersonalityTrait( string );
-		void setIdeal( string );
+		void setIdeal( string, string );
 		void setBond( string );
 		void setFlaw( string );
 		string getPersonalityTrait();
@@ -28,20 +28,21 @@ class CharacterBackground
 		void populateFolkMap();
 		void populateHermitMap();
 		string backgroundType;
+		string alignment;
 		string personalityTrait;
 		string ideal;
 		string bond;
 		string flaw;
 		map <int, string> crimTrait;
-		map <int, string> crimIdeal;
+		map <string, string> crimIdeal;
 		map <int, string> crimBond;
 		map <int, string> crimFlaw;
 		map <int, string> folkTrait;
-		map <int, string> folkIdeal;
+		map <string, string> folkIdeal;
 		map <int, string> folkBond;
 		map <int, string> folkFlaw;
 		map <int, string> hermitTrait;
-		map <int, string> hermitIdeal;
+		map <string, string> hermitIdeal;
 		map <int, string> hermitBond;
 		map <int, string> hermitFlaw;
 		Die * die1D6;

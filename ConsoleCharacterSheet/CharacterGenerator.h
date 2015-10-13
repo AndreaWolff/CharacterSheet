@@ -44,7 +44,7 @@ class CharacterGenerator
 		int getCharModifier();
 
 		void setClass( string );
-		void setBackGround( string  );
+		void setBackGround( string, string );
 		void setRace( string, string );
 
 		CharacterBackground* getCharacterBackground();
