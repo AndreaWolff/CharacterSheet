@@ -11,6 +11,7 @@ Elf::Elf( string gender ) : CharacterRace( gender )
 	darkvision = true;
 
 	charRace = "Elf";
+	charSpeed = 30;
 	populateElfNameMap();
 	setName( gender );
 }

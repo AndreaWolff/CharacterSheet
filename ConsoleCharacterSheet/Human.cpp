@@ -12,6 +12,7 @@ Human::Human( string gender ) : CharacterRace( gender )
 
 	darkvision = false;
 	charRace = "Human";
+	charSpeed = 30;
 	populateHumanNameMap();
 	setName( gender );
 }
@@ -37,13 +38,21 @@ void Human::populateHumanNameMap()
 	humanFemaleName.insert( { 6, "Quara Falone" } );
 }
 
- void Human::setName( string gender) 
+ void Human::setName( string gender ) 
 {
-	if ( gender.compare("Male") == 0 )
+	if (gender.compare("Male") == 0)
 		charName = humanMaleName.at(die1D6->rollDie());
 	else // Defaults to Female character
 		charName = humanFemaleName.at(die1D6->rollDie());
 }
+
+//void Human::setImage( string gender )
+//{
+//	if (gender.compare("Male") == 0)
+//		 fileName = "C:\\Users\\A\\My Documents\\arnie2.bmp";
+//	else // Defaults to Female character
+//		fileName = "C:\\Users\\A\\My Documents\\bath.bmp";
+//}
 
  string Human::getName()
  {

@@ -216,6 +216,14 @@ namespace ConsoleCharacterSheet {
 	private: System::Windows::Forms::Label^  stealthLabel;
 	private: System::Windows::Forms::Label^  survivalLabel;
 	private: System::Windows::Forms::PictureBox^  charImageBox;
+private: System::Windows::Forms::Label^  ACLabel;
+private: System::Windows::Forms::TextBox^  ACBox;
+private: System::Windows::Forms::TextBox^  InitiaBox;
+private: System::Windows::Forms::Label^  InitiaLabel;
+private: System::Windows::Forms::Label^  speedLabel;
+private: System::Windows::Forms::TextBox^  speedBox;
+private: System::Windows::Forms::Label^  HPLabel;
+private: System::Windows::Forms::TextBox^  HPBox;
 
 	private:
 		/// <summary>
@@ -339,6 +347,14 @@ namespace ConsoleCharacterSheet {
 			this->stealthLabel = (gcnew System::Windows::Forms::Label());
 			this->survivalLabel = (gcnew System::Windows::Forms::Label());
 			this->charImageBox = (gcnew System::Windows::Forms::PictureBox());
+			this->ACLabel = (gcnew System::Windows::Forms::Label());
+			this->ACBox = (gcnew System::Windows::Forms::TextBox());
+			this->InitiaBox = (gcnew System::Windows::Forms::TextBox());
+			this->InitiaLabel = (gcnew System::Windows::Forms::Label());
+			this->speedLabel = (gcnew System::Windows::Forms::Label());
+			this->speedBox = (gcnew System::Windows::Forms::TextBox());
+			this->HPLabel = (gcnew System::Windows::Forms::Label());
+			this->HPBox = (gcnew System::Windows::Forms::TextBox());
 			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->ageBox))->BeginInit();
 			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->charImageBox))->BeginInit();
 			this->SuspendLayout();
@@ -347,7 +363,7 @@ namespace ConsoleCharacterSheet {
 			// 
 			this->BackgroundGenBox->FormattingEnabled = true;
 			this->BackgroundGenBox->Items->AddRange(gcnew cli::array< System::Object^  >(3) { L"Criminal", L"Folk Hero", L"Hermit" });
-			this->BackgroundGenBox->Location = System::Drawing::Point(22, 252);
+			this->BackgroundGenBox->Location = System::Drawing::Point(21, 319);
 			this->BackgroundGenBox->Name = L"BackgroundGenBox";
 			this->BackgroundGenBox->Size = System::Drawing::Size(121, 21);
 			this->BackgroundGenBox->TabIndex = 0;
@@ -355,7 +371,7 @@ namespace ConsoleCharacterSheet {
 			// 
 			// StartGeneration
 			// 
-			this->StartGeneration->Location = System::Drawing::Point(21, 375);
+			this->StartGeneration->Location = System::Drawing::Point(21, 483);
 			this->StartGeneration->Name = L"StartGeneration";
 			this->StartGeneration->Size = System::Drawing::Size(123, 23);
 			this->StartGeneration->TabIndex = 1;
@@ -365,7 +381,7 @@ namespace ConsoleCharacterSheet {
 			// 
 			// personalityBox
 			// 
-			this->personalityBox->Location = System::Drawing::Point(581, 439);
+			this->personalityBox->Location = System::Drawing::Point(570, 319);
 			this->personalityBox->Name = L"personalityBox";
 			this->personalityBox->ReadOnly = true;
 			this->personalityBox->Size = System::Drawing::Size(566, 20);
@@ -374,7 +390,7 @@ namespace ConsoleCharacterSheet {
 			// 
 			// idealBox
 			// 
-			this->idealBox->Location = System::Drawing::Point(581, 491);
+			this->idealBox->Location = System::Drawing::Point(570, 374);
 			this->idealBox->Name = L"idealBox";
 			this->idealBox->ReadOnly = true;
 			this->idealBox->Size = System::Drawing::Size(566, 20);
@@ -383,7 +399,7 @@ namespace ConsoleCharacterSheet {
 			// 
 			// bondBox
 			// 
-			this->bondBox->Location = System::Drawing::Point(581, 540);
+			this->bondBox->Location = System::Drawing::Point(570, 425);
 			this->bondBox->Name = L"bondBox";
 			this->bondBox->ReadOnly = true;
 			this->bondBox->Size = System::Drawing::Size(566, 20);
@@ -392,7 +408,7 @@ namespace ConsoleCharacterSheet {
 			// 
 			// flawBox
 			// 
-			this->flawBox->Location = System::Drawing::Point(581, 587);
+			this->flawBox->Location = System::Drawing::Point(570, 480);
 			this->flawBox->Name = L"flawBox";
 			this->flawBox->ReadOnly = true;
 			this->flawBox->Size = System::Drawing::Size(566, 20);
@@ -403,7 +419,7 @@ namespace ConsoleCharacterSheet {
 			// 
 			this->GenderBox->FormattingEnabled = true;
 			this->GenderBox->Items->AddRange(gcnew cli::array< System::Object^  >(2) { L"Male", L"Female" });
-			this->GenderBox->Location = System::Drawing::Point(22, 212);
+			this->GenderBox->Location = System::Drawing::Point(21, 263);
 			this->GenderBox->Name = L"GenderBox";
 			this->GenderBox->Size = System::Drawing::Size(121, 21);
 			this->GenderBox->TabIndex = 6;
@@ -413,7 +429,7 @@ namespace ConsoleCharacterSheet {
 			// 
 			this->raceBox->FormattingEnabled = true;
 			this->raceBox->Items->AddRange(gcnew cli::array< System::Object^  >(3) { L"Human", L"Elf", L"Dwarf" });
-			this->raceBox->Location = System::Drawing::Point(23, 132);
+			this->raceBox->Location = System::Drawing::Point(21, 157);
 			this->raceBox->Name = L"raceBox";
 			this->raceBox->Size = System::Drawing::Size(121, 21);
 			this->raceBox->TabIndex = 7;
@@ -423,14 +439,14 @@ namespace ConsoleCharacterSheet {
 			// 
 			this->ClassBox->FormattingEnabled = true;
 			this->ClassBox->Items->AddRange(gcnew cli::array< System::Object^  >(4) { L"Fighter", L"Cleric", L"Wizard", L"Ranger" });
-			this->ClassBox->Location = System::Drawing::Point(23, 172);
+			this->ClassBox->Location = System::Drawing::Point(21, 206);
 			this->ClassBox->Name = L"ClassBox";
 			this->ClassBox->Size = System::Drawing::Size(121, 21);
 			this->ClassBox->TabIndex = 8;
 			// 
 			// playerName
 			// 
-			this->playerName->Location = System::Drawing::Point(21, 92);
+			this->playerName->Location = System::Drawing::Point(21, 112);
 			this->playerName->Name = L"playerName";
 			this->playerName->Size = System::Drawing::Size(121, 20);
 			this->playerName->TabIndex = 11;
@@ -438,7 +454,7 @@ namespace ConsoleCharacterSheet {
 			// raceLabel
 			// 
 			this->raceLabel->AutoSize = true;
-			this->raceLabel->Location = System::Drawing::Point(20, 116);
+			this->raceLabel->Location = System::Drawing::Point(22, 141);
 			this->raceLabel->Name = L"raceLabel";
 			this->raceLabel->Size = System::Drawing::Size(76, 13);
 			this->raceLabel->TabIndex = 12;
@@ -448,7 +464,7 @@ namespace ConsoleCharacterSheet {
 			// classLabel
 			// 
 			this->classLabel->AutoSize = true;
-			this->classLabel->Location = System::Drawing::Point(20, 156);
+			this->classLabel->Location = System::Drawing::Point(22, 190);
 			this->classLabel->Name = L"classLabel";
 			this->classLabel->Size = System::Drawing::Size(79, 13);
 			this->classLabel->TabIndex = 13;
@@ -457,7 +473,7 @@ namespace ConsoleCharacterSheet {
 			// genderLabel
 			// 
 			this->genderLabel->AutoSize = true;
-			this->genderLabel->Location = System::Drawing::Point(21, 196);
+			this->genderLabel->Location = System::Drawing::Point(22, 247);
 			this->genderLabel->Name = L"genderLabel";
 			this->genderLabel->Size = System::Drawing::Size(88, 13);
 			this->genderLabel->TabIndex = 14;
@@ -466,7 +482,7 @@ namespace ConsoleCharacterSheet {
 			// backgroundLabel
 			// 
 			this->backgroundLabel->AutoSize = true;
-			this->backgroundLabel->Location = System::Drawing::Point(22, 236);
+			this->backgroundLabel->Location = System::Drawing::Point(22, 303);
 			this->backgroundLabel->Name = L"backgroundLabel";
 			this->backgroundLabel->Size = System::Drawing::Size(112, 13);
 			this->backgroundLabel->TabIndex = 15;
@@ -475,7 +491,7 @@ namespace ConsoleCharacterSheet {
 			// playernameLabel
 			// 
 			this->playernameLabel->AutoSize = true;
-			this->playernameLabel->Location = System::Drawing::Point(20, 76);
+			this->playernameLabel->Location = System::Drawing::Point(22, 96);
 			this->playernameLabel->Name = L"playernameLabel";
 			this->playernameLabel->Size = System::Drawing::Size(84, 13);
 			this->playernameLabel->TabIndex = 16;
@@ -488,7 +504,7 @@ namespace ConsoleCharacterSheet {
 				L"Lawful", L"Good", L"Neutral", L"Chaotic",
 					L"Evil"
 			});
-			this->alignmentBox->Location = System::Drawing::Point(23, 292);
+			this->alignmentBox->Location = System::Drawing::Point(22, 378);
 			this->alignmentBox->Name = L"alignmentBox";
 			this->alignmentBox->Size = System::Drawing::Size(120, 21);
 			this->alignmentBox->TabIndex = 18;
@@ -496,7 +512,7 @@ namespace ConsoleCharacterSheet {
 			// alignmentLabel
 			// 
 			this->alignmentLabel->AutoSize = true;
-			this->alignmentLabel->Location = System::Drawing::Point(22, 276);
+			this->alignmentLabel->Location = System::Drawing::Point(22, 362);
 			this->alignmentLabel->Name = L"alignmentLabel";
 			this->alignmentLabel->Size = System::Drawing::Size(114, 13);
 			this->alignmentLabel->TabIndex = 19;
@@ -505,7 +521,7 @@ namespace ConsoleCharacterSheet {
 			// ageLabel
 			// 
 			this->ageLabel->AutoSize = true;
-			this->ageLabel->Location = System::Drawing::Point(22, 316);
+			this->ageLabel->Location = System::Drawing::Point(22, 419);
 			this->ageLabel->Name = L"ageLabel";
 			this->ageLabel->Size = System::Drawing::Size(87, 13);
 			this->ageLabel->TabIndex = 21;
@@ -513,7 +529,7 @@ namespace ConsoleCharacterSheet {
 			// 
 			// ageBox
 			// 
-			this->ageBox->Location = System::Drawing::Point(24, 332);
+			this->ageBox->Location = System::Drawing::Point(21, 435);
 			this->ageBox->Minimum = System::Decimal(gcnew cli::array< System::Int32 >(4) { 15, 0, 0, 0 });
 			this->ageBox->Name = L"ageBox";
 			this->ageBox->Size = System::Drawing::Size(120, 20);
@@ -523,7 +539,7 @@ namespace ConsoleCharacterSheet {
 			// personalityLabel
 			// 
 			this->personalityLabel->AutoSize = true;
-			this->personalityLabel->Location = System::Drawing::Point(583, 468);
+			this->personalityLabel->Location = System::Drawing::Point(569, 295);
 			this->personalityLabel->Name = L"personalityLabel";
 			this->personalityLabel->Size = System::Drawing::Size(87, 13);
 			this->personalityLabel->TabIndex = 23;
@@ -532,7 +548,7 @@ namespace ConsoleCharacterSheet {
 			// idealLabel
 			// 
 			this->idealLabel->AutoSize = true;
-			this->idealLabel->Location = System::Drawing::Point(582, 514);
+			this->idealLabel->Location = System::Drawing::Point(569, 350);
 			this->idealLabel->Name = L"idealLabel";
 			this->idealLabel->Size = System::Drawing::Size(35, 13);
 			this->idealLabel->TabIndex = 24;
@@ -541,7 +557,7 @@ namespace ConsoleCharacterSheet {
 			// bondLabel
 			// 
 			this->bondLabel->AutoSize = true;
-			this->bondLabel->Location = System::Drawing::Point(583, 567);
+			this->bondLabel->Location = System::Drawing::Point(569, 402);
 			this->bondLabel->Name = L"bondLabel";
 			this->bondLabel->Size = System::Drawing::Size(37, 13);
 			this->bondLabel->TabIndex = 25;
@@ -550,7 +566,7 @@ namespace ConsoleCharacterSheet {
 			// flawLabel
 			// 
 			this->flawLabel->AutoSize = true;
-			this->flawLabel->Location = System::Drawing::Point(583, 617);
+			this->flawLabel->Location = System::Drawing::Point(569, 454);
 			this->flawLabel->Name = L"flawLabel";
 			this->flawLabel->Size = System::Drawing::Size(34, 13);
 			this->flawLabel->TabIndex = 26;
@@ -815,7 +831,7 @@ namespace ConsoleCharacterSheet {
 			// charismaLabel
 			// 
 			this->charismaLabel->AutoSize = true;
-			this->charismaLabel->Location = System::Drawing::Point(265, 427);
+			this->charismaLabel->Location = System::Drawing::Point(262, 428);
 			this->charismaLabel->Name = L"charismaLabel";
 			this->charismaLabel->Size = System::Drawing::Size(50, 13);
 			this->charismaLabel->TabIndex = 56;
@@ -843,7 +859,7 @@ namespace ConsoleCharacterSheet {
 			// InstructionLabel
 			// 
 			this->InstructionLabel->AutoSize = true;
-			this->InstructionLabel->Location = System::Drawing::Point(20, 44);
+			this->InstructionLabel->Location = System::Drawing::Point(12, 73);
 			this->InstructionLabel->Name = L"InstructionLabel";
 			this->InstructionLabel->Size = System::Drawing::Size(134, 13);
 			this->InstructionLabel->TabIndex = 59;
@@ -853,7 +869,7 @@ namespace ConsoleCharacterSheet {
 			// proficiencyLabel
 			// 
 			this->proficiencyLabel->AutoSize = true;
-			this->proficiencyLabel->Location = System::Drawing::Point(437, 98);
+			this->proficiencyLabel->Location = System::Drawing::Point(709, 249);
 			this->proficiencyLabel->Name = L"proficiencyLabel";
 			this->proficiencyLabel->Size = System::Drawing::Size(59, 13);
 			this->proficiencyLabel->TabIndex = 60;
@@ -861,16 +877,16 @@ namespace ConsoleCharacterSheet {
 			// 
 			// proficiencyBox
 			// 
-			this->proficiencyBox->Location = System::Drawing::Point(403, 95);
+			this->proficiencyBox->Location = System::Drawing::Point(712, 268);
 			this->proficiencyBox->Name = L"proficiencyBox";
 			this->proficiencyBox->ReadOnly = true;
-			this->proficiencyBox->Size = System::Drawing::Size(27, 20);
+			this->proficiencyBox->Size = System::Drawing::Size(56, 20);
 			this->proficiencyBox->TabIndex = 61;
 			this->proficiencyBox->TextAlign = System::Windows::Forms::HorizontalAlignment::Center;
 			// 
 			// strModBox
 			// 
-			this->strModBox->Location = System::Drawing::Point(570, 121);
+			this->strModBox->Location = System::Drawing::Point(570, 116);
 			this->strModBox->Name = L"strModBox";
 			this->strModBox->ReadOnly = true;
 			this->strModBox->Size = System::Drawing::Size(27, 20);
@@ -879,7 +895,7 @@ namespace ConsoleCharacterSheet {
 			// 
 			// dextModBox
 			// 
-			this->dextModBox->Location = System::Drawing::Point(570, 147);
+			this->dextModBox->Location = System::Drawing::Point(570, 142);
 			this->dextModBox->Name = L"dextModBox";
 			this->dextModBox->ReadOnly = true;
 			this->dextModBox->Size = System::Drawing::Size(27, 20);
@@ -888,7 +904,7 @@ namespace ConsoleCharacterSheet {
 			// 
 			// conModBox
 			// 
-			this->conModBox->Location = System::Drawing::Point(570, 173);
+			this->conModBox->Location = System::Drawing::Point(570, 168);
 			this->conModBox->Name = L"conModBox";
 			this->conModBox->ReadOnly = true;
 			this->conModBox->Size = System::Drawing::Size(27, 20);
@@ -897,7 +913,7 @@ namespace ConsoleCharacterSheet {
 			// 
 			// intModBox
 			// 
-			this->intModBox->Location = System::Drawing::Point(570, 199);
+			this->intModBox->Location = System::Drawing::Point(570, 193);
 			this->intModBox->Name = L"intModBox";
 			this->intModBox->ReadOnly = true;
 			this->intModBox->Size = System::Drawing::Size(27, 20);
@@ -906,7 +922,7 @@ namespace ConsoleCharacterSheet {
 			// 
 			// wisdModBox
 			// 
-			this->wisdModBox->Location = System::Drawing::Point(570, 223);
+			this->wisdModBox->Location = System::Drawing::Point(570, 220);
 			this->wisdModBox->Name = L"wisdModBox";
 			this->wisdModBox->ReadOnly = true;
 			this->wisdModBox->Size = System::Drawing::Size(27, 20);
@@ -915,7 +931,7 @@ namespace ConsoleCharacterSheet {
 			// 
 			// chaModBox
 			// 
-			this->chaModBox->Location = System::Drawing::Point(570, 251);
+			this->chaModBox->Location = System::Drawing::Point(570, 246);
 			this->chaModBox->Name = L"chaModBox";
 			this->chaModBox->ReadOnly = true;
 			this->chaModBox->Size = System::Drawing::Size(27, 20);
@@ -925,7 +941,7 @@ namespace ConsoleCharacterSheet {
 			// strModLabel
 			// 
 			this->strModLabel->AutoSize = true;
-			this->strModLabel->Location = System::Drawing::Point(603, 123);
+			this->strModLabel->Location = System::Drawing::Point(606, 119);
 			this->strModLabel->Name = L"strModLabel";
 			this->strModLabel->Size = System::Drawing::Size(47, 13);
 			this->strModLabel->TabIndex = 68;
@@ -934,7 +950,7 @@ namespace ConsoleCharacterSheet {
 			// dextModLabel
 			// 
 			this->dextModLabel->AutoSize = true;
-			this->dextModLabel->Location = System::Drawing::Point(603, 149);
+			this->dextModLabel->Location = System::Drawing::Point(606, 145);
 			this->dextModLabel->Name = L"dextModLabel";
 			this->dextModLabel->Size = System::Drawing::Size(48, 13);
 			this->dextModLabel->TabIndex = 69;
@@ -944,7 +960,7 @@ namespace ConsoleCharacterSheet {
 			// conModLabel
 			// 
 			this->conModLabel->AutoSize = true;
-			this->conModLabel->Location = System::Drawing::Point(603, 173);
+			this->conModLabel->Location = System::Drawing::Point(606, 171);
 			this->conModLabel->Name = L"conModLabel";
 			this->conModLabel->Size = System::Drawing::Size(62, 13);
 			this->conModLabel->TabIndex = 70;
@@ -953,7 +969,7 @@ namespace ConsoleCharacterSheet {
 			// intModLabel
 			// 
 			this->intModLabel->AutoSize = true;
-			this->intModLabel->Location = System::Drawing::Point(603, 202);
+			this->intModLabel->Location = System::Drawing::Point(606, 196);
 			this->intModLabel->Name = L"intModLabel";
 			this->intModLabel->Size = System::Drawing::Size(61, 13);
 			this->intModLabel->TabIndex = 71;
@@ -962,7 +978,7 @@ namespace ConsoleCharacterSheet {
 			// wisdModLabel
 			// 
 			this->wisdModLabel->AutoSize = true;
-			this->wisdModLabel->Location = System::Drawing::Point(603, 228);
+			this->wisdModLabel->Location = System::Drawing::Point(606, 223);
 			this->wisdModLabel->Name = L"wisdModLabel";
 			this->wisdModLabel->Size = System::Drawing::Size(45, 13);
 			this->wisdModLabel->TabIndex = 72;
@@ -971,7 +987,7 @@ namespace ConsoleCharacterSheet {
 			// chaModLabel
 			// 
 			this->chaModLabel->AutoSize = true;
-			this->chaModLabel->Location = System::Drawing::Point(603, 254);
+			this->chaModLabel->Location = System::Drawing::Point(606, 249);
 			this->chaModLabel->Name = L"chaModLabel";
 			this->chaModLabel->Size = System::Drawing::Size(50, 13);
 			this->chaModLabel->TabIndex = 73;
@@ -980,7 +996,7 @@ namespace ConsoleCharacterSheet {
 			// savingThrowLabel
 			// 
 			this->savingThrowLabel->AutoSize = true;
-			this->savingThrowLabel->Location = System::Drawing::Point(567, 102);
+			this->savingThrowLabel->Location = System::Drawing::Point(567, 99);
 			this->savingThrowLabel->Name = L"savingThrowLabel";
 			this->savingThrowLabel->Size = System::Drawing::Size(78, 13);
 			this->savingThrowLabel->TabIndex = 74;
@@ -989,7 +1005,7 @@ namespace ConsoleCharacterSheet {
 			// skillsLabel
 			// 
 			this->skillsLabel->AutoSize = true;
-			this->skillsLabel->Location = System::Drawing::Point(400, 132);
+			this->skillsLabel->Location = System::Drawing::Point(400, 99);
 			this->skillsLabel->Name = L"skillsLabel";
 			this->skillsLabel->Size = System::Drawing::Size(31, 13);
 			this->skillsLabel->TabIndex = 75;
@@ -997,7 +1013,7 @@ namespace ConsoleCharacterSheet {
 			// 
 			// acrobBox
 			// 
-			this->acrobBox->Location = System::Drawing::Point(403, 148);
+			this->acrobBox->Location = System::Drawing::Point(403, 116);
 			this->acrobBox->Name = L"acrobBox";
 			this->acrobBox->ReadOnly = true;
 			this->acrobBox->Size = System::Drawing::Size(27, 20);
@@ -1007,7 +1023,7 @@ namespace ConsoleCharacterSheet {
 			// acrobLabel
 			// 
 			this->acrobLabel->AutoSize = true;
-			this->acrobLabel->Location = System::Drawing::Point(437, 151);
+			this->acrobLabel->Location = System::Drawing::Point(437, 119);
 			this->acrobLabel->Name = L"acrobLabel";
 			this->acrobLabel->Size = System::Drawing::Size(85, 13);
 			this->acrobLabel->TabIndex = 77;
@@ -1015,7 +1031,7 @@ namespace ConsoleCharacterSheet {
 			// 
 			// animalBox
 			// 
-			this->animalBox->Location = System::Drawing::Point(403, 174);
+			this->animalBox->Location = System::Drawing::Point(402, 142);
 			this->animalBox->Name = L"animalBox";
 			this->animalBox->ReadOnly = true;
 			this->animalBox->Size = System::Drawing::Size(28, 20);
@@ -1025,7 +1041,7 @@ namespace ConsoleCharacterSheet {
 			// animalLabel
 			// 
 			this->animalLabel->AutoSize = true;
-			this->animalLabel->Location = System::Drawing::Point(437, 175);
+			this->animalLabel->Location = System::Drawing::Point(436, 145);
 			this->animalLabel->Name = L"animalLabel";
 			this->animalLabel->Size = System::Drawing::Size(110, 13);
 			this->animalLabel->TabIndex = 79;
@@ -1033,7 +1049,7 @@ namespace ConsoleCharacterSheet {
 			// 
 			// arcanaBox
 			// 
-			this->arcanaBox->Location = System::Drawing::Point(403, 200);
+			this->arcanaBox->Location = System::Drawing::Point(403, 168);
 			this->arcanaBox->Name = L"arcanaBox";
 			this->arcanaBox->ReadOnly = true;
 			this->arcanaBox->Size = System::Drawing::Size(28, 20);
@@ -1042,7 +1058,7 @@ namespace ConsoleCharacterSheet {
 			// 
 			// athleBox
 			// 
-			this->athleBox->Location = System::Drawing::Point(403, 226);
+			this->athleBox->Location = System::Drawing::Point(403, 194);
 			this->athleBox->Name = L"athleBox";
 			this->athleBox->ReadOnly = true;
 			this->athleBox->Size = System::Drawing::Size(28, 20);
@@ -1051,7 +1067,7 @@ namespace ConsoleCharacterSheet {
 			// 
 			// decepBox
 			// 
-			this->decepBox->Location = System::Drawing::Point(403, 252);
+			this->decepBox->Location = System::Drawing::Point(403, 220);
 			this->decepBox->Name = L"decepBox";
 			this->decepBox->ReadOnly = true;
 			this->decepBox->Size = System::Drawing::Size(28, 20);
@@ -1060,7 +1076,7 @@ namespace ConsoleCharacterSheet {
 			// 
 			// histBox
 			// 
-			this->histBox->Location = System::Drawing::Point(403, 279);
+			this->histBox->Location = System::Drawing::Point(403, 246);
 			this->histBox->Name = L"histBox";
 			this->histBox->ReadOnly = true;
 			this->histBox->Size = System::Drawing::Size(28, 20);
@@ -1069,7 +1085,7 @@ namespace ConsoleCharacterSheet {
 			// 
 			// InsightBox
 			// 
-			this->InsightBox->Location = System::Drawing::Point(403, 306);
+			this->InsightBox->Location = System::Drawing::Point(403, 272);
 			this->InsightBox->Name = L"InsightBox";
 			this->InsightBox->ReadOnly = true;
 			this->InsightBox->Size = System::Drawing::Size(28, 20);
@@ -1078,7 +1094,7 @@ namespace ConsoleCharacterSheet {
 			// 
 			// intimBox
 			// 
-			this->intimBox->Location = System::Drawing::Point(403, 333);
+			this->intimBox->Location = System::Drawing::Point(403, 298);
 			this->intimBox->Name = L"intimBox";
 			this->intimBox->ReadOnly = true;
 			this->intimBox->Size = System::Drawing::Size(28, 20);
@@ -1087,7 +1103,7 @@ namespace ConsoleCharacterSheet {
 			// 
 			// investBox
 			// 
-			this->investBox->Location = System::Drawing::Point(403, 360);
+			this->investBox->Location = System::Drawing::Point(403, 324);
 			this->investBox->Name = L"investBox";
 			this->investBox->ReadOnly = true;
 			this->investBox->Size = System::Drawing::Size(27, 20);
@@ -1096,7 +1112,7 @@ namespace ConsoleCharacterSheet {
 			// 
 			// medBox
 			// 
-			this->medBox->Location = System::Drawing::Point(403, 387);
+			this->medBox->Location = System::Drawing::Point(403, 350);
 			this->medBox->Name = L"medBox";
 			this->medBox->ReadOnly = true;
 			this->medBox->Size = System::Drawing::Size(28, 20);
@@ -1105,7 +1121,7 @@ namespace ConsoleCharacterSheet {
 			// 
 			// natureBox
 			// 
-			this->natureBox->Location = System::Drawing::Point(403, 414);
+			this->natureBox->Location = System::Drawing::Point(403, 376);
 			this->natureBox->Name = L"natureBox";
 			this->natureBox->ReadOnly = true;
 			this->natureBox->Size = System::Drawing::Size(28, 20);
@@ -1114,7 +1130,7 @@ namespace ConsoleCharacterSheet {
 			// 
 			// perceptionBox
 			// 
-			this->perceptionBox->Location = System::Drawing::Point(403, 441);
+			this->perceptionBox->Location = System::Drawing::Point(403, 402);
 			this->perceptionBox->Name = L"perceptionBox";
 			this->perceptionBox->ReadOnly = true;
 			this->perceptionBox->Size = System::Drawing::Size(28, 20);
@@ -1123,7 +1139,7 @@ namespace ConsoleCharacterSheet {
 			// 
 			// performBox
 			// 
-			this->performBox->Location = System::Drawing::Point(403, 468);
+			this->performBox->Location = System::Drawing::Point(403, 428);
 			this->performBox->Name = L"performBox";
 			this->performBox->ReadOnly = true;
 			this->performBox->Size = System::Drawing::Size(28, 20);
@@ -1132,7 +1148,7 @@ namespace ConsoleCharacterSheet {
 			// 
 			// persuaBox
 			// 
-			this->persuaBox->Location = System::Drawing::Point(403, 495);
+			this->persuaBox->Location = System::Drawing::Point(403, 454);
 			this->persuaBox->Name = L"persuaBox";
 			this->persuaBox->ReadOnly = true;
 			this->persuaBox->Size = System::Drawing::Size(28, 20);
@@ -1141,7 +1157,7 @@ namespace ConsoleCharacterSheet {
 			// 
 			// religionBox
 			// 
-			this->religionBox->Location = System::Drawing::Point(403, 522);
+			this->religionBox->Location = System::Drawing::Point(403, 480);
 			this->religionBox->Name = L"religionBox";
 			this->religionBox->ReadOnly = true;
 			this->religionBox->Size = System::Drawing::Size(28, 20);
@@ -1150,7 +1166,7 @@ namespace ConsoleCharacterSheet {
 			// 
 			// handBox
 			// 
-			this->handBox->Location = System::Drawing::Point(403, 549);
+			this->handBox->Location = System::Drawing::Point(403, 506);
 			this->handBox->Name = L"handBox";
 			this->handBox->ReadOnly = true;
 			this->handBox->Size = System::Drawing::Size(28, 20);
@@ -1159,7 +1175,7 @@ namespace ConsoleCharacterSheet {
 			// 
 			// stealthBox
 			// 
-			this->stealthBox->Location = System::Drawing::Point(403, 576);
+			this->stealthBox->Location = System::Drawing::Point(403, 532);
 			this->stealthBox->Name = L"stealthBox";
 			this->stealthBox->ReadOnly = true;
 			this->stealthBox->Size = System::Drawing::Size(28, 20);
@@ -1168,7 +1184,7 @@ namespace ConsoleCharacterSheet {
 			// 
 			// survivalBox
 			// 
-			this->survivalBox->Location = System::Drawing::Point(403, 603);
+			this->survivalBox->Location = System::Drawing::Point(403, 558);
 			this->survivalBox->Name = L"survivalBox";
 			this->survivalBox->ReadOnly = true;
 			this->survivalBox->Size = System::Drawing::Size(28, 20);
@@ -1178,7 +1194,7 @@ namespace ConsoleCharacterSheet {
 			// handLabel
 			// 
 			this->handLabel->AutoSize = true;
-			this->handLabel->Location = System::Drawing::Point(437, 552);
+			this->handLabel->Location = System::Drawing::Point(437, 509);
 			this->handLabel->Name = L"handLabel";
 			this->handLabel->Size = System::Drawing::Size(108, 13);
 			this->handLabel->TabIndex = 96;
@@ -1187,7 +1203,7 @@ namespace ConsoleCharacterSheet {
 			// arcanaLabel
 			// 
 			this->arcanaLabel->AutoSize = true;
-			this->arcanaLabel->Location = System::Drawing::Point(437, 203);
+			this->arcanaLabel->Location = System::Drawing::Point(437, 171);
 			this->arcanaLabel->Name = L"arcanaLabel";
 			this->arcanaLabel->Size = System::Drawing::Size(68, 13);
 			this->arcanaLabel->TabIndex = 97;
@@ -1197,7 +1213,7 @@ namespace ConsoleCharacterSheet {
 			// athleLabel
 			// 
 			this->athleLabel->AutoSize = true;
-			this->athleLabel->Location = System::Drawing::Point(437, 229);
+			this->athleLabel->Location = System::Drawing::Point(437, 197);
 			this->athleLabel->Name = L"athleLabel";
 			this->athleLabel->Size = System::Drawing::Size(69, 13);
 			this->athleLabel->TabIndex = 98;
@@ -1206,7 +1222,7 @@ namespace ConsoleCharacterSheet {
 			// decepLabel
 			// 
 			this->decepLabel->AutoSize = true;
-			this->decepLabel->Location = System::Drawing::Point(437, 254);
+			this->decepLabel->Location = System::Drawing::Point(436, 223);
 			this->decepLabel->Name = L"decepLabel";
 			this->decepLabel->Size = System::Drawing::Size(84, 13);
 			this->decepLabel->TabIndex = 99;
@@ -1215,7 +1231,7 @@ namespace ConsoleCharacterSheet {
 			// histLabel
 			// 
 			this->histLabel->AutoSize = true;
-			this->histLabel->Location = System::Drawing::Point(437, 282);
+			this->histLabel->Location = System::Drawing::Point(437, 249);
 			this->histLabel->Name = L"histLabel";
 			this->histLabel->Size = System::Drawing::Size(60, 13);
 			this->histLabel->TabIndex = 100;
@@ -1224,7 +1240,7 @@ namespace ConsoleCharacterSheet {
 			// insightLabel
 			// 
 			this->insightLabel->AutoSize = true;
-			this->insightLabel->Location = System::Drawing::Point(437, 309);
+			this->insightLabel->Location = System::Drawing::Point(437, 275);
 			this->insightLabel->Name = L"insightLabel";
 			this->insightLabel->Size = System::Drawing::Size(65, 13);
 			this->insightLabel->TabIndex = 101;
@@ -1233,7 +1249,7 @@ namespace ConsoleCharacterSheet {
 			// IntimLabel
 			// 
 			this->IntimLabel->AutoSize = true;
-			this->IntimLabel->Location = System::Drawing::Point(437, 336);
+			this->IntimLabel->Location = System::Drawing::Point(437, 301);
 			this->IntimLabel->Name = L"IntimLabel";
 			this->IntimLabel->Size = System::Drawing::Size(88, 13);
 			this->IntimLabel->TabIndex = 102;
@@ -1242,7 +1258,7 @@ namespace ConsoleCharacterSheet {
 			// InvestLabel
 			// 
 			this->InvestLabel->AutoSize = true;
-			this->InvestLabel->Location = System::Drawing::Point(437, 363);
+			this->InvestLabel->Location = System::Drawing::Point(437, 327);
 			this->InvestLabel->Name = L"InvestLabel";
 			this->InvestLabel->Size = System::Drawing::Size(88, 13);
 			this->InvestLabel->TabIndex = 103;
@@ -1251,7 +1267,7 @@ namespace ConsoleCharacterSheet {
 			// medLabel
 			// 
 			this->medLabel->AutoSize = true;
-			this->medLabel->Location = System::Drawing::Point(437, 390);
+			this->medLabel->Location = System::Drawing::Point(437, 353);
 			this->medLabel->Name = L"medLabel";
 			this->medLabel->Size = System::Drawing::Size(77, 13);
 			this->medLabel->TabIndex = 104;
@@ -1260,7 +1276,7 @@ namespace ConsoleCharacterSheet {
 			// natureLabel
 			// 
 			this->natureLabel->AutoSize = true;
-			this->natureLabel->Location = System::Drawing::Point(437, 417);
+			this->natureLabel->Location = System::Drawing::Point(437, 381);
 			this->natureLabel->Name = L"natureLabel";
 			this->natureLabel->Size = System::Drawing::Size(60, 13);
 			this->natureLabel->TabIndex = 105;
@@ -1269,7 +1285,7 @@ namespace ConsoleCharacterSheet {
 			// percepLabel
 			// 
 			this->percepLabel->AutoSize = true;
-			this->percepLabel->Location = System::Drawing::Point(437, 446);
+			this->percepLabel->Location = System::Drawing::Point(437, 407);
 			this->percepLabel->Name = L"percepLabel";
 			this->percepLabel->Size = System::Drawing::Size(85, 13);
 			this->percepLabel->TabIndex = 106;
@@ -1278,7 +1294,7 @@ namespace ConsoleCharacterSheet {
 			// performLabel
 			// 
 			this->performLabel->AutoSize = true;
-			this->performLabel->Location = System::Drawing::Point(437, 472);
+			this->performLabel->Location = System::Drawing::Point(437, 431);
 			this->performLabel->Name = L"performLabel";
 			this->performLabel->Size = System::Drawing::Size(95, 13);
 			this->performLabel->TabIndex = 107;
@@ -1287,7 +1303,7 @@ namespace ConsoleCharacterSheet {
 			// persuaLabel
 			// 
 			this->persuaLabel->AutoSize = true;
-			this->persuaLabel->Location = System::Drawing::Point(437, 498);
+			this->persuaLabel->Location = System::Drawing::Point(437, 457);
 			this->persuaLabel->Name = L"persuaLabel";
 			this->persuaLabel->Size = System::Drawing::Size(87, 13);
 			this->persuaLabel->TabIndex = 108;
@@ -1296,7 +1312,7 @@ namespace ConsoleCharacterSheet {
 			// religionLabel
 			// 
 			this->religionLabel->AutoSize = true;
-			this->religionLabel->Location = System::Drawing::Point(437, 525);
+			this->religionLabel->Location = System::Drawing::Point(437, 483);
 			this->religionLabel->Name = L"religionLabel";
 			this->religionLabel->Size = System::Drawing::Size(66, 13);
 			this->religionLabel->TabIndex = 109;
@@ -1305,7 +1321,7 @@ namespace ConsoleCharacterSheet {
 			// stealthLabel
 			// 
 			this->stealthLabel->AutoSize = true;
-			this->stealthLabel->Location = System::Drawing::Point(437, 579);
+			this->stealthLabel->Location = System::Drawing::Point(437, 535);
 			this->stealthLabel->Name = L"stealthLabel";
 			this->stealthLabel->Size = System::Drawing::Size(68, 13);
 			this->stealthLabel->TabIndex = 110;
@@ -1314,7 +1330,7 @@ namespace ConsoleCharacterSheet {
 			// survivalLabel
 			// 
 			this->survivalLabel->AutoSize = true;
-			this->survivalLabel->Location = System::Drawing::Point(437, 606);
+			this->survivalLabel->Location = System::Drawing::Point(437, 561);
 			this->survivalLabel->Name = L"survivalLabel";
 			this->survivalLabel->Size = System::Drawing::Size(72, 13);
 			this->survivalLabel->TabIndex = 111;
@@ -1322,11 +1338,86 @@ namespace ConsoleCharacterSheet {
 			// 
 			// charImageBox
 			// 
-			this->charImageBox->Location = System::Drawing::Point(21, 427);
+			this->charImageBox->BorderStyle = System::Windows::Forms::BorderStyle::Fixed3D;
+			this->charImageBox->Location = System::Drawing::Point(923, 92);
 			this->charImageBox->Name = L"charImageBox";
 			this->charImageBox->Size = System::Drawing::Size(213, 192);
 			this->charImageBox->TabIndex = 112;
 			this->charImageBox->TabStop = false;
+			this->charImageBox->Click += gcnew System::EventHandler(this, &MyForm::charImageBox_Click);
+			// 
+			// ACLabel
+			// 
+			this->ACLabel->AutoSize = true;
+			this->ACLabel->Location = System::Drawing::Point(709, 99);
+			this->ACLabel->Name = L"ACLabel";
+			this->ACLabel->Size = System::Drawing::Size(62, 13);
+			this->ACLabel->TabIndex = 113;
+			this->ACLabel->Text = L"Armor Class";
+			// 
+			// ACBox
+			// 
+			this->ACBox->Location = System::Drawing::Point(712, 121);
+			this->ACBox->Name = L"ACBox";
+			this->ACBox->ReadOnly = true;
+			this->ACBox->Size = System::Drawing::Size(56, 20);
+			this->ACBox->TabIndex = 114;
+			this->ACBox->TextAlign = System::Windows::Forms::HorizontalAlignment::Center;
+			// 
+			// InitiaBox
+			// 
+			this->InitiaBox->Location = System::Drawing::Point(712, 168);
+			this->InitiaBox->Name = L"InitiaBox";
+			this->InitiaBox->ReadOnly = true;
+			this->InitiaBox->Size = System::Drawing::Size(56, 20);
+			this->InitiaBox->TabIndex = 115;
+			this->InitiaBox->TextAlign = System::Windows::Forms::HorizontalAlignment::Center;
+			// 
+			// InitiaLabel
+			// 
+			this->InitiaLabel->AutoSize = true;
+			this->InitiaLabel->Location = System::Drawing::Point(709, 149);
+			this->InitiaLabel->Name = L"InitiaLabel";
+			this->InitiaLabel->Size = System::Drawing::Size(46, 13);
+			this->InitiaLabel->TabIndex = 116;
+			this->InitiaLabel->Text = L"Initiative";
+			// 
+			// speedLabel
+			// 
+			this->speedLabel->AutoSize = true;
+			this->speedLabel->Location = System::Drawing::Point(709, 197);
+			this->speedLabel->Name = L"speedLabel";
+			this->speedLabel->Size = System::Drawing::Size(38, 13);
+			this->speedLabel->TabIndex = 117;
+			this->speedLabel->Text = L"Speed";
+			// 
+			// speedBox
+			// 
+			this->speedBox->Location = System::Drawing::Point(712, 220);
+			this->speedBox->Name = L"speedBox";
+			this->speedBox->ReadOnly = true;
+			this->speedBox->Size = System::Drawing::Size(56, 20);
+			this->speedBox->TabIndex = 118;
+			this->speedBox->TextAlign = System::Windows::Forms::HorizontalAlignment::Center;
+			this->speedBox->TextChanged += gcnew System::EventHandler(this, &MyForm::speedBox_TextChanged);
+			// 
+			// HPLabel
+			// 
+			this->HPLabel->AutoSize = true;
+			this->HPLabel->Location = System::Drawing::Point(815, 99);
+			this->HPLabel->Name = L"HPLabel";
+			this->HPLabel->Size = System::Drawing::Size(52, 13);
+			this->HPLabel->TabIndex = 119;
+			this->HPLabel->Text = L"Hit Points";
+			// 
+			// HPBox
+			// 
+			this->HPBox->Location = System::Drawing::Point(818, 121);
+			this->HPBox->Name = L"HPBox";
+			this->HPBox->ReadOnly = true;
+			this->HPBox->Size = System::Drawing::Size(56, 20);
+			this->HPBox->TabIndex = 120;
+			this->HPBox->TextAlign = System::Windows::Forms::HorizontalAlignment::Center;
 			// 
 			// MyForm
 			// 
@@ -1334,7 +1425,15 @@ namespace ConsoleCharacterSheet {
 			this->AutoScaleMode = System::Windows::Forms::AutoScaleMode::Font;
 			this->BackColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(192)), static_cast<System::Int32>(static_cast<System::Byte>(192)),
 				static_cast<System::Int32>(static_cast<System::Byte>(255)));
-			this->ClientSize = System::Drawing::Size(1158, 639);
+			this->ClientSize = System::Drawing::Size(1158, 586);
+			this->Controls->Add(this->HPBox);
+			this->Controls->Add(this->HPLabel);
+			this->Controls->Add(this->speedBox);
+			this->Controls->Add(this->speedLabel);
+			this->Controls->Add(this->InitiaLabel);
+			this->Controls->Add(this->InitiaBox);
+			this->Controls->Add(this->ACBox);
+			this->Controls->Add(this->ACLabel);
 			this->Controls->Add(this->charImageBox);
 			this->Controls->Add(this->survivalLabel);
 			this->Controls->Add(this->stealthLabel);
@@ -1461,6 +1560,10 @@ namespace ConsoleCharacterSheet {
 	}
 	private: System::Void BackgroundGenBox_SelectedIndexChanged(System::Object^  sender, System::EventArgs^  e) {
 	}
+
+	//Character picture box
+	private: System::Void charImageBox_Click(System::Object^  sender, System::EventArgs^  e) {
+	}
 	
 	//Start generation button
 	private: System::Void StartGeneration_Click(System::Object^  sender, System::EventArgs^  e) 
@@ -1522,12 +1625,19 @@ namespace ConsoleCharacterSheet {
 		//calls CharacterGenerator constructor
 		char1 = new CharacterGenerator( playerString, characterString, raceString, genderString, backgroundString, classString, alignmentString, ageVal );
 
+		//set Character Generator
 		playerString = char1->getPlayerName();
 		player = gcnew String(playerString.c_str());
 		this->playerNameBox1->Text = player;
 
 		ageVal = char1->getAge();
 		this->charAgeBox->Text = ageVal.ToString();
+
+		int armorClass = char1->getArmorClass();
+		this->ACBox->Text = armorClass.ToString();
+
+		int initiative = char1->getInitiative();
+		this->InitiaBox->Text = (initiative > 0 ? "+" + initiative.ToString() : initiative.ToString());
 
 		//set Character Race
 		raceClass = char1->getCharacterRace();
@@ -1544,12 +1654,18 @@ namespace ConsoleCharacterSheet {
 		genItem = gcnew String(genderString.c_str());
 		this->GenderBox->Text = genItem;
 
+		int speed = raceClass->getSpeed();
+		this->speedBox->Text = speed.ToString();
+
 		//set Character Class
 		charClass = char1->getCharacterClass();
 
 		classString = charClass->getClassType();
 		clasItem = gcnew String(classString.c_str());
 		this->charClassBox->Text = clasItem;
+
+		int hitPoints = charClass->getHitPoints();
+		this->HPBox->Text = hitPoints.ToString();
 
 		//sets background text boxes
 		background = char1->getCharacterBackground();
@@ -1647,6 +1763,38 @@ namespace ConsoleCharacterSheet {
 		this->intimBox->Text = (chaMod > 0 ? "+" + chaMod.ToString() : chaMod.ToString());
 		this->performBox->Text = (chaMod > 0 ? "+" + chaMod.ToString() : chaMod.ToString());
 		this->persuaBox->Text = (chaMod > 0 ? "+" + chaMod.ToString() : chaMod.ToString());
+
+
+		//Works only from image here.......not sure how to get it to pass an path from human?
+
+		//Bitmap^ MyImage;   //creates new image object
+		//if (MyImage != nullptr)
+		//{
+		//	delete MyImage; // destructor needed obviously
+		//}
+
+		//std::string fileName;
+
+		//this is if you cant pass it from Human class
+
+		//if (genderString.compare("Male") == 0)
+			//fileName = "\\arnie2.bmp";
+		//else // Defaults to Female character
+			//fileName = "C:\\Users\\A\\My Documents\\bath.bmp";
+
+		//String^ fileToDisplay = gcnew String(fileName.c_str());
+
+		//for testing purposes
+
+		//String^ fileToDisplay; // new string object needed for file path
+		//fileToDisplay = "C:\\Users\\A\\My Documents\\arnie2.bmp";// NOTE REQUIRES DOUBLE \\
+		
+		//displays the image
+
+		//charImageBox->SizeMode = PictureBoxSizeMode::StretchImage; // tells it to stretch
+		//MyImage = gcnew Bitmap(fileToDisplay);                    // tells where to get image from
+		//charImageBox->ClientSize = System::Drawing::Size(213, 192); // sets size of photo
+		//charImageBox->Image = dynamic_cast<Image^>(MyImage);              // draws the image
 	}
 
 	//background text boxes
@@ -1673,6 +1821,8 @@ namespace ConsoleCharacterSheet {
 	private: System::Void dextModLabel_Click(System::Object^  sender, System::EventArgs^  e) {
 	}
 	private: System::Void label1_Click_1(System::Object^  sender, System::EventArgs^  e) {
+	}
+	private: System::Void speedBox_TextChanged(System::Object^  sender, System::EventArgs^  e) {
 	}
 };
 }

@@ -35,6 +35,19 @@ string CharacterRace::getName()
 	return charName;
 }
 
+//void CharacterRace::setCharacterImage( string gender )
+//{
+//	if (gender.compare("Male") == 0)
+//			 fileName = "C:\\Users\\A\\My Documents\\arnie2.bmp";
+//	else // Defaults to Female character
+//			fileName = "C:\\Users\\A\\My Documents\\bath.bmp";
+//}
+
+//string CharacterRace::getCharacterImage()
+//{
+//	return fileName;
+//}
+
 string CharacterRace::getRaceType()
 {
 	return charRace;
@@ -44,6 +57,13 @@ string CharacterRace::getGender()
 {
 	return charGender;
 }
+
+int CharacterRace::getSpeed()
+{
+	return charSpeed;
+}
+
+
 
 
 

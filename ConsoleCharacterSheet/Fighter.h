@@ -9,7 +9,5 @@ class Fighter :	public CharacterClass
 		Fighter( int );
 		~Fighter();
 	private:
-		//CharacterEquipment * mainWeapon;
-		//CharacterEquipment * armor;
 };
 

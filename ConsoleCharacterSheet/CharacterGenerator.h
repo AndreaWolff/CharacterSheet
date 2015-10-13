@@ -61,7 +61,8 @@ class CharacterGenerator
 		int getProficiencyBonus();
 		int getAge();
 		string getAlignment();
-
+		int getInitiative();
+		int getArmorClass();
 	private:
 		void generateStats();
 		string playerName;
@@ -82,6 +83,8 @@ class CharacterGenerator
 		int charModifier;
 		int level;
 		int proficiencyBonus;
+		int initiative;
+		int armorClass;
 
 		Die * statGenDice;
 		CharacterBackground * charBackground;

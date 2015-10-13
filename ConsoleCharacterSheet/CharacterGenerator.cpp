@@ -26,6 +26,7 @@ CharacterGenerator::CharacterGenerator( string player, string character, string 
 
 	level = 1;
 	proficiencyBonus = 2;
+	armorClass = 10;
 	age = aAge;
 	alignment = aAlignment;
 
@@ -305,5 +306,15 @@ int CharacterGenerator::getAge()
 string CharacterGenerator::getAlignment()
 {
 	return alignment;
+}
+
+int CharacterGenerator::getInitiative()
+{
+	return dexModifier;
+}
+
+int CharacterGenerator::getArmorClass()
+{
+	return armorClass = armorClass + dexModifier;
 }
 
