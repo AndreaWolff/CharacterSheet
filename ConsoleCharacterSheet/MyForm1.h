@@ -58,6 +58,7 @@ namespace ConsoleCharacterSheet {
 	private: CharacterGenerator * char1;
 	private: CharacterBackground * background;
 	private: CharacterRace * raceClass;
+	private: CharacterClass * charClass;
 
 	private: String^ genItem;
 	private: String^ racItem;
@@ -1484,11 +1485,9 @@ namespace ConsoleCharacterSheet {
 		Object^ raceItem = raceBox->SelectedItem;
 		racItem = raceItem->ToString();
 		MarshalString( racItem, raceString );
-		this->charRaceBox->Text = racItem;
 
 		//Converts decimal to int for age
 		ageVal = (int)ageBox->Value;
-		this->charAgeBox->Text = ageVal.ToString();
 
 		// Player Name
 		player = playerName->Text;
@@ -1499,28 +1498,26 @@ namespace ConsoleCharacterSheet {
 		Object^ alignItem = alignmentBox->SelectedItem;
 		aliItem = alignItem->ToString();
 		MarshalString( aliItem, alignmentString );
-		this->charAlignmentBox->Text = aliItem;
 
 		//generates class drop down box
 		classIndex = ClassBox->SelectedIndex;
 		Object^ classItem = ClassBox->SelectedItem;
 		clasItem = classItem->ToString();
 		MarshalString( clasItem, classString );
-		this->charClassBox->Text = clasItem;
+		//this->charClassBox->Text = clasItem;
 
 		//generates gender drop down box
 		genIndex = GenderBox->SelectedIndex;
 		Object^ genderItem = GenderBox->SelectedItem;
 		genItem = genderItem->ToString();
 		MarshalString( genItem, genderString );
-		this->GenderBox->Text = genItem;
+		//this->GenderBox->Text = genItem;
 
 		//generates background drop down box
 		backgroundIndex = BackgroundGenBox->SelectedIndex;
 		Object^ backgroundItem = BackgroundGenBox->SelectedItem;
 		bGItem = backgroundItem->ToString();
 		MarshalString( bGItem, backgroundString );
-		this->charBackgroungBox->Text = bGItem;
 
 		//calls CharacterGenerator constructor
 		char1 = new CharacterGenerator( playerString, characterString, raceString, genderString, backgroundString, classString, alignmentString, ageVal );
@@ -1529,13 +1526,42 @@ namespace ConsoleCharacterSheet {
 		player = gcnew String(playerString.c_str());
 		this->playerNameBox1->Text = player;
 
+		ageVal = char1->getAge();
+		this->charAgeBox->Text = ageVal.ToString();
+
+		//set Character Race
 		raceClass = char1->getCharacterRace();
+
 		charName2 = raceClass->getName();
 		String^ charName = gcnew String(charName2.c_str());
 		this->charNameBox->Text = charName;
 
+		raceString = raceClass->getRaceType();
+		racItem = gcnew String(raceString.c_str());
+		this->charRaceBox->Text = racItem;
+
+		genderString = raceClass->getGender();
+		genItem = gcnew String(genderString.c_str());
+		this->GenderBox->Text = genItem;
+
+		//set Character Class
+		charClass = char1->getCharacterClass();
+
+		classString = charClass->getClassType();
+		clasItem = gcnew String(classString.c_str());
+		this->charClassBox->Text = clasItem;
+
 		//sets background text boxes
 		background = char1->getCharacterBackground();
+
+		backgroundString = background->getBackgroundType();
+		bGItem = gcnew String(backgroundString.c_str());		
+		this->charBackgroungBox->Text = bGItem;
+
+		alignmentString = char1->getAlignment();
+		aliItem = gcnew String(alignmentString.c_str());
+		this->charAlignmentBox->Text = aliItem;
+
 		personalityTrait = background->getPersonalityTrait();
 		String^ personality = gcnew String( personalityTrait.c_str() );
 		this->personalityBox->Text = personality;

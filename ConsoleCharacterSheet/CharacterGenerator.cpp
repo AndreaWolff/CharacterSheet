@@ -200,9 +200,6 @@ int CharacterGenerator::getCharModifier()
 	return charModifier;
 }
 
-
-//
-
 void CharacterGenerator::setClass( string chosenClass )
 {
 	if (chosenClass.compare("Fighter") == 0) 
@@ -252,6 +249,11 @@ CharacterBackground * CharacterGenerator::getCharacterBackground()
 CharacterRace * CharacterGenerator::getCharacterRace()
 {
 	return charRace;
+}
+
+CharacterClass * CharacterGenerator::getCharacterClass()
+{
+	return charClass;
 }
 
 void CharacterGenerator::setLevel(int levelUpDown)

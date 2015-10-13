@@ -13,7 +13,6 @@ CharacterBackground::CharacterBackground()
 
 CharacterBackground::CharacterBackground( string background, string align )
 {
-	//initialized the charBackground to the one the user chose
 	die1D6 = new Die( 6, 1 );
 	die1D8 = new Die( 8, 1 );
 

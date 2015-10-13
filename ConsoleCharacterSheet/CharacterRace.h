@@ -17,6 +17,7 @@ class CharacterRace
 		virtual void setName( string ) = 0; // Pure virtual function denoting this class as an abstract class, from which Derived objects will override
 		virtual string getName() = 0;
 		string getRaceType();
+		string getGender();
 	protected:
 		string charRace;
 		string charGender;

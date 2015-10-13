@@ -40,5 +40,10 @@ string CharacterRace::getRaceType()
 	return charRace;
 }
 
+string CharacterRace::getGender()
+{
+	return charGender;
+}
+
 
 

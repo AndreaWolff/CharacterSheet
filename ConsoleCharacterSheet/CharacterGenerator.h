@@ -49,6 +49,7 @@ class CharacterGenerator
 
 		CharacterBackground* getCharacterBackground();
 		CharacterRace* getCharacterRace();
+		CharacterClass* getCharacterClass();
 
 		void setLevel( int );
 		int getLevel();
