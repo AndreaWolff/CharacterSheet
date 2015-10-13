@@ -358,17 +358,19 @@ private: System::Windows::Forms::PictureBox^  charImageBox;
 			// 
 			this->BackgroundGenBox->FormattingEnabled = true;
 			this->BackgroundGenBox->Items->AddRange(gcnew cli::array< System::Object^  >(3) { L"Criminal", L"Folk Hero", L"Hermit" });
-			this->BackgroundGenBox->Location = System::Drawing::Point(22, 252);
+			this->BackgroundGenBox->Location = System::Drawing::Point(33, 388);
+			this->BackgroundGenBox->Margin = System::Windows::Forms::Padding(4, 5, 4, 5);
 			this->BackgroundGenBox->Name = L"BackgroundGenBox";
-			this->BackgroundGenBox->Size = System::Drawing::Size(121, 21);
+			this->BackgroundGenBox->Size = System::Drawing::Size(180, 28);
 			this->BackgroundGenBox->TabIndex = 0;
 			this->BackgroundGenBox->SelectedIndexChanged += gcnew System::EventHandler(this, &MyForm::BackgroundGenBox_SelectedIndexChanged);
 			// 
 			// StartGeneration
 			// 
-			this->StartGeneration->Location = System::Drawing::Point(21, 375);
+			this->StartGeneration->Location = System::Drawing::Point(32, 577);
+			this->StartGeneration->Margin = System::Windows::Forms::Padding(4, 5, 4, 5);
 			this->StartGeneration->Name = L"StartGeneration";
-			this->StartGeneration->Size = System::Drawing::Size(123, 23);
+			this->StartGeneration->Size = System::Drawing::Size(184, 35);
 			this->StartGeneration->TabIndex = 1;
 			this->StartGeneration->Text = L"Start Generation";
 			this->StartGeneration->UseVisualStyleBackColor = true;
@@ -376,33 +378,41 @@ private: System::Windows::Forms::PictureBox^  charImageBox;
 			// 
 			// personalityBox
 			// 
-			this->personalityBox->Location = System::Drawing::Point(581, 439);
+			this->personalityBox->Location = System::Drawing::Point(872, 675);
+			this->personalityBox->Margin = System::Windows::Forms::Padding(4, 5, 4, 5);
 			this->personalityBox->Name = L"personalityBox";
-			this->personalityBox->Size = System::Drawing::Size(566, 20);
+			this->personalityBox->ReadOnly = true;
+			this->personalityBox->Size = System::Drawing::Size(847, 26);
 			this->personalityBox->TabIndex = 2;
 			this->personalityBox->TextChanged += gcnew System::EventHandler(this, &MyForm::personalityBox_TextChanged);
 			// 
 			// idealBox
 			// 
-			this->idealBox->Location = System::Drawing::Point(581, 491);
+			this->idealBox->Location = System::Drawing::Point(872, 755);
+			this->idealBox->Margin = System::Windows::Forms::Padding(4, 5, 4, 5);
 			this->idealBox->Name = L"idealBox";
-			this->idealBox->Size = System::Drawing::Size(566, 20);
+			this->idealBox->ReadOnly = true;
+			this->idealBox->Size = System::Drawing::Size(847, 26);
 			this->idealBox->TabIndex = 3;
 			this->idealBox->TextChanged += gcnew System::EventHandler(this, &MyForm::idealBox_TextChanged);
 			// 
 			// bondBox
 			// 
-			this->bondBox->Location = System::Drawing::Point(581, 540);
+			this->bondBox->Location = System::Drawing::Point(872, 831);
+			this->bondBox->Margin = System::Windows::Forms::Padding(4, 5, 4, 5);
 			this->bondBox->Name = L"bondBox";
-			this->bondBox->Size = System::Drawing::Size(566, 20);
+			this->bondBox->ReadOnly = true;
+			this->bondBox->Size = System::Drawing::Size(847, 26);
 			this->bondBox->TabIndex = 4;
 			this->bondBox->TextChanged += gcnew System::EventHandler(this, &MyForm::bondBox_TextChanged);
 			// 
 			// flawBox
 			// 
-			this->flawBox->Location = System::Drawing::Point(581, 587);
+			this->flawBox->Location = System::Drawing::Point(872, 903);
+			this->flawBox->Margin = System::Windows::Forms::Padding(4, 5, 4, 5);
 			this->flawBox->Name = L"flawBox";
-			this->flawBox->Size = System::Drawing::Size(566, 20);
+			this->flawBox->ReadOnly = true;
+			this->flawBox->Size = System::Drawing::Size(847, 26);
 			this->flawBox->TabIndex = 5;
 			this->flawBox->TextChanged += gcnew System::EventHandler(this, &MyForm::flawBox_TextChanged);
 			// 
@@ -410,9 +420,10 @@ private: System::Windows::Forms::PictureBox^  charImageBox;
 			// 
 			this->GenderBox->FormattingEnabled = true;
 			this->GenderBox->Items->AddRange(gcnew cli::array< System::Object^  >(2) { L"Male", L"Female" });
-			this->GenderBox->Location = System::Drawing::Point(22, 212);
+			this->GenderBox->Location = System::Drawing::Point(33, 326);
+			this->GenderBox->Margin = System::Windows::Forms::Padding(4, 5, 4, 5);
 			this->GenderBox->Name = L"GenderBox";
-			this->GenderBox->Size = System::Drawing::Size(121, 21);
+			this->GenderBox->Size = System::Drawing::Size(180, 28);
 			this->GenderBox->TabIndex = 6;
 			this->GenderBox->SelectedIndexChanged += gcnew System::EventHandler(this, &MyForm::GenderBox_SelectedIndexChanged);
 			// 
@@ -420,9 +431,10 @@ private: System::Windows::Forms::PictureBox^  charImageBox;
 			// 
 			this->raceBox->FormattingEnabled = true;
 			this->raceBox->Items->AddRange(gcnew cli::array< System::Object^  >(3) { L"Human", L"Elf", L"Dwarf" });
-			this->raceBox->Location = System::Drawing::Point(23, 132);
+			this->raceBox->Location = System::Drawing::Point(34, 203);
+			this->raceBox->Margin = System::Windows::Forms::Padding(4, 5, 4, 5);
 			this->raceBox->Name = L"raceBox";
-			this->raceBox->Size = System::Drawing::Size(121, 21);
+			this->raceBox->Size = System::Drawing::Size(180, 28);
 			this->raceBox->TabIndex = 7;
 			this->raceBox->SelectedIndexChanged += gcnew System::EventHandler(this, &MyForm::raceBox_SelectedIndexChanged);
 			// 
@@ -430,24 +442,27 @@ private: System::Windows::Forms::PictureBox^  charImageBox;
 			// 
 			this->ClassBox->FormattingEnabled = true;
 			this->ClassBox->Items->AddRange(gcnew cli::array< System::Object^  >(4) { L"Fighter", L"Cleric", L"Wizard", L"Ranger" });
-			this->ClassBox->Location = System::Drawing::Point(23, 172);
+			this->ClassBox->Location = System::Drawing::Point(34, 265);
+			this->ClassBox->Margin = System::Windows::Forms::Padding(4, 5, 4, 5);
 			this->ClassBox->Name = L"ClassBox";
-			this->ClassBox->Size = System::Drawing::Size(121, 21);
+			this->ClassBox->Size = System::Drawing::Size(180, 28);
 			this->ClassBox->TabIndex = 8;
 			// 
 			// playerName
 			// 
-			this->playerName->Location = System::Drawing::Point(21, 92);
+			this->playerName->Location = System::Drawing::Point(32, 142);
+			this->playerName->Margin = System::Windows::Forms::Padding(4, 5, 4, 5);
 			this->playerName->Name = L"playerName";
-			this->playerName->Size = System::Drawing::Size(121, 20);
+			this->playerName->Size = System::Drawing::Size(180, 26);
 			this->playerName->TabIndex = 11;
 			// 
 			// raceLabel
 			// 
 			this->raceLabel->AutoSize = true;
-			this->raceLabel->Location = System::Drawing::Point(20, 116);
+			this->raceLabel->Location = System::Drawing::Point(30, 178);
+			this->raceLabel->Margin = System::Windows::Forms::Padding(4, 0, 4, 0);
 			this->raceLabel->Name = L"raceLabel";
-			this->raceLabel->Size = System::Drawing::Size(76, 13);
+			this->raceLabel->Size = System::Drawing::Size(112, 20);
 			this->raceLabel->TabIndex = 12;
 			this->raceLabel->Text = L"Choose a race";
 			this->raceLabel->Click += gcnew System::EventHandler(this, &MyForm::label1_Click);
@@ -455,36 +470,40 @@ private: System::Windows::Forms::PictureBox^  charImageBox;
 			// classLabel
 			// 
 			this->classLabel->AutoSize = true;
-			this->classLabel->Location = System::Drawing::Point(20, 156);
+			this->classLabel->Location = System::Drawing::Point(30, 240);
+			this->classLabel->Margin = System::Windows::Forms::Padding(4, 0, 4, 0);
 			this->classLabel->Name = L"classLabel";
-			this->classLabel->Size = System::Drawing::Size(79, 13);
+			this->classLabel->Size = System::Drawing::Size(117, 20);
 			this->classLabel->TabIndex = 13;
 			this->classLabel->Text = L"Choose a class";
 			// 
 			// genderLabel
 			// 
 			this->genderLabel->AutoSize = true;
-			this->genderLabel->Location = System::Drawing::Point(21, 196);
+			this->genderLabel->Location = System::Drawing::Point(32, 302);
+			this->genderLabel->Margin = System::Windows::Forms::Padding(4, 0, 4, 0);
 			this->genderLabel->Name = L"genderLabel";
-			this->genderLabel->Size = System::Drawing::Size(88, 13);
+			this->genderLabel->Size = System::Drawing::Size(131, 20);
 			this->genderLabel->TabIndex = 14;
 			this->genderLabel->Text = L"Choose a gender";
 			// 
 			// backgroundLabel
 			// 
 			this->backgroundLabel->AutoSize = true;
-			this->backgroundLabel->Location = System::Drawing::Point(22, 236);
+			this->backgroundLabel->Location = System::Drawing::Point(33, 363);
+			this->backgroundLabel->Margin = System::Windows::Forms::Padding(4, 0, 4, 0);
 			this->backgroundLabel->Name = L"backgroundLabel";
-			this->backgroundLabel->Size = System::Drawing::Size(112, 13);
+			this->backgroundLabel->Size = System::Drawing::Size(165, 20);
 			this->backgroundLabel->TabIndex = 15;
 			this->backgroundLabel->Text = L"Choose a background";
 			// 
 			// playernameLabel
 			// 
 			this->playernameLabel->AutoSize = true;
-			this->playernameLabel->Location = System::Drawing::Point(20, 76);
+			this->playernameLabel->Location = System::Drawing::Point(30, 117);
+			this->playernameLabel->Margin = System::Windows::Forms::Padding(4, 0, 4, 0);
 			this->playernameLabel->Name = L"playernameLabel";
-			this->playernameLabel->Size = System::Drawing::Size(84, 13);
+			this->playernameLabel->Size = System::Drawing::Size(126, 20);
 			this->playernameLabel->TabIndex = 16;
 			this->playernameLabel->Text = L"Enter your name";
 			// 
@@ -495,71 +514,79 @@ private: System::Windows::Forms::PictureBox^  charImageBox;
 				L"Lawful Good", L"Neutral Good", L"Chaotic Good",
 					L"Lawful Neutral", L"Neutral", L"Chaotic Neutral", L"Lawful Evil", L"Neutral Evil", L"Chaotic Evil"
 			});
-			this->alignmentBox->Location = System::Drawing::Point(23, 292);
+			this->alignmentBox->Location = System::Drawing::Point(34, 449);
+			this->alignmentBox->Margin = System::Windows::Forms::Padding(4, 5, 4, 5);
 			this->alignmentBox->Name = L"alignmentBox";
-			this->alignmentBox->Size = System::Drawing::Size(120, 21);
+			this->alignmentBox->Size = System::Drawing::Size(178, 28);
 			this->alignmentBox->TabIndex = 18;
 			// 
 			// alignmentLabel
 			// 
 			this->alignmentLabel->AutoSize = true;
-			this->alignmentLabel->Location = System::Drawing::Point(22, 276);
+			this->alignmentLabel->Location = System::Drawing::Point(33, 425);
+			this->alignmentLabel->Margin = System::Windows::Forms::Padding(4, 0, 4, 0);
 			this->alignmentLabel->Name = L"alignmentLabel";
-			this->alignmentLabel->Size = System::Drawing::Size(114, 13);
+			this->alignmentLabel->Size = System::Drawing::Size(171, 20);
 			this->alignmentLabel->TabIndex = 19;
 			this->alignmentLabel->Text = L"Choose your alignment";
 			// 
 			// ageLabel
 			// 
 			this->ageLabel->AutoSize = true;
-			this->ageLabel->Location = System::Drawing::Point(22, 316);
+			this->ageLabel->Location = System::Drawing::Point(33, 486);
+			this->ageLabel->Margin = System::Windows::Forms::Padding(4, 0, 4, 0);
 			this->ageLabel->Name = L"ageLabel";
-			this->ageLabel->Size = System::Drawing::Size(87, 13);
+			this->ageLabel->Size = System::Drawing::Size(129, 20);
 			this->ageLabel->TabIndex = 21;
 			this->ageLabel->Text = L"Choose your age";
 			// 
 			// ageBox
 			// 
-			this->ageBox->Location = System::Drawing::Point(24, 332);
+			this->ageBox->Location = System::Drawing::Point(36, 511);
+			this->ageBox->Margin = System::Windows::Forms::Padding(4, 5, 4, 5);
 			this->ageBox->Minimum = System::Decimal(gcnew cli::array< System::Int32 >(4) { 15, 0, 0, 0 });
 			this->ageBox->Name = L"ageBox";
-			this->ageBox->Size = System::Drawing::Size(120, 20);
+			this->ageBox->Size = System::Drawing::Size(180, 26);
 			this->ageBox->TabIndex = 22;
 			this->ageBox->Value = System::Decimal(gcnew cli::array< System::Int32 >(4) { 15, 0, 0, 0 });
 			// 
 			// personalityLabel
 			// 
 			this->personalityLabel->AutoSize = true;
-			this->personalityLabel->Location = System::Drawing::Point(583, 468);
+			this->personalityLabel->Location = System::Drawing::Point(874, 720);
+			this->personalityLabel->Margin = System::Windows::Forms::Padding(4, 0, 4, 0);
 			this->personalityLabel->Name = L"personalityLabel";
-			this->personalityLabel->Size = System::Drawing::Size(87, 13);
+			this->personalityLabel->Size = System::Drawing::Size(129, 20);
 			this->personalityLabel->TabIndex = 23;
 			this->personalityLabel->Text = L"Personality Traits";
 			// 
 			// idealLabel
 			// 
 			this->idealLabel->AutoSize = true;
-			this->idealLabel->Location = System::Drawing::Point(582, 514);
+			this->idealLabel->Location = System::Drawing::Point(873, 791);
+			this->idealLabel->Margin = System::Windows::Forms::Padding(4, 0, 4, 0);
 			this->idealLabel->Name = L"idealLabel";
-			this->idealLabel->Size = System::Drawing::Size(35, 13);
+			this->idealLabel->Size = System::Drawing::Size(52, 20);
 			this->idealLabel->TabIndex = 24;
 			this->idealLabel->Text = L"Ideals";
 			// 
 			// bondLabel
 			// 
 			this->bondLabel->AutoSize = true;
-			this->bondLabel->Location = System::Drawing::Point(583, 567);
+			this->bondLabel->Location = System::Drawing::Point(874, 872);
+			this->bondLabel->Margin = System::Windows::Forms::Padding(4, 0, 4, 0);
 			this->bondLabel->Name = L"bondLabel";
-			this->bondLabel->Size = System::Drawing::Size(37, 13);
+			this->bondLabel->Size = System::Drawing::Size(55, 20);
 			this->bondLabel->TabIndex = 25;
 			this->bondLabel->Text = L"Bonds";
 			// 
 			// flawLabel
 			// 
 			this->flawLabel->AutoSize = true;
-			this->flawLabel->Location = System::Drawing::Point(583, 617);
+			this->flawLabel->Location = System::Drawing::Point(874, 949);
+			this->flawLabel->Margin = System::Windows::Forms::Padding(4, 0, 4, 0);
 			this->flawLabel->Name = L"flawLabel";
-			this->flawLabel->Size = System::Drawing::Size(34, 13);
+			this->flawLabel->Size = System::Drawing::Size(50, 20);
 			this->flawLabel->TabIndex = 26;
 			this->flawLabel->Text = L"Flaws";
 			this->flawLabel->Click += gcnew System::EventHandler(this, &MyForm::flawLabel_Click);
@@ -567,273 +594,325 @@ private: System::Windows::Forms::PictureBox^  charImageBox;
 			// characterNameLabel
 			// 
 			this->characterNameLabel->AutoSize = true;
-			this->characterNameLabel->Location = System::Drawing::Point(209, 60);
+			this->characterNameLabel->Location = System::Drawing::Point(314, 92);
+			this->characterNameLabel->Margin = System::Windows::Forms::Padding(4, 0, 4, 0);
 			this->characterNameLabel->Name = L"characterNameLabel";
-			this->characterNameLabel->Size = System::Drawing::Size(84, 13);
+			this->characterNameLabel->Size = System::Drawing::Size(125, 20);
 			this->characterNameLabel->TabIndex = 27;
 			this->characterNameLabel->Text = L"Character Name";
 			// 
 			// charNameBox
 			// 
-			this->charNameBox->Location = System::Drawing::Point(212, 37);
+			this->charNameBox->Location = System::Drawing::Point(318, 57);
+			this->charNameBox->Margin = System::Windows::Forms::Padding(4, 5, 4, 5);
 			this->charNameBox->Name = L"charNameBox";
-			this->charNameBox->Size = System::Drawing::Size(163, 20);
+			this->charNameBox->ReadOnly = true;
+			this->charNameBox->Size = System::Drawing::Size(242, 26);
 			this->charNameBox->TabIndex = 28;
 			// 
 			// charClasslabel
 			// 
 			this->charClasslabel->AutoSize = true;
-			this->charClasslabel->Location = System::Drawing::Point(524, 59);
+			this->charClasslabel->Location = System::Drawing::Point(786, 91);
+			this->charClasslabel->Margin = System::Windows::Forms::Padding(4, 0, 4, 0);
 			this->charClasslabel->Name = L"charClasslabel";
-			this->charClasslabel->Size = System::Drawing::Size(32, 13);
+			this->charClasslabel->Size = System::Drawing::Size(48, 20);
 			this->charClasslabel->TabIndex = 29;
 			this->charClasslabel->Text = L"Class";
 			// 
 			// charClassBox
 			// 
-			this->charClassBox->Location = System::Drawing::Point(527, 36);
+			this->charClassBox->Location = System::Drawing::Point(790, 55);
+			this->charClassBox->Margin = System::Windows::Forms::Padding(4, 5, 4, 5);
 			this->charClassBox->Name = L"charClassBox";
-			this->charClassBox->Size = System::Drawing::Size(100, 20);
+			this->charClassBox->ReadOnly = true;
+			this->charClassBox->Size = System::Drawing::Size(148, 26);
 			this->charClassBox->TabIndex = 30;
 			// 
 			// charBackgroungBox
 			// 
-			this->charBackgroungBox->Location = System::Drawing::Point(652, 36);
+			this->charBackgroungBox->Location = System::Drawing::Point(978, 55);
+			this->charBackgroungBox->Margin = System::Windows::Forms::Padding(4, 5, 4, 5);
 			this->charBackgroungBox->Name = L"charBackgroungBox";
-			this->charBackgroungBox->Size = System::Drawing::Size(100, 20);
+			this->charBackgroungBox->ReadOnly = true;
+			this->charBackgroungBox->Size = System::Drawing::Size(148, 26);
 			this->charBackgroungBox->TabIndex = 31;
 			// 
 			// charBackgroundLabel
 			// 
 			this->charBackgroundLabel->AutoSize = true;
-			this->charBackgroundLabel->Location = System::Drawing::Point(649, 60);
+			this->charBackgroundLabel->Location = System::Drawing::Point(974, 92);
+			this->charBackgroundLabel->Margin = System::Windows::Forms::Padding(4, 0, 4, 0);
 			this->charBackgroundLabel->Name = L"charBackgroundLabel";
-			this->charBackgroundLabel->Size = System::Drawing::Size(65, 13);
+			this->charBackgroundLabel->Size = System::Drawing::Size(95, 20);
 			this->charBackgroundLabel->TabIndex = 32;
 			this->charBackgroundLabel->Text = L"Background";
 			// 
 			// playerNameLabel1
 			// 
 			this->playerNameLabel1->AutoSize = true;
-			this->playerNameLabel1->Location = System::Drawing::Point(1028, 59);
+			this->playerNameLabel1->Location = System::Drawing::Point(1542, 91);
+			this->playerNameLabel1->Margin = System::Windows::Forms::Padding(4, 0, 4, 0);
 			this->playerNameLabel1->Name = L"playerNameLabel1";
-			this->playerNameLabel1->Size = System::Drawing::Size(67, 13);
+			this->playerNameLabel1->Size = System::Drawing::Size(98, 20);
 			this->playerNameLabel1->TabIndex = 33;
 			this->playerNameLabel1->Text = L"Player Name";
 			// 
 			// playerNameBox1
 			// 
-			this->playerNameBox1->Location = System::Drawing::Point(1031, 36);
+			this->playerNameBox1->Location = System::Drawing::Point(1546, 55);
+			this->playerNameBox1->Margin = System::Windows::Forms::Padding(4, 5, 4, 5);
 			this->playerNameBox1->Name = L"playerNameBox1";
-			this->playerNameBox1->Size = System::Drawing::Size(113, 20);
+			this->playerNameBox1->ReadOnly = true;
+			this->playerNameBox1->Size = System::Drawing::Size(168, 26);
 			this->playerNameBox1->TabIndex = 34;
 			// 
 			// charRaceLabel
 			// 
 			this->charRaceLabel->AutoSize = true;
-			this->charRaceLabel->Location = System::Drawing::Point(397, 60);
+			this->charRaceLabel->Location = System::Drawing::Point(596, 92);
+			this->charRaceLabel->Margin = System::Windows::Forms::Padding(4, 0, 4, 0);
 			this->charRaceLabel->Name = L"charRaceLabel";
-			this->charRaceLabel->Size = System::Drawing::Size(33, 13);
+			this->charRaceLabel->Size = System::Drawing::Size(47, 20);
 			this->charRaceLabel->TabIndex = 35;
 			this->charRaceLabel->Text = L"Race";
 			// 
 			// charRaceBox
 			// 
-			this->charRaceBox->Location = System::Drawing::Point(400, 37);
+			this->charRaceBox->Location = System::Drawing::Point(600, 57);
+			this->charRaceBox->Margin = System::Windows::Forms::Padding(4, 5, 4, 5);
 			this->charRaceBox->Name = L"charRaceBox";
-			this->charRaceBox->Size = System::Drawing::Size(100, 20);
+			this->charRaceBox->ReadOnly = true;
+			this->charRaceBox->Size = System::Drawing::Size(148, 26);
 			this->charRaceBox->TabIndex = 36;
 			// 
 			// charAlignmentLabel
 			// 
 			this->charAlignmentLabel->AutoSize = true;
-			this->charAlignmentLabel->Location = System::Drawing::Point(771, 59);
+			this->charAlignmentLabel->Location = System::Drawing::Point(1156, 91);
+			this->charAlignmentLabel->Margin = System::Windows::Forms::Padding(4, 0, 4, 0);
 			this->charAlignmentLabel->Name = L"charAlignmentLabel";
-			this->charAlignmentLabel->Size = System::Drawing::Size(53, 13);
+			this->charAlignmentLabel->Size = System::Drawing::Size(80, 20);
 			this->charAlignmentLabel->TabIndex = 37;
 			this->charAlignmentLabel->Text = L"Alignment";
 			// 
 			// charAlignmentBox
 			// 
-			this->charAlignmentBox->Location = System::Drawing::Point(774, 36);
+			this->charAlignmentBox->Location = System::Drawing::Point(1161, 55);
+			this->charAlignmentBox->Margin = System::Windows::Forms::Padding(4, 5, 4, 5);
 			this->charAlignmentBox->Name = L"charAlignmentBox";
-			this->charAlignmentBox->Size = System::Drawing::Size(100, 20);
+			this->charAlignmentBox->ReadOnly = true;
+			this->charAlignmentBox->Size = System::Drawing::Size(148, 26);
 			this->charAlignmentBox->TabIndex = 38;
 			// 
 			// charAgeLabel
 			// 
 			this->charAgeLabel->AutoSize = true;
-			this->charAgeLabel->Location = System::Drawing::Point(899, 60);
+			this->charAgeLabel->Location = System::Drawing::Point(1348, 92);
+			this->charAgeLabel->Margin = System::Windows::Forms::Padding(4, 0, 4, 0);
 			this->charAgeLabel->Name = L"charAgeLabel";
-			this->charAgeLabel->Size = System::Drawing::Size(26, 13);
+			this->charAgeLabel->Size = System::Drawing::Size(38, 20);
 			this->charAgeLabel->TabIndex = 39;
 			this->charAgeLabel->Text = L"Age";
 			// 
 			// charAgeBox
 			// 
-			this->charAgeBox->Location = System::Drawing::Point(902, 36);
+			this->charAgeBox->Location = System::Drawing::Point(1353, 55);
+			this->charAgeBox->Margin = System::Windows::Forms::Padding(4, 5, 4, 5);
 			this->charAgeBox->Name = L"charAgeBox";
-			this->charAgeBox->Size = System::Drawing::Size(100, 20);
+			this->charAgeBox->ReadOnly = true;
+			this->charAgeBox->Size = System::Drawing::Size(148, 26);
 			this->charAgeBox->TabIndex = 40;
 			// 
 			// strengthLabel
 			// 
 			this->strengthLabel->AutoSize = true;
-			this->strengthLabel->Location = System::Drawing::Point(262, 99);
+			this->strengthLabel->Location = System::Drawing::Point(393, 152);
+			this->strengthLabel->Margin = System::Windows::Forms::Padding(4, 0, 4, 0);
 			this->strengthLabel->Name = L"strengthLabel";
-			this->strengthLabel->Size = System::Drawing::Size(47, 13);
+			this->strengthLabel->Size = System::Drawing::Size(71, 20);
 			this->strengthLabel->TabIndex = 41;
 			this->strengthLabel->Text = L"Strength";
 			// 
 			// strengthBox
 			// 
-			this->strengthBox->Location = System::Drawing::Point(259, 116);
+			this->strengthBox->Location = System::Drawing::Point(388, 178);
+			this->strengthBox->Margin = System::Windows::Forms::Padding(4, 5, 4, 5);
 			this->strengthBox->Name = L"strengthBox";
-			this->strengthBox->Size = System::Drawing::Size(56, 20);
+			this->strengthBox->ReadOnly = true;
+			this->strengthBox->Size = System::Drawing::Size(82, 26);
 			this->strengthBox->TabIndex = 42;
 			this->strengthBox->TextAlign = System::Windows::Forms::HorizontalAlignment::Center;
 			// 
 			// strengthModBox
 			// 
-			this->strengthModBox->Location = System::Drawing::Point(268, 142);
+			this->strengthModBox->Location = System::Drawing::Point(402, 218);
+			this->strengthModBox->Margin = System::Windows::Forms::Padding(4, 5, 4, 5);
 			this->strengthModBox->Name = L"strengthModBox";
-			this->strengthModBox->Size = System::Drawing::Size(36, 20);
+			this->strengthModBox->ReadOnly = true;
+			this->strengthModBox->Size = System::Drawing::Size(52, 26);
 			this->strengthModBox->TabIndex = 43;
 			this->strengthModBox->TextAlign = System::Windows::Forms::HorizontalAlignment::Center;
 			// 
 			// dexLabel
 			// 
 			this->dexLabel->AutoSize = true;
-			this->dexLabel->Location = System::Drawing::Point(262, 165);
+			this->dexLabel->Location = System::Drawing::Point(393, 254);
+			this->dexLabel->Margin = System::Windows::Forms::Padding(4, 0, 4, 0);
 			this->dexLabel->Name = L"dexLabel";
-			this->dexLabel->Size = System::Drawing::Size(48, 13);
+			this->dexLabel->Size = System::Drawing::Size(71, 20);
 			this->dexLabel->TabIndex = 44;
 			this->dexLabel->Text = L"Dexterity";
 			this->dexLabel->Click += gcnew System::EventHandler(this, &MyForm::dexLabel_Click);
 			// 
 			// dexBox
 			// 
-			this->dexBox->Location = System::Drawing::Point(259, 181);
+			this->dexBox->Location = System::Drawing::Point(388, 278);
+			this->dexBox->Margin = System::Windows::Forms::Padding(4, 5, 4, 5);
 			this->dexBox->Name = L"dexBox";
-			this->dexBox->Size = System::Drawing::Size(56, 20);
+			this->dexBox->ReadOnly = true;
+			this->dexBox->Size = System::Drawing::Size(82, 26);
 			this->dexBox->TabIndex = 45;
 			this->dexBox->TextAlign = System::Windows::Forms::HorizontalAlignment::Center;
 			// 
 			// dexModBox
 			// 
-			this->dexModBox->Location = System::Drawing::Point(268, 207);
+			this->dexModBox->Location = System::Drawing::Point(402, 318);
+			this->dexModBox->Margin = System::Windows::Forms::Padding(4, 5, 4, 5);
 			this->dexModBox->Name = L"dexModBox";
-			this->dexModBox->Size = System::Drawing::Size(36, 20);
+			this->dexModBox->ReadOnly = true;
+			this->dexModBox->Size = System::Drawing::Size(52, 26);
 			this->dexModBox->TabIndex = 46;
 			this->dexModBox->TextAlign = System::Windows::Forms::HorizontalAlignment::Center;
 			// 
 			// constitLabel
 			// 
 			this->constitLabel->AutoSize = true;
-			this->constitLabel->Location = System::Drawing::Point(256, 230);
+			this->constitLabel->Location = System::Drawing::Point(384, 354);
+			this->constitLabel->Margin = System::Windows::Forms::Padding(4, 0, 4, 0);
 			this->constitLabel->Name = L"constitLabel";
-			this->constitLabel->Size = System::Drawing::Size(62, 13);
+			this->constitLabel->Size = System::Drawing::Size(94, 20);
 			this->constitLabel->TabIndex = 47;
 			this->constitLabel->Text = L"Constitution";
 			// 
 			// constitBox
 			// 
-			this->constitBox->Location = System::Drawing::Point(259, 246);
+			this->constitBox->Location = System::Drawing::Point(388, 378);
+			this->constitBox->Margin = System::Windows::Forms::Padding(4, 5, 4, 5);
 			this->constitBox->Name = L"constitBox";
-			this->constitBox->Size = System::Drawing::Size(56, 20);
+			this->constitBox->ReadOnly = true;
+			this->constitBox->Size = System::Drawing::Size(82, 26);
 			this->constitBox->TabIndex = 48;
 			this->constitBox->TextAlign = System::Windows::Forms::HorizontalAlignment::Center;
 			// 
 			// constitModBox
 			// 
-			this->constitModBox->Location = System::Drawing::Point(270, 272);
+			this->constitModBox->Location = System::Drawing::Point(405, 418);
+			this->constitModBox->Margin = System::Windows::Forms::Padding(4, 5, 4, 5);
 			this->constitModBox->Name = L"constitModBox";
-			this->constitModBox->Size = System::Drawing::Size(34, 20);
+			this->constitModBox->ReadOnly = true;
+			this->constitModBox->Size = System::Drawing::Size(49, 26);
 			this->constitModBox->TabIndex = 49;
 			this->constitModBox->TextAlign = System::Windows::Forms::HorizontalAlignment::Center;
 			// 
 			// intellLabel
 			// 
 			this->intellLabel->AutoSize = true;
-			this->intellLabel->Location = System::Drawing::Point(257, 295);
+			this->intellLabel->Location = System::Drawing::Point(386, 454);
+			this->intellLabel->Margin = System::Windows::Forms::Padding(4, 0, 4, 0);
 			this->intellLabel->Name = L"intellLabel";
-			this->intellLabel->Size = System::Drawing::Size(61, 13);
+			this->intellLabel->Size = System::Drawing::Size(90, 20);
 			this->intellLabel->TabIndex = 50;
 			this->intellLabel->Text = L"Intelligence";
 			// 
 			// intellBox
 			// 
-			this->intellBox->Location = System::Drawing::Point(259, 313);
+			this->intellBox->Location = System::Drawing::Point(388, 482);
+			this->intellBox->Margin = System::Windows::Forms::Padding(4, 5, 4, 5);
 			this->intellBox->Name = L"intellBox";
-			this->intellBox->Size = System::Drawing::Size(56, 20);
+			this->intellBox->ReadOnly = true;
+			this->intellBox->Size = System::Drawing::Size(82, 26);
 			this->intellBox->TabIndex = 51;
 			this->intellBox->TextAlign = System::Windows::Forms::HorizontalAlignment::Center;
 			// 
 			// intellModBox
 			// 
-			this->intellModBox->Location = System::Drawing::Point(270, 339);
+			this->intellModBox->Location = System::Drawing::Point(405, 522);
+			this->intellModBox->Margin = System::Windows::Forms::Padding(4, 5, 4, 5);
 			this->intellModBox->Name = L"intellModBox";
-			this->intellModBox->Size = System::Drawing::Size(34, 20);
+			this->intellModBox->ReadOnly = true;
+			this->intellModBox->Size = System::Drawing::Size(49, 26);
 			this->intellModBox->TabIndex = 52;
 			this->intellModBox->TextAlign = System::Windows::Forms::HorizontalAlignment::Center;
 			// 
 			// wisdomLabel
 			// 
 			this->wisdomLabel->AutoSize = true;
-			this->wisdomLabel->Location = System::Drawing::Point(265, 362);
+			this->wisdomLabel->Location = System::Drawing::Point(398, 557);
+			this->wisdomLabel->Margin = System::Windows::Forms::Padding(4, 0, 4, 0);
 			this->wisdomLabel->Name = L"wisdomLabel";
-			this->wisdomLabel->Size = System::Drawing::Size(45, 13);
+			this->wisdomLabel->Size = System::Drawing::Size(66, 20);
 			this->wisdomLabel->TabIndex = 53;
 			this->wisdomLabel->Text = L"Wisdom";
 			// 
 			// wisBox
 			// 
-			this->wisBox->Location = System::Drawing::Point(259, 378);
+			this->wisBox->Location = System::Drawing::Point(388, 582);
+			this->wisBox->Margin = System::Windows::Forms::Padding(4, 5, 4, 5);
 			this->wisBox->Name = L"wisBox";
-			this->wisBox->Size = System::Drawing::Size(56, 20);
+			this->wisBox->ReadOnly = true;
+			this->wisBox->Size = System::Drawing::Size(82, 26);
 			this->wisBox->TabIndex = 54;
 			this->wisBox->TextAlign = System::Windows::Forms::HorizontalAlignment::Center;
 			// 
 			// wisModBox
 			// 
-			this->wisModBox->Location = System::Drawing::Point(270, 404);
+			this->wisModBox->Location = System::Drawing::Point(405, 622);
+			this->wisModBox->Margin = System::Windows::Forms::Padding(4, 5, 4, 5);
 			this->wisModBox->Name = L"wisModBox";
-			this->wisModBox->Size = System::Drawing::Size(35, 20);
+			this->wisModBox->ReadOnly = true;
+			this->wisModBox->Size = System::Drawing::Size(50, 26);
 			this->wisModBox->TabIndex = 55;
 			this->wisModBox->TextAlign = System::Windows::Forms::HorizontalAlignment::Center;
 			// 
 			// charismaLabel
 			// 
 			this->charismaLabel->AutoSize = true;
-			this->charismaLabel->Location = System::Drawing::Point(265, 427);
+			this->charismaLabel->Location = System::Drawing::Point(398, 657);
+			this->charismaLabel->Margin = System::Windows::Forms::Padding(4, 0, 4, 0);
 			this->charismaLabel->Name = L"charismaLabel";
-			this->charismaLabel->Size = System::Drawing::Size(50, 13);
+			this->charismaLabel->Size = System::Drawing::Size(76, 20);
 			this->charismaLabel->TabIndex = 56;
 			this->charismaLabel->Text = L"Charisma";
 			// 
 			// charismaBox
 			// 
-			this->charismaBox->Location = System::Drawing::Point(259, 443);
+			this->charismaBox->Location = System::Drawing::Point(388, 682);
+			this->charismaBox->Margin = System::Windows::Forms::Padding(4, 5, 4, 5);
 			this->charismaBox->Name = L"charismaBox";
-			this->charismaBox->Size = System::Drawing::Size(56, 20);
+			this->charismaBox->ReadOnly = true;
+			this->charismaBox->Size = System::Drawing::Size(82, 26);
 			this->charismaBox->TabIndex = 57;
 			this->charismaBox->TextAlign = System::Windows::Forms::HorizontalAlignment::Center;
 			this->charismaBox->TextChanged += gcnew System::EventHandler(this, &MyForm::textBox7_TextChanged);
 			// 
 			// charismaModBox
 			// 
-			this->charismaModBox->Location = System::Drawing::Point(271, 469);
+			this->charismaModBox->Location = System::Drawing::Point(406, 722);
+			this->charismaModBox->Margin = System::Windows::Forms::Padding(4, 5, 4, 5);
 			this->charismaModBox->Name = L"charismaModBox";
-			this->charismaModBox->Size = System::Drawing::Size(34, 20);
+			this->charismaModBox->ReadOnly = true;
+			this->charismaModBox->Size = System::Drawing::Size(49, 26);
 			this->charismaModBox->TabIndex = 58;
 			this->charismaModBox->TextAlign = System::Windows::Forms::HorizontalAlignment::Center;
 			// 
 			// InstructionLabel
 			// 
 			this->InstructionLabel->AutoSize = true;
-			this->InstructionLabel->Location = System::Drawing::Point(20, 44);
+			this->InstructionLabel->Location = System::Drawing::Point(30, 68);
+			this->InstructionLabel->Margin = System::Windows::Forms::Padding(4, 0, 4, 0);
 			this->InstructionLabel->Name = L"InstructionLabel";
-			this->InstructionLabel->Size = System::Drawing::Size(134, 13);
+			this->InstructionLabel->Size = System::Drawing::Size(199, 20);
 			this->InstructionLabel->TabIndex = 59;
 			this->InstructionLabel->Text = L"Enter ALL the below boxes";
 			this->InstructionLabel->Click += gcnew System::EventHandler(this, &MyForm::InstructionLabel_Click);
@@ -841,83 +920,100 @@ private: System::Windows::Forms::PictureBox^  charImageBox;
 			// proficiencyLabel
 			// 
 			this->proficiencyLabel->AutoSize = true;
-			this->proficiencyLabel->Location = System::Drawing::Point(437, 98);
+			this->proficiencyLabel->Location = System::Drawing::Point(656, 151);
+			this->proficiencyLabel->Margin = System::Windows::Forms::Padding(4, 0, 4, 0);
 			this->proficiencyLabel->Name = L"proficiencyLabel";
-			this->proficiencyLabel->Size = System::Drawing::Size(59, 13);
+			this->proficiencyLabel->Size = System::Drawing::Size(85, 20);
 			this->proficiencyLabel->TabIndex = 60;
 			this->proficiencyLabel->Text = L"Proficiency";
 			// 
 			// proficiencyBox
 			// 
-			this->proficiencyBox->Location = System::Drawing::Point(403, 95);
+			this->proficiencyBox->Location = System::Drawing::Point(604, 146);
+			this->proficiencyBox->Margin = System::Windows::Forms::Padding(4, 5, 4, 5);
 			this->proficiencyBox->Name = L"proficiencyBox";
-			this->proficiencyBox->Size = System::Drawing::Size(27, 20);
+			this->proficiencyBox->ReadOnly = true;
+			this->proficiencyBox->Size = System::Drawing::Size(38, 26);
 			this->proficiencyBox->TabIndex = 61;
 			this->proficiencyBox->TextAlign = System::Windows::Forms::HorizontalAlignment::Center;
 			// 
 			// strModBox
 			// 
-			this->strModBox->Location = System::Drawing::Point(570, 121);
+			this->strModBox->Location = System::Drawing::Point(855, 186);
+			this->strModBox->Margin = System::Windows::Forms::Padding(4, 5, 4, 5);
 			this->strModBox->Name = L"strModBox";
-			this->strModBox->Size = System::Drawing::Size(27, 20);
+			this->strModBox->ReadOnly = true;
+			this->strModBox->Size = System::Drawing::Size(38, 26);
 			this->strModBox->TabIndex = 62;
 			this->strModBox->TextAlign = System::Windows::Forms::HorizontalAlignment::Center;
 			// 
 			// dextModBox
 			// 
-			this->dextModBox->Location = System::Drawing::Point(570, 147);
+			this->dextModBox->Location = System::Drawing::Point(855, 226);
+			this->dextModBox->Margin = System::Windows::Forms::Padding(4, 5, 4, 5);
 			this->dextModBox->Name = L"dextModBox";
-			this->dextModBox->Size = System::Drawing::Size(27, 20);
+			this->dextModBox->ReadOnly = true;
+			this->dextModBox->Size = System::Drawing::Size(38, 26);
 			this->dextModBox->TabIndex = 63;
 			this->dextModBox->TextAlign = System::Windows::Forms::HorizontalAlignment::Center;
 			// 
 			// conModBox
 			// 
-			this->conModBox->Location = System::Drawing::Point(570, 173);
+			this->conModBox->Location = System::Drawing::Point(855, 266);
+			this->conModBox->Margin = System::Windows::Forms::Padding(4, 5, 4, 5);
 			this->conModBox->Name = L"conModBox";
-			this->conModBox->Size = System::Drawing::Size(27, 20);
+			this->conModBox->ReadOnly = true;
+			this->conModBox->Size = System::Drawing::Size(38, 26);
 			this->conModBox->TabIndex = 64;
 			this->conModBox->TextAlign = System::Windows::Forms::HorizontalAlignment::Center;
 			// 
 			// intModBox
 			// 
-			this->intModBox->Location = System::Drawing::Point(570, 199);
+			this->intModBox->Location = System::Drawing::Point(855, 306);
+			this->intModBox->Margin = System::Windows::Forms::Padding(4, 5, 4, 5);
 			this->intModBox->Name = L"intModBox";
-			this->intModBox->Size = System::Drawing::Size(27, 20);
+			this->intModBox->ReadOnly = true;
+			this->intModBox->Size = System::Drawing::Size(38, 26);
 			this->intModBox->TabIndex = 65;
 			this->intModBox->TextAlign = System::Windows::Forms::HorizontalAlignment::Center;
 			// 
 			// wisdModBox
 			// 
-			this->wisdModBox->Location = System::Drawing::Point(570, 223);
+			this->wisdModBox->Location = System::Drawing::Point(855, 343);
+			this->wisdModBox->Margin = System::Windows::Forms::Padding(4, 5, 4, 5);
 			this->wisdModBox->Name = L"wisdModBox";
-			this->wisdModBox->Size = System::Drawing::Size(27, 20);
+			this->wisdModBox->ReadOnly = true;
+			this->wisdModBox->Size = System::Drawing::Size(38, 26);
 			this->wisdModBox->TabIndex = 66;
 			this->wisdModBox->TextAlign = System::Windows::Forms::HorizontalAlignment::Center;
 			// 
 			// chaModBox
 			// 
-			this->chaModBox->Location = System::Drawing::Point(570, 251);
+			this->chaModBox->Location = System::Drawing::Point(855, 386);
+			this->chaModBox->Margin = System::Windows::Forms::Padding(4, 5, 4, 5);
 			this->chaModBox->Name = L"chaModBox";
-			this->chaModBox->Size = System::Drawing::Size(27, 20);
+			this->chaModBox->ReadOnly = true;
+			this->chaModBox->Size = System::Drawing::Size(38, 26);
 			this->chaModBox->TabIndex = 67;
 			this->chaModBox->TextAlign = System::Windows::Forms::HorizontalAlignment::Center;
 			// 
 			// strModLabel
 			// 
 			this->strModLabel->AutoSize = true;
-			this->strModLabel->Location = System::Drawing::Point(603, 123);
+			this->strModLabel->Location = System::Drawing::Point(904, 189);
+			this->strModLabel->Margin = System::Windows::Forms::Padding(4, 0, 4, 0);
 			this->strModLabel->Name = L"strModLabel";
-			this->strModLabel->Size = System::Drawing::Size(47, 13);
+			this->strModLabel->Size = System::Drawing::Size(71, 20);
 			this->strModLabel->TabIndex = 68;
 			this->strModLabel->Text = L"Strength";
 			// 
 			// dextModLabel
 			// 
 			this->dextModLabel->AutoSize = true;
-			this->dextModLabel->Location = System::Drawing::Point(603, 149);
+			this->dextModLabel->Location = System::Drawing::Point(904, 229);
+			this->dextModLabel->Margin = System::Windows::Forms::Padding(4, 0, 4, 0);
 			this->dextModLabel->Name = L"dextModLabel";
-			this->dextModLabel->Size = System::Drawing::Size(48, 13);
+			this->dextModLabel->Size = System::Drawing::Size(71, 20);
 			this->dextModLabel->TabIndex = 69;
 			this->dextModLabel->Text = L"Dexterity";
 			this->dextModLabel->Click += gcnew System::EventHandler(this, &MyForm::dextModLabel_Click);
@@ -925,234 +1021,280 @@ private: System::Windows::Forms::PictureBox^  charImageBox;
 			// conModLabel
 			// 
 			this->conModLabel->AutoSize = true;
-			this->conModLabel->Location = System::Drawing::Point(603, 173);
+			this->conModLabel->Location = System::Drawing::Point(904, 266);
+			this->conModLabel->Margin = System::Windows::Forms::Padding(4, 0, 4, 0);
 			this->conModLabel->Name = L"conModLabel";
-			this->conModLabel->Size = System::Drawing::Size(62, 13);
+			this->conModLabel->Size = System::Drawing::Size(94, 20);
 			this->conModLabel->TabIndex = 70;
 			this->conModLabel->Text = L"Constitution";
 			// 
 			// intModLabel
 			// 
 			this->intModLabel->AutoSize = true;
-			this->intModLabel->Location = System::Drawing::Point(603, 202);
+			this->intModLabel->Location = System::Drawing::Point(904, 311);
+			this->intModLabel->Margin = System::Windows::Forms::Padding(4, 0, 4, 0);
 			this->intModLabel->Name = L"intModLabel";
-			this->intModLabel->Size = System::Drawing::Size(61, 13);
+			this->intModLabel->Size = System::Drawing::Size(90, 20);
 			this->intModLabel->TabIndex = 71;
 			this->intModLabel->Text = L"Intelligence";
 			// 
 			// wisdModLabel
 			// 
 			this->wisdModLabel->AutoSize = true;
-			this->wisdModLabel->Location = System::Drawing::Point(603, 228);
+			this->wisdModLabel->Location = System::Drawing::Point(904, 351);
+			this->wisdModLabel->Margin = System::Windows::Forms::Padding(4, 0, 4, 0);
 			this->wisdModLabel->Name = L"wisdModLabel";
-			this->wisdModLabel->Size = System::Drawing::Size(45, 13);
+			this->wisdModLabel->Size = System::Drawing::Size(66, 20);
 			this->wisdModLabel->TabIndex = 72;
 			this->wisdModLabel->Text = L"Wisdom";
 			// 
 			// chaModLabel
 			// 
 			this->chaModLabel->AutoSize = true;
-			this->chaModLabel->Location = System::Drawing::Point(603, 254);
+			this->chaModLabel->Location = System::Drawing::Point(904, 391);
+			this->chaModLabel->Margin = System::Windows::Forms::Padding(4, 0, 4, 0);
 			this->chaModLabel->Name = L"chaModLabel";
-			this->chaModLabel->Size = System::Drawing::Size(50, 13);
+			this->chaModLabel->Size = System::Drawing::Size(76, 20);
 			this->chaModLabel->TabIndex = 73;
 			this->chaModLabel->Text = L"Charisma";
 			// 
 			// savingThrowLabel
 			// 
 			this->savingThrowLabel->AutoSize = true;
-			this->savingThrowLabel->Location = System::Drawing::Point(567, 102);
+			this->savingThrowLabel->Location = System::Drawing::Point(850, 157);
+			this->savingThrowLabel->Margin = System::Windows::Forms::Padding(4, 0, 4, 0);
 			this->savingThrowLabel->Name = L"savingThrowLabel";
-			this->savingThrowLabel->Size = System::Drawing::Size(78, 13);
+			this->savingThrowLabel->Size = System::Drawing::Size(112, 20);
 			this->savingThrowLabel->TabIndex = 74;
 			this->savingThrowLabel->Text = L"Saving Throws";
 			// 
 			// skillsLabel
 			// 
 			this->skillsLabel->AutoSize = true;
-			this->skillsLabel->Location = System::Drawing::Point(400, 132);
+			this->skillsLabel->Location = System::Drawing::Point(600, 203);
+			this->skillsLabel->Margin = System::Windows::Forms::Padding(4, 0, 4, 0);
 			this->skillsLabel->Name = L"skillsLabel";
-			this->skillsLabel->Size = System::Drawing::Size(31, 13);
+			this->skillsLabel->Size = System::Drawing::Size(45, 20);
 			this->skillsLabel->TabIndex = 75;
 			this->skillsLabel->Text = L"Skills";
 			// 
 			// acrobBox
 			// 
-			this->acrobBox->Location = System::Drawing::Point(403, 148);
+			this->acrobBox->Location = System::Drawing::Point(604, 228);
+			this->acrobBox->Margin = System::Windows::Forms::Padding(4, 5, 4, 5);
 			this->acrobBox->Name = L"acrobBox";
-			this->acrobBox->Size = System::Drawing::Size(27, 20);
+			this->acrobBox->ReadOnly = true;
+			this->acrobBox->Size = System::Drawing::Size(38, 26);
 			this->acrobBox->TabIndex = 76;
 			this->acrobBox->TextAlign = System::Windows::Forms::HorizontalAlignment::Center;
 			// 
 			// acrobLabel
 			// 
 			this->acrobLabel->AutoSize = true;
-			this->acrobLabel->Location = System::Drawing::Point(437, 151);
+			this->acrobLabel->Location = System::Drawing::Point(656, 232);
+			this->acrobLabel->Margin = System::Windows::Forms::Padding(4, 0, 4, 0);
 			this->acrobLabel->Name = L"acrobLabel";
-			this->acrobLabel->Size = System::Drawing::Size(85, 13);
+			this->acrobLabel->Size = System::Drawing::Size(126, 20);
 			this->acrobLabel->TabIndex = 77;
 			this->acrobLabel->Text = L"Acrobatics (Dex)";
 			// 
 			// animalBox
 			// 
-			this->animalBox->Location = System::Drawing::Point(403, 174);
+			this->animalBox->Location = System::Drawing::Point(604, 268);
+			this->animalBox->Margin = System::Windows::Forms::Padding(4, 5, 4, 5);
 			this->animalBox->Name = L"animalBox";
-			this->animalBox->Size = System::Drawing::Size(28, 20);
+			this->animalBox->ReadOnly = true;
+			this->animalBox->Size = System::Drawing::Size(40, 26);
 			this->animalBox->TabIndex = 78;
 			this->animalBox->TextAlign = System::Windows::Forms::HorizontalAlignment::Center;
 			// 
 			// animalLabel
 			// 
 			this->animalLabel->AutoSize = true;
-			this->animalLabel->Location = System::Drawing::Point(437, 175);
+			this->animalLabel->Location = System::Drawing::Point(656, 269);
+			this->animalLabel->Margin = System::Windows::Forms::Padding(4, 0, 4, 0);
 			this->animalLabel->Name = L"animalLabel";
-			this->animalLabel->Size = System::Drawing::Size(110, 13);
+			this->animalLabel->Size = System::Drawing::Size(164, 20);
 			this->animalLabel->TabIndex = 79;
 			this->animalLabel->Text = L"Animal Handling (Wis)";
 			// 
 			// arcanaBox
 			// 
-			this->arcanaBox->Location = System::Drawing::Point(403, 200);
+			this->arcanaBox->Location = System::Drawing::Point(604, 308);
+			this->arcanaBox->Margin = System::Windows::Forms::Padding(4, 5, 4, 5);
 			this->arcanaBox->Name = L"arcanaBox";
-			this->arcanaBox->Size = System::Drawing::Size(28, 20);
+			this->arcanaBox->ReadOnly = true;
+			this->arcanaBox->Size = System::Drawing::Size(40, 26);
 			this->arcanaBox->TabIndex = 80;
 			this->arcanaBox->TextAlign = System::Windows::Forms::HorizontalAlignment::Center;
 			// 
 			// athleBox
 			// 
-			this->athleBox->Location = System::Drawing::Point(403, 226);
+			this->athleBox->Location = System::Drawing::Point(604, 348);
+			this->athleBox->Margin = System::Windows::Forms::Padding(4, 5, 4, 5);
 			this->athleBox->Name = L"athleBox";
-			this->athleBox->Size = System::Drawing::Size(28, 20);
+			this->athleBox->ReadOnly = true;
+			this->athleBox->Size = System::Drawing::Size(40, 26);
 			this->athleBox->TabIndex = 81;
 			this->athleBox->TextAlign = System::Windows::Forms::HorizontalAlignment::Center;
 			// 
 			// decepBox
 			// 
-			this->decepBox->Location = System::Drawing::Point(403, 252);
+			this->decepBox->Location = System::Drawing::Point(604, 388);
+			this->decepBox->Margin = System::Windows::Forms::Padding(4, 5, 4, 5);
 			this->decepBox->Name = L"decepBox";
-			this->decepBox->Size = System::Drawing::Size(28, 20);
+			this->decepBox->ReadOnly = true;
+			this->decepBox->Size = System::Drawing::Size(40, 26);
 			this->decepBox->TabIndex = 82;
 			this->decepBox->TextAlign = System::Windows::Forms::HorizontalAlignment::Center;
 			// 
 			// histBox
 			// 
-			this->histBox->Location = System::Drawing::Point(403, 279);
+			this->histBox->Location = System::Drawing::Point(604, 429);
+			this->histBox->Margin = System::Windows::Forms::Padding(4, 5, 4, 5);
 			this->histBox->Name = L"histBox";
-			this->histBox->Size = System::Drawing::Size(28, 20);
+			this->histBox->ReadOnly = true;
+			this->histBox->Size = System::Drawing::Size(40, 26);
 			this->histBox->TabIndex = 83;
 			this->histBox->TextAlign = System::Windows::Forms::HorizontalAlignment::Center;
 			// 
 			// InsightBox
 			// 
-			this->InsightBox->Location = System::Drawing::Point(403, 306);
+			this->InsightBox->Location = System::Drawing::Point(604, 471);
+			this->InsightBox->Margin = System::Windows::Forms::Padding(4, 5, 4, 5);
 			this->InsightBox->Name = L"InsightBox";
-			this->InsightBox->Size = System::Drawing::Size(28, 20);
+			this->InsightBox->ReadOnly = true;
+			this->InsightBox->Size = System::Drawing::Size(40, 26);
 			this->InsightBox->TabIndex = 84;
 			this->InsightBox->TextAlign = System::Windows::Forms::HorizontalAlignment::Center;
 			// 
 			// intimBox
 			// 
-			this->intimBox->Location = System::Drawing::Point(403, 333);
+			this->intimBox->Location = System::Drawing::Point(604, 512);
+			this->intimBox->Margin = System::Windows::Forms::Padding(4, 5, 4, 5);
 			this->intimBox->Name = L"intimBox";
-			this->intimBox->Size = System::Drawing::Size(28, 20);
+			this->intimBox->ReadOnly = true;
+			this->intimBox->Size = System::Drawing::Size(40, 26);
 			this->intimBox->TabIndex = 85;
 			this->intimBox->TextAlign = System::Windows::Forms::HorizontalAlignment::Center;
 			// 
 			// investBox
 			// 
-			this->investBox->Location = System::Drawing::Point(403, 360);
+			this->investBox->Location = System::Drawing::Point(604, 554);
+			this->investBox->Margin = System::Windows::Forms::Padding(4, 5, 4, 5);
 			this->investBox->Name = L"investBox";
-			this->investBox->Size = System::Drawing::Size(27, 20);
+			this->investBox->ReadOnly = true;
+			this->investBox->Size = System::Drawing::Size(38, 26);
 			this->investBox->TabIndex = 86;
 			this->investBox->TextAlign = System::Windows::Forms::HorizontalAlignment::Center;
 			// 
 			// medBox
 			// 
-			this->medBox->Location = System::Drawing::Point(403, 387);
+			this->medBox->Location = System::Drawing::Point(604, 595);
+			this->medBox->Margin = System::Windows::Forms::Padding(4, 5, 4, 5);
 			this->medBox->Name = L"medBox";
-			this->medBox->Size = System::Drawing::Size(28, 20);
+			this->medBox->ReadOnly = true;
+			this->medBox->Size = System::Drawing::Size(40, 26);
 			this->medBox->TabIndex = 87;
 			this->medBox->TextAlign = System::Windows::Forms::HorizontalAlignment::Center;
 			// 
 			// natureBox
 			// 
-			this->natureBox->Location = System::Drawing::Point(403, 414);
+			this->natureBox->Location = System::Drawing::Point(604, 637);
+			this->natureBox->Margin = System::Windows::Forms::Padding(4, 5, 4, 5);
 			this->natureBox->Name = L"natureBox";
-			this->natureBox->Size = System::Drawing::Size(28, 20);
+			this->natureBox->ReadOnly = true;
+			this->natureBox->Size = System::Drawing::Size(40, 26);
 			this->natureBox->TabIndex = 88;
 			this->natureBox->TextAlign = System::Windows::Forms::HorizontalAlignment::Center;
 			// 
 			// perceptionBox
 			// 
-			this->perceptionBox->Location = System::Drawing::Point(403, 441);
+			this->perceptionBox->Location = System::Drawing::Point(604, 678);
+			this->perceptionBox->Margin = System::Windows::Forms::Padding(4, 5, 4, 5);
 			this->perceptionBox->Name = L"perceptionBox";
-			this->perceptionBox->Size = System::Drawing::Size(28, 20);
+			this->perceptionBox->ReadOnly = true;
+			this->perceptionBox->Size = System::Drawing::Size(40, 26);
 			this->perceptionBox->TabIndex = 89;
 			this->perceptionBox->TextAlign = System::Windows::Forms::HorizontalAlignment::Center;
 			// 
 			// performBox
 			// 
-			this->performBox->Location = System::Drawing::Point(403, 468);
+			this->performBox->Location = System::Drawing::Point(604, 720);
+			this->performBox->Margin = System::Windows::Forms::Padding(4, 5, 4, 5);
 			this->performBox->Name = L"performBox";
-			this->performBox->Size = System::Drawing::Size(28, 20);
+			this->performBox->ReadOnly = true;
+			this->performBox->Size = System::Drawing::Size(40, 26);
 			this->performBox->TabIndex = 90;
 			this->performBox->TextAlign = System::Windows::Forms::HorizontalAlignment::Center;
 			// 
 			// persuaBox
 			// 
-			this->persuaBox->Location = System::Drawing::Point(403, 495);
+			this->persuaBox->Location = System::Drawing::Point(604, 762);
+			this->persuaBox->Margin = System::Windows::Forms::Padding(4, 5, 4, 5);
 			this->persuaBox->Name = L"persuaBox";
-			this->persuaBox->Size = System::Drawing::Size(28, 20);
+			this->persuaBox->ReadOnly = true;
+			this->persuaBox->Size = System::Drawing::Size(40, 26);
 			this->persuaBox->TabIndex = 91;
 			this->persuaBox->TextAlign = System::Windows::Forms::HorizontalAlignment::Center;
 			// 
 			// religionBox
 			// 
-			this->religionBox->Location = System::Drawing::Point(403, 522);
+			this->religionBox->Location = System::Drawing::Point(604, 803);
+			this->religionBox->Margin = System::Windows::Forms::Padding(4, 5, 4, 5);
 			this->religionBox->Name = L"religionBox";
-			this->religionBox->Size = System::Drawing::Size(28, 20);
+			this->religionBox->ReadOnly = true;
+			this->religionBox->Size = System::Drawing::Size(40, 26);
 			this->religionBox->TabIndex = 92;
 			this->religionBox->TextAlign = System::Windows::Forms::HorizontalAlignment::Center;
 			// 
 			// handBox
 			// 
-			this->handBox->Location = System::Drawing::Point(403, 549);
+			this->handBox->Location = System::Drawing::Point(604, 845);
+			this->handBox->Margin = System::Windows::Forms::Padding(4, 5, 4, 5);
 			this->handBox->Name = L"handBox";
-			this->handBox->Size = System::Drawing::Size(28, 20);
+			this->handBox->ReadOnly = true;
+			this->handBox->Size = System::Drawing::Size(40, 26);
 			this->handBox->TabIndex = 93;
 			this->handBox->TextAlign = System::Windows::Forms::HorizontalAlignment::Center;
 			// 
 			// stealthBox
 			// 
-			this->stealthBox->Location = System::Drawing::Point(403, 576);
+			this->stealthBox->Location = System::Drawing::Point(604, 886);
+			this->stealthBox->Margin = System::Windows::Forms::Padding(4, 5, 4, 5);
 			this->stealthBox->Name = L"stealthBox";
-			this->stealthBox->Size = System::Drawing::Size(28, 20);
+			this->stealthBox->ReadOnly = true;
+			this->stealthBox->Size = System::Drawing::Size(40, 26);
 			this->stealthBox->TabIndex = 94;
 			this->stealthBox->TextAlign = System::Windows::Forms::HorizontalAlignment::Center;
 			// 
 			// survivalBox
 			// 
-			this->survivalBox->Location = System::Drawing::Point(403, 603);
+			this->survivalBox->Location = System::Drawing::Point(604, 928);
+			this->survivalBox->Margin = System::Windows::Forms::Padding(4, 5, 4, 5);
 			this->survivalBox->Name = L"survivalBox";
-			this->survivalBox->Size = System::Drawing::Size(28, 20);
+			this->survivalBox->ReadOnly = true;
+			this->survivalBox->Size = System::Drawing::Size(40, 26);
 			this->survivalBox->TabIndex = 95;
 			this->survivalBox->TextAlign = System::Windows::Forms::HorizontalAlignment::Center;
 			// 
 			// handLabel
 			// 
 			this->handLabel->AutoSize = true;
-			this->handLabel->Location = System::Drawing::Point(437, 552);
+			this->handLabel->Location = System::Drawing::Point(656, 849);
+			this->handLabel->Margin = System::Windows::Forms::Padding(4, 0, 4, 0);
 			this->handLabel->Name = L"handLabel";
-			this->handLabel->Size = System::Drawing::Size(108, 13);
+			this->handLabel->Size = System::Drawing::Size(161, 20);
 			this->handLabel->TabIndex = 96;
 			this->handLabel->Text = L"Sleight of Hand (Dex)";
 			// 
 			// arcanaLabel
 			// 
 			this->arcanaLabel->AutoSize = true;
-			this->arcanaLabel->Location = System::Drawing::Point(437, 203);
+			this->arcanaLabel->Location = System::Drawing::Point(656, 312);
+			this->arcanaLabel->Margin = System::Windows::Forms::Padding(4, 0, 4, 0);
 			this->arcanaLabel->Name = L"arcanaLabel";
-			this->arcanaLabel->Size = System::Drawing::Size(68, 13);
+			this->arcanaLabel->Size = System::Drawing::Size(102, 20);
 			this->arcanaLabel->TabIndex = 97;
 			this->arcanaLabel->Text = L"Aracana (Int)";
 			this->arcanaLabel->Click += gcnew System::EventHandler(this, &MyForm::label1_Click_1);
@@ -1160,142 +1302,159 @@ private: System::Windows::Forms::PictureBox^  charImageBox;
 			// athleLabel
 			// 
 			this->athleLabel->AutoSize = true;
-			this->athleLabel->Location = System::Drawing::Point(437, 229);
+			this->athleLabel->Location = System::Drawing::Point(656, 352);
+			this->athleLabel->Margin = System::Windows::Forms::Padding(4, 0, 4, 0);
 			this->athleLabel->Name = L"athleLabel";
-			this->athleLabel->Size = System::Drawing::Size(69, 13);
+			this->athleLabel->Size = System::Drawing::Size(105, 20);
 			this->athleLabel->TabIndex = 98;
 			this->athleLabel->Text = L"Athletics (Str)";
 			// 
 			// decepLabel
 			// 
 			this->decepLabel->AutoSize = true;
-			this->decepLabel->Location = System::Drawing::Point(437, 254);
+			this->decepLabel->Location = System::Drawing::Point(656, 391);
+			this->decepLabel->Margin = System::Windows::Forms::Padding(4, 0, 4, 0);
 			this->decepLabel->Name = L"decepLabel";
-			this->decepLabel->Size = System::Drawing::Size(84, 13);
+			this->decepLabel->Size = System::Drawing::Size(125, 20);
 			this->decepLabel->TabIndex = 99;
 			this->decepLabel->Text = L"Deception (Cha)";
 			// 
 			// histLabel
 			// 
 			this->histLabel->AutoSize = true;
-			this->histLabel->Location = System::Drawing::Point(437, 282);
+			this->histLabel->Location = System::Drawing::Point(656, 434);
+			this->histLabel->Margin = System::Windows::Forms::Padding(4, 0, 4, 0);
 			this->histLabel->Name = L"histLabel";
-			this->histLabel->Size = System::Drawing::Size(60, 13);
+			this->histLabel->Size = System::Drawing::Size(91, 20);
 			this->histLabel->TabIndex = 100;
 			this->histLabel->Text = L"History (Int)";
 			// 
 			// insightLabel
 			// 
 			this->insightLabel->AutoSize = true;
-			this->insightLabel->Location = System::Drawing::Point(437, 309);
+			this->insightLabel->Location = System::Drawing::Point(656, 475);
+			this->insightLabel->Margin = System::Windows::Forms::Padding(4, 0, 4, 0);
 			this->insightLabel->Name = L"insightLabel";
-			this->insightLabel->Size = System::Drawing::Size(65, 13);
+			this->insightLabel->Size = System::Drawing::Size(97, 20);
 			this->insightLabel->TabIndex = 101;
 			this->insightLabel->Text = L"Insight (Wis)";
 			// 
 			// IntimLabel
 			// 
 			this->IntimLabel->AutoSize = true;
-			this->IntimLabel->Location = System::Drawing::Point(437, 336);
+			this->IntimLabel->Location = System::Drawing::Point(656, 517);
+			this->IntimLabel->Margin = System::Windows::Forms::Padding(4, 0, 4, 0);
 			this->IntimLabel->Name = L"IntimLabel";
-			this->IntimLabel->Size = System::Drawing::Size(88, 13);
+			this->IntimLabel->Size = System::Drawing::Size(134, 20);
 			this->IntimLabel->TabIndex = 102;
 			this->IntimLabel->Text = L"Intimidation (Cha)";
 			// 
 			// InvestLabel
 			// 
 			this->InvestLabel->AutoSize = true;
-			this->InvestLabel->Location = System::Drawing::Point(437, 363);
+			this->InvestLabel->Location = System::Drawing::Point(656, 558);
+			this->InvestLabel->Margin = System::Windows::Forms::Padding(4, 0, 4, 0);
 			this->InvestLabel->Name = L"InvestLabel";
-			this->InvestLabel->Size = System::Drawing::Size(88, 13);
+			this->InvestLabel->Size = System::Drawing::Size(132, 20);
 			this->InvestLabel->TabIndex = 103;
 			this->InvestLabel->Text = L"Investigation (Int)";
 			// 
 			// medLabel
 			// 
 			this->medLabel->AutoSize = true;
-			this->medLabel->Location = System::Drawing::Point(437, 390);
+			this->medLabel->Location = System::Drawing::Point(656, 600);
+			this->medLabel->Margin = System::Windows::Forms::Padding(4, 0, 4, 0);
 			this->medLabel->Name = L"medLabel";
-			this->medLabel->Size = System::Drawing::Size(77, 13);
+			this->medLabel->Size = System::Drawing::Size(112, 20);
 			this->medLabel->TabIndex = 104;
 			this->medLabel->Text = L"Medicine (Wis)";
 			// 
 			// natureLabel
 			// 
 			this->natureLabel->AutoSize = true;
-			this->natureLabel->Location = System::Drawing::Point(437, 417);
+			this->natureLabel->Location = System::Drawing::Point(656, 642);
+			this->natureLabel->Margin = System::Windows::Forms::Padding(4, 0, 4, 0);
 			this->natureLabel->Name = L"natureLabel";
-			this->natureLabel->Size = System::Drawing::Size(60, 13);
+			this->natureLabel->Size = System::Drawing::Size(90, 20);
 			this->natureLabel->TabIndex = 105;
 			this->natureLabel->Text = L"Nature (Int)";
 			// 
 			// percepLabel
 			// 
 			this->percepLabel->AutoSize = true;
-			this->percepLabel->Location = System::Drawing::Point(437, 446);
+			this->percepLabel->Location = System::Drawing::Point(656, 686);
+			this->percepLabel->Margin = System::Windows::Forms::Padding(4, 0, 4, 0);
 			this->percepLabel->Name = L"percepLabel";
-			this->percepLabel->Size = System::Drawing::Size(85, 13);
+			this->percepLabel->Size = System::Drawing::Size(125, 20);
 			this->percepLabel->TabIndex = 106;
 			this->percepLabel->Text = L"Perception (Wis)";
 			// 
 			// performLabel
 			// 
 			this->performLabel->AutoSize = true;
-			this->performLabel->Location = System::Drawing::Point(437, 472);
+			this->performLabel->Location = System::Drawing::Point(656, 726);
+			this->performLabel->Margin = System::Windows::Forms::Padding(4, 0, 4, 0);
 			this->performLabel->Name = L"performLabel";
-			this->performLabel->Size = System::Drawing::Size(95, 13);
+			this->performLabel->Size = System::Drawing::Size(143, 20);
 			this->performLabel->TabIndex = 107;
 			this->performLabel->Text = L"Performance (Cha)";
 			// 
 			// persuaLabel
 			// 
 			this->persuaLabel->AutoSize = true;
-			this->persuaLabel->Location = System::Drawing::Point(437, 498);
+			this->persuaLabel->Location = System::Drawing::Point(656, 766);
+			this->persuaLabel->Margin = System::Windows::Forms::Padding(4, 0, 4, 0);
 			this->persuaLabel->Name = L"persuaLabel";
-			this->persuaLabel->Size = System::Drawing::Size(87, 13);
+			this->persuaLabel->Size = System::Drawing::Size(131, 20);
 			this->persuaLabel->TabIndex = 108;
 			this->persuaLabel->Text = L"Persuasion (Cha)";
 			// 
 			// religionLabel
 			// 
 			this->religionLabel->AutoSize = true;
-			this->religionLabel->Location = System::Drawing::Point(437, 525);
+			this->religionLabel->Location = System::Drawing::Point(656, 808);
+			this->religionLabel->Margin = System::Windows::Forms::Padding(4, 0, 4, 0);
 			this->religionLabel->Name = L"religionLabel";
-			this->religionLabel->Size = System::Drawing::Size(66, 13);
+			this->religionLabel->Size = System::Drawing::Size(99, 20);
 			this->religionLabel->TabIndex = 109;
 			this->religionLabel->Text = L"Religion (Int)";
 			// 
 			// stealthLabel
 			// 
 			this->stealthLabel->AutoSize = true;
-			this->stealthLabel->Location = System::Drawing::Point(437, 579);
+			this->stealthLabel->Location = System::Drawing::Point(656, 891);
+			this->stealthLabel->Margin = System::Windows::Forms::Padding(4, 0, 4, 0);
 			this->stealthLabel->Name = L"stealthLabel";
-			this->stealthLabel->Size = System::Drawing::Size(68, 13);
+			this->stealthLabel->Size = System::Drawing::Size(102, 20);
 			this->stealthLabel->TabIndex = 110;
 			this->stealthLabel->Text = L"Stealth (Dex)";
 			// 
 			// survivalLabel
 			// 
 			this->survivalLabel->AutoSize = true;
-			this->survivalLabel->Location = System::Drawing::Point(437, 606);
+			this->survivalLabel->Location = System::Drawing::Point(656, 932);
+			this->survivalLabel->Margin = System::Windows::Forms::Padding(4, 0, 4, 0);
 			this->survivalLabel->Name = L"survivalLabel";
-			this->survivalLabel->Size = System::Drawing::Size(72, 13);
+			this->survivalLabel->Size = System::Drawing::Size(103, 20);
 			this->survivalLabel->TabIndex = 111;
 			this->survivalLabel->Text = L"Survival (Wis)";
 			// 
 			// charImageBox
 			// 
-			this->charImageBox->Location = System::Drawing::Point(21, 427);
+			this->charImageBox->Location = System::Drawing::Point(32, 657);
+			this->charImageBox->Margin = System::Windows::Forms::Padding(4, 5, 4, 5);
 			this->charImageBox->Name = L"charImageBox";
-			this->charImageBox->Size = System::Drawing::Size(213, 192);
+			this->charImageBox->Size = System::Drawing::Size(320, 295);
 			this->charImageBox->TabIndex = 112;
 			this->charImageBox->TabStop = false;
 			// 
 			// MyForm
 			// 
-			this->AutoScaleDimensions = System::Drawing::SizeF(6, 13);
+			this->AutoScaleDimensions = System::Drawing::SizeF(9, 20);
 			this->AutoScaleMode = System::Windows::Forms::AutoScaleMode::Font;
-			this->ClientSize = System::Drawing::Size(1158, 639);
+			this->BackColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(192)), static_cast<System::Int32>(static_cast<System::Byte>(192)),
+				static_cast<System::Int32>(static_cast<System::Byte>(255)));
+			this->ClientSize = System::Drawing::Size(1737, 983);
 			this->Controls->Add(this->charImageBox);
 			this->Controls->Add(this->survivalLabel);
 			this->Controls->Add(this->stealthLabel);
@@ -1405,6 +1564,7 @@ private: System::Windows::Forms::PictureBox^  charImageBox;
 			this->Controls->Add(this->personalityBox);
 			this->Controls->Add(this->StartGeneration);
 			this->Controls->Add(this->BackgroundGenBox);
+			this->Margin = System::Windows::Forms::Padding(4, 5, 4, 5);
 			this->Name = L"MyForm";
 			this->ShowIcon = false;
 			this->Text = L"Character Sheet";
