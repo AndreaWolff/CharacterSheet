@@ -18,7 +18,7 @@ CharacterGenerator::CharacterGenerator()
 }
 
 //for testing the GUI
-CharacterGenerator::CharacterGenerator( string player, string character, string rRace, string gGender, string background, string cClass, string aAlignment, int aAge )
+CharacterGenerator::CharacterGenerator( string player, string rRace, string gGender, string background, string cClass, string aAlignment, int aAge )
 {
 	//charRace, Class, Gender and Background brought in from the sheet generator on form 1
 	//Starting with Human Race first
@@ -31,39 +31,13 @@ CharacterGenerator::CharacterGenerator( string player, string character, string 
 	alignment = aAlignment;
 
 	setPlayerName( player );
-
-	// Still unsure how to handle this, since conceptually CharacterRace will pick a name if not set.
-	setCharName(character);
-
 	
 	generateStats();
-
-	// Moved object creation to respective functions. I thought it tidied things up, but feel free to move them back
-	
 	setRace( rRace, gGender );
 	setClass(cClass);
 	setBackGround( background, alignment );
 }
 
-/*
-CharacterGenerator::CharacterGenerator( string race1, string chClass, string gender2, string background )
-{
-	//charRace, Class, Gender and Background brought in from the sheet generator on form 1
-	charRace = race1;
-	charClass = chClass;
-	charGender = gender2;
-
-	level = 1;
-	
-	statGenDice = new Die(18,8);
-
-	charBackground = new CharacterBackground( background );
-	charRace = new CharacterRace(race1);
-	charGender = new CharacterRace(gender1);
-	
-	generateStats();
-}
-*/
 CharacterGenerator::~CharacterGenerator()
 {
 	delete statGenDice;
@@ -265,16 +239,6 @@ void CharacterGenerator::setLevel(int levelUpDown)
 int CharacterGenerator::getLevel()
 {
 	return level;
-}
-
-void CharacterGenerator::setCharName( string name )
-{
-	charName = name;
-}
-
-string CharacterGenerator::getCharName()
-{
-	return charName;
 }
 
 void CharacterGenerator::setPlayerName(string name)

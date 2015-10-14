@@ -1623,7 +1623,7 @@ private: System::Windows::Forms::TextBox^  HPBox;
 		MarshalString( bGItem, backgroundString );
 
 		//calls CharacterGenerator constructor
-		char1 = new CharacterGenerator( playerString, characterString, raceString, genderString, backgroundString, classString, alignmentString, ageVal );
+		char1 = new CharacterGenerator( playerString, raceString, genderString, backgroundString, classString, alignmentString, ageVal );
 
 		//set Character Generator
 		playerString = char1->getPlayerName();
