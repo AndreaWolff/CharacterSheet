@@ -12,6 +12,7 @@ namespace ConsoleCharacterSheet {
 	using namespace System::Windows::Forms;
 	using namespace System::Data;
 	using namespace System::Drawing;
+	using namespace System::IO;
 	using namespace std;
 
 	/// <summary>
@@ -43,11 +44,6 @@ namespace ConsoleCharacterSheet {
 		~MyForm()
 		{
 			delete char1;
-			delete raceClass;
-			delete personality;
-			delete ideal;
-			delete bond;
-			delete flaw;
 
 			if (components)
 			{
@@ -1423,12 +1419,14 @@ private: System::Windows::Forms::Button^  saveButton;
 			// 
 			// saveButton
 			// 
+			this->saveButton->Enabled = false;
 			this->saveButton->Location = System::Drawing::Point(22, 522);
 			this->saveButton->Name = L"saveButton";
 			this->saveButton->Size = System::Drawing::Size(120, 23);
 			this->saveButton->TabIndex = 121;
 			this->saveButton->Text = L"Save Character";
 			this->saveButton->UseVisualStyleBackColor = true;
+			this->saveButton->Click += gcnew System::EventHandler(this, &MyForm::saveButton_Click);
 			// 
 			// MyForm
 			// 
@@ -1581,7 +1579,8 @@ private: System::Windows::Forms::Button^  saveButton;
 	private: System::Void StartGeneration_Click(System::Object^  sender, System::EventArgs^  e) 
 	{
 		//MessageBox::Show("Please enter ALL of the dropdown fields before clicking Start Generation.");
-		
+		saveButton->Enabled = true;
+
 		std::string backgroundString;
 		std::string raceString;
 		std::string charName2;
@@ -1777,6 +1776,7 @@ private: System::Windows::Forms::Button^  saveButton;
 		this->persuaBox->Text = (chaMod > 0 ? "+" + chaMod.ToString() : chaMod.ToString());
 
 
+
 		//Works only from image here.......not sure how to get it to pass an path from human?
 
 		//Bitmap^ MyImage;   //creates new image object
@@ -1835,6 +1835,63 @@ private: System::Windows::Forms::Button^  saveButton;
 	private: System::Void label1_Click_1(System::Object^  sender, System::EventArgs^  e) {
 	}
 	private: System::Void speedBox_TextChanged(System::Object^  sender, System::EventArgs^  e) {
+	}
+	private: System::Void saveButton_Click(System::Object^  sender, System::EventArgs^  e) {
+		StreamWriter^ outFile = gcnew StreamWriter(this->charNameBox->Text + " Character Sheet.txt");
+		outFile->WriteLine("Character Name = " + this->charNameBox->Text);
+		outFile->WriteLine("Player Name = " + this->playerNameBox1->Text);
+		outFile->WriteLine("Age = " + this->charAgeBox->Text);
+
+		outFile->WriteLine("Armor class = " + this->ACBox->Text);
+		outFile->WriteLine("Initiative = " + this->InitiaBox->Text);
+		outFile->WriteLine("Race = " + this->charRaceBox->Text);
+		outFile->WriteLine("Gender = " + this->GenderBox->Text);
+		outFile->WriteLine("Speed = " + this->speedBox->Text);
+		outFile->WriteLine("Class = " + this->charClassBox->Text);
+		outFile->WriteLine("Max Hit Points = " + this->HPBox->Text);
+
+		outFile->WriteLine("Background = " + this->charBackgroungBox->Text);
+		outFile->WriteLine("Alignment = " + this->charAlignmentBox->Text);
+		outFile->WriteLine("Personality Trait = " + this->personalityBox->Text);
+		outFile->WriteLine("Ideal = " + this->idealBox->Text);
+		outFile->WriteLine("Bond = " + this->bondBox->Text);
+		outFile->WriteLine("Flaw = " + this->flawBox->Text);
+
+		outFile->WriteLine("Strength = " + this->strModBox->Text);
+		outFile->WriteLine("Dexterity = " + this->dexBox->Text);
+		outFile->WriteLine("Constitution = " + this->constitBox->Text);
+		outFile->WriteLine("Intelligence = " + this->intellBox->Text);
+		outFile->WriteLine("Wisdom = " + this->wisBox->Text);
+		outFile->WriteLine("Charisma = " + this->charismaBox->Text);
+
+		outFile->WriteLine("Strength Modifer = " + this->strengthModBox->Text);
+		outFile->WriteLine("Dexterity Modifer = " + this->dextModBox->Text);
+		outFile->WriteLine("Constitution Modifer = " + this->conModBox->Text);
+		outFile->WriteLine("Intelligence Modifer = " + this->intModBox->Text);
+		outFile->WriteLine("Wisdom Modifer = " + this->wisdModBox->Text);
+		outFile->WriteLine("Charisma Modifer = " + this->chaModBox->Text);
+
+		outFile->WriteLine("Proficiency Bonus = " + this->proficiencyBox->Text);
+		outFile->WriteLine("Athletics = " + this->athleBox->Text);
+		outFile->WriteLine("Acrobatics = " + this->acrobBox->Text);
+		outFile->WriteLine("Sleight of Hand = " + this->handBox->Text);
+		outFile->WriteLine("Stealth = " + this->stealthBox->Text);
+		outFile->WriteLine("Arcana = " + this->arcanaBox->Text);
+		outFile->WriteLine("History = " + this->histBox->Text);
+		outFile->WriteLine("Investigation = " + this->investBox->Text);
+		outFile->WriteLine("Nature = " + this->natureBox->Text);
+		outFile->WriteLine("Religion = " + this->religionBox->Text);
+		outFile->WriteLine("Animal Handling = " + this->animalBox->Text);
+		outFile->WriteLine("Insight = " + this->InsightBox->Text);
+		outFile->WriteLine("Medicine = " + this->medBox->Text);
+		outFile->WriteLine("Perception = " + this->perceptionBox->Text);
+		outFile->WriteLine("Survival = " + this->survivalBox->Text);
+		outFile->WriteLine("Deception = " + this->decepBox->Text);
+		outFile->WriteLine("Intimidation = " + this->intimBox->Text);
+		outFile->WriteLine("Performance = " + this->performBox->Text);
+		outFile->WriteLine("Persuasion = " + this->persuaBox->Text);
+
+		outFile->Close();
 	}
 };
 }
