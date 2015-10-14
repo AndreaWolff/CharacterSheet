@@ -1809,35 +1809,9 @@ private: System::Windows::Forms::Button^  saveButton;
 		//charImageBox->Image = dynamic_cast<Image^>(MyImage);              // draws the image
 	}
 
-	//background text boxes
-	private: System::Void personalityBox_TextChanged(System::Object^  sender, System::EventArgs^  e){
-	}
-	private: System::Void idealBox_TextChanged(System::Object^  sender, System::EventArgs^  e){
-	}
-	private: System::Void bondBox_TextChanged(System::Object^  sender, System::EventArgs^  e){
-	}
-	private: System::Void flawBox_TextChanged(System::Object^  sender, System::EventArgs^  e)	{
-	}
-
-	//accidental clicks on the label boxes
-	private: System::Void label1_Click(System::Object^  sender, System::EventArgs^  e) {
-	}
-	private: System::Void flawLabel_Click(System::Object^  sender, System::EventArgs^  e) {
-	}
-	private: System::Void dexLabel_Click(System::Object^  sender, System::EventArgs^  e) {
-	}
-	private: System::Void textBox7_TextChanged(System::Object^  sender, System::EventArgs^  e) {
-	}
-	private: System::Void InstructionLabel_Click(System::Object^  sender, System::EventArgs^  e) {
-	}
-	private: System::Void dextModLabel_Click(System::Object^  sender, System::EventArgs^  e) {
-	}
-	private: System::Void label1_Click_1(System::Object^  sender, System::EventArgs^  e) {
-	}
-	private: System::Void speedBox_TextChanged(System::Object^  sender, System::EventArgs^  e) {
-	}
 	private: System::Void saveButton_Click(System::Object^  sender, System::EventArgs^  e) {
 		StreamWriter^ outFile = gcnew StreamWriter(this->charNameBox->Text + " Character Sheet.txt");
+
 		outFile->WriteLine("Character Name = " + this->charNameBox->Text);
 		outFile->WriteLine("Player Name = " + this->playerNameBox1->Text);
 		outFile->WriteLine("Age = " + this->charAgeBox->Text);
@@ -1893,5 +1867,34 @@ private: System::Windows::Forms::Button^  saveButton;
 
 		outFile->Close();
 	}
+
+	//background text boxes
+	private: System::Void personalityBox_TextChanged(System::Object^  sender, System::EventArgs^  e){
+	}
+	private: System::Void idealBox_TextChanged(System::Object^  sender, System::EventArgs^  e){
+	}
+	private: System::Void bondBox_TextChanged(System::Object^  sender, System::EventArgs^  e){
+	}
+	private: System::Void flawBox_TextChanged(System::Object^  sender, System::EventArgs^  e)	{
+	}
+
+	//accidental clicks on the label boxes
+	private: System::Void label1_Click(System::Object^  sender, System::EventArgs^  e) {
+	}
+	private: System::Void flawLabel_Click(System::Object^  sender, System::EventArgs^  e) {
+	}
+	private: System::Void dexLabel_Click(System::Object^  sender, System::EventArgs^  e) {
+	}
+	private: System::Void textBox7_TextChanged(System::Object^  sender, System::EventArgs^  e) {
+	}
+	private: System::Void InstructionLabel_Click(System::Object^  sender, System::EventArgs^  e) {
+	}
+	private: System::Void dextModLabel_Click(System::Object^  sender, System::EventArgs^  e) {
+	}
+	private: System::Void label1_Click_1(System::Object^  sender, System::EventArgs^  e) {
+	}
+	private: System::Void speedBox_TextChanged(System::Object^  sender, System::EventArgs^  e) {
+	}
+	
 };
 }
