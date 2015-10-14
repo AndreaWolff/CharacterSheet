@@ -224,6 +224,7 @@ private: System::Windows::Forms::Label^  speedLabel;
 private: System::Windows::Forms::TextBox^  speedBox;
 private: System::Windows::Forms::Label^  HPLabel;
 private: System::Windows::Forms::TextBox^  HPBox;
+private: System::Windows::Forms::Button^  saveButton;
 
 	private:
 		/// <summary>
@@ -355,6 +356,7 @@ private: System::Windows::Forms::TextBox^  HPBox;
 			this->speedBox = (gcnew System::Windows::Forms::TextBox());
 			this->HPLabel = (gcnew System::Windows::Forms::Label());
 			this->HPBox = (gcnew System::Windows::Forms::TextBox());
+			this->saveButton = (gcnew System::Windows::Forms::Button());
 			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->ageBox))->BeginInit();
 			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->charImageBox))->BeginInit();
 			this->SuspendLayout();
@@ -1419,6 +1421,15 @@ private: System::Windows::Forms::TextBox^  HPBox;
 			this->HPBox->TabIndex = 120;
 			this->HPBox->TextAlign = System::Windows::Forms::HorizontalAlignment::Center;
 			// 
+			// saveButton
+			// 
+			this->saveButton->Location = System::Drawing::Point(22, 522);
+			this->saveButton->Name = L"saveButton";
+			this->saveButton->Size = System::Drawing::Size(120, 23);
+			this->saveButton->TabIndex = 121;
+			this->saveButton->Text = L"Save Character";
+			this->saveButton->UseVisualStyleBackColor = true;
+			// 
 			// MyForm
 			// 
 			this->AutoScaleDimensions = System::Drawing::SizeF(6, 13);
@@ -1426,6 +1437,7 @@ private: System::Windows::Forms::TextBox^  HPBox;
 			this->BackColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(192)), static_cast<System::Int32>(static_cast<System::Byte>(192)),
 				static_cast<System::Int32>(static_cast<System::Byte>(255)));
 			this->ClientSize = System::Drawing::Size(1158, 586);
+			this->Controls->Add(this->saveButton);
 			this->Controls->Add(this->HPBox);
 			this->Controls->Add(this->HPLabel);
 			this->Controls->Add(this->speedBox);

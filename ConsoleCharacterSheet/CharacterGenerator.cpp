@@ -20,8 +20,7 @@ CharacterGenerator::CharacterGenerator()
 //for testing the GUI
 CharacterGenerator::CharacterGenerator( string player, string rRace, string gGender, string background, string cClass, string aAlignment, int aAge )
 {
-	//charRace, Class, Gender and Background brought in from the sheet generator on form 1
-	//Starting with Human Race first
+	//Race, Class, Gender and Background brought in from the sheet generator on form 1
 	statGenDice = new Die(18, 8);
 
 	level = 1;
@@ -201,9 +200,6 @@ void CharacterGenerator::setBackGround( string background, string alignment )
 
 void CharacterGenerator::setRace( string race, string gender )
 {
-	// Hard coded human object instantiation to test inheritence
-	// Will turn into a decision based on race chosen in form
-
 	if ( race.compare( "Human" ) == 0 )
 		charRace = new Human( gender );
 	else {
