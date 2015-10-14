@@ -221,6 +221,15 @@ private: System::Windows::Forms::TextBox^  speedBox;
 private: System::Windows::Forms::Label^  HPLabel;
 private: System::Windows::Forms::TextBox^  HPBox;
 private: System::Windows::Forms::Button^  saveButton;
+private: System::Windows::Forms::TextBox^  lightArmorProfBox;
+private: System::Windows::Forms::Label^  lightArmorProfLabel;
+private: System::Windows::Forms::TextBox^  medArmorProfBox;
+
+private: System::Windows::Forms::Label^  MedArmorProfLabel;
+private: System::Windows::Forms::TextBox^  heavyArmorProfBox;
+private: System::Windows::Forms::Label^  heavyArmorProfLabel;
+private: System::Windows::Forms::TextBox^  shieldProfBox;
+private: System::Windows::Forms::Label^  shieldProfLabel;
 
 	private:
 		/// <summary>
@@ -353,6 +362,14 @@ private: System::Windows::Forms::Button^  saveButton;
 			this->HPLabel = (gcnew System::Windows::Forms::Label());
 			this->HPBox = (gcnew System::Windows::Forms::TextBox());
 			this->saveButton = (gcnew System::Windows::Forms::Button());
+			this->lightArmorProfBox = (gcnew System::Windows::Forms::TextBox());
+			this->lightArmorProfLabel = (gcnew System::Windows::Forms::Label());
+			this->medArmorProfBox = (gcnew System::Windows::Forms::TextBox());
+			this->MedArmorProfLabel = (gcnew System::Windows::Forms::Label());
+			this->heavyArmorProfBox = (gcnew System::Windows::Forms::TextBox());
+			this->heavyArmorProfLabel = (gcnew System::Windows::Forms::Label());
+			this->shieldProfBox = (gcnew System::Windows::Forms::TextBox());
+			this->shieldProfLabel = (gcnew System::Windows::Forms::Label());
 			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->ageBox))->BeginInit();
 			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->charImageBox))->BeginInit();
 			this->SuspendLayout();
@@ -1428,6 +1445,74 @@ private: System::Windows::Forms::Button^  saveButton;
 			this->saveButton->UseVisualStyleBackColor = true;
 			this->saveButton->Click += gcnew System::EventHandler(this, &MyForm::saveButton_Click);
 			// 
+			// lightArmorProfBox
+			// 
+			this->lightArmorProfBox->Location = System::Drawing::Point(570, 519);
+			this->lightArmorProfBox->Name = L"lightArmorProfBox";
+			this->lightArmorProfBox->ReadOnly = true;
+			this->lightArmorProfBox->Size = System::Drawing::Size(36, 20);
+			this->lightArmorProfBox->TabIndex = 122;
+			// 
+			// lightArmorProfLabel
+			// 
+			this->lightArmorProfLabel->AutoSize = true;
+			this->lightArmorProfLabel->Location = System::Drawing::Point(612, 522);
+			this->lightArmorProfLabel->Name = L"lightArmorProfLabel";
+			this->lightArmorProfLabel->Size = System::Drawing::Size(115, 13);
+			this->lightArmorProfLabel->TabIndex = 123;
+			this->lightArmorProfLabel->Text = L"Light Armor Proficiency";
+			// 
+			// medArmorProfBox
+			// 
+			this->medArmorProfBox->Location = System::Drawing::Point(570, 546);
+			this->medArmorProfBox->Name = L"medArmorProfBox";
+			this->medArmorProfBox->ReadOnly = true;
+			this->medArmorProfBox->Size = System::Drawing::Size(36, 20);
+			this->medArmorProfBox->TabIndex = 124;
+			// 
+			// MedArmorProfLabel
+			// 
+			this->MedArmorProfLabel->AutoSize = true;
+			this->MedArmorProfLabel->Location = System::Drawing::Point(613, 546);
+			this->MedArmorProfLabel->Name = L"MedArmorProfLabel";
+			this->MedArmorProfLabel->Size = System::Drawing::Size(129, 13);
+			this->MedArmorProfLabel->TabIndex = 125;
+			this->MedArmorProfLabel->Text = L"Medium Armor Proficiency";
+			// 
+			// heavyArmorProfBox
+			// 
+			this->heavyArmorProfBox->Location = System::Drawing::Point(818, 519);
+			this->heavyArmorProfBox->Name = L"heavyArmorProfBox";
+			this->heavyArmorProfBox->ReadOnly = true;
+			this->heavyArmorProfBox->Size = System::Drawing::Size(37, 20);
+			this->heavyArmorProfBox->TabIndex = 126;
+			// 
+			// heavyArmorProfLabel
+			// 
+			this->heavyArmorProfLabel->AutoSize = true;
+			this->heavyArmorProfLabel->Location = System::Drawing::Point(861, 522);
+			this->heavyArmorProfLabel->Name = L"heavyArmorProfLabel";
+			this->heavyArmorProfLabel->Size = System::Drawing::Size(123, 13);
+			this->heavyArmorProfLabel->TabIndex = 127;
+			this->heavyArmorProfLabel->Text = L"Heavy Armor Proficiency";
+			// 
+			// shieldProfBox
+			// 
+			this->shieldProfBox->Location = System::Drawing::Point(818, 545);
+			this->shieldProfBox->Name = L"shieldProfBox";
+			this->shieldProfBox->ReadOnly = true;
+			this->shieldProfBox->Size = System::Drawing::Size(37, 20);
+			this->shieldProfBox->TabIndex = 128;
+			// 
+			// shieldProfLabel
+			// 
+			this->shieldProfLabel->AutoSize = true;
+			this->shieldProfLabel->Location = System::Drawing::Point(864, 546);
+			this->shieldProfLabel->Name = L"shieldProfLabel";
+			this->shieldProfLabel->Size = System::Drawing::Size(91, 13);
+			this->shieldProfLabel->TabIndex = 129;
+			this->shieldProfLabel->Text = L"Shield Proficiency";
+			// 
 			// MyForm
 			// 
 			this->AutoScaleDimensions = System::Drawing::SizeF(6, 13);
@@ -1435,6 +1520,14 @@ private: System::Windows::Forms::Button^  saveButton;
 			this->BackColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(192)), static_cast<System::Int32>(static_cast<System::Byte>(192)),
 				static_cast<System::Int32>(static_cast<System::Byte>(255)));
 			this->ClientSize = System::Drawing::Size(1158, 586);
+			this->Controls->Add(this->shieldProfLabel);
+			this->Controls->Add(this->shieldProfBox);
+			this->Controls->Add(this->heavyArmorProfLabel);
+			this->Controls->Add(this->heavyArmorProfBox);
+			this->Controls->Add(this->MedArmorProfLabel);
+			this->Controls->Add(this->medArmorProfBox);
+			this->Controls->Add(this->lightArmorProfLabel);
+			this->Controls->Add(this->lightArmorProfBox);
 			this->Controls->Add(this->saveButton);
 			this->Controls->Add(this->HPBox);
 			this->Controls->Add(this->HPLabel);
@@ -1677,6 +1770,18 @@ private: System::Windows::Forms::Button^  saveButton;
 
 		int hitPoints = charClass->getHitPoints();
 		this->HPBox->Text = hitPoints.ToString();
+
+		bool lightArmProf = charClass->getLightArmorProf();
+		this->lightArmorProfBox->Text = (lightArmProf ? "Yes" : "No");
+
+		bool medArmProf = charClass->getMediumArmorProf();
+		this->medArmorProfBox->Text = (medArmProf ? "Yes" : "No");
+
+		bool heavyArmProf = charClass->getHeavyArmorProf();
+		this->heavyArmorProfBox->Text = (heavyArmProf ? "Yes" : "No");
+
+		bool shieldProf = charClass->getShieldArmorProf();
+		this->shieldProfBox->Text = (shieldProf ? "Yes" : "No");
 
 		//sets background text boxes
 		background = char1->getCharacterBackground();
