@@ -17,7 +17,6 @@ CharacterGenerator::CharacterGenerator()
 {
 }
 
-//for testing the GUI
 CharacterGenerator::CharacterGenerator( string player, string rRace, string gGender, string background, string cClass, string aAlignment, int aAge )
 {
 	//Race, Class, Gender and Background brought in from the sheet generator on form 1
@@ -30,7 +29,6 @@ CharacterGenerator::CharacterGenerator( string player, string rRace, string gGen
 	alignment = aAlignment;
 
 	setPlayerName( player );
-	
 	generateStats();
 	setRace( rRace, gGender );
 	setClass(cClass);
@@ -227,10 +225,10 @@ CharacterClass * CharacterGenerator::getCharacterClass()
 	return charClass;
 }
 
-void CharacterGenerator::setLevel(int levelUpDown)
+void CharacterGenerator::setLevel(int levelUp)
 {
 	//character starts at level one but can manually be input to level 2?? for expanding??
-	level = levelUpDown;
+	level = levelUp;
 }
 int CharacterGenerator::getLevel()
 {
@@ -239,7 +237,6 @@ int CharacterGenerator::getLevel()
 
 void CharacterGenerator::setPlayerName(string name)
 {
-	//have to get the user to input their own name on the sheet
 	playerName = name; 
 }
 

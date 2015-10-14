@@ -8,8 +8,6 @@ Human::Human()
 
 Human::Human( string gender ) : CharacterRace( gender )
 {
-	//									^ This calls the base class on instantiation of the derived object
-
 	darkvision = false;
 	charRace = "Human";
 	charSpeed = 30;

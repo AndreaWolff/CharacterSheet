@@ -13,11 +13,8 @@ CharacterRace::CharacterRace()
 CharacterRace::CharacterRace( string gender )
 {
 	charGender = gender;
-	// Will add these at later stage
-	//charSpeed = speed;
-	//charAge = age;
 
-	// Die here should mean all derived classes can access it
+	// Die created here, so all derived classes can access it
 	die1D6 = new Die(6, 1);
 }
 
