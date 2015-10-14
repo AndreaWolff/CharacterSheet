@@ -44,7 +44,10 @@ namespace ConsoleCharacterSheet {
 		~MyForm()
 		{
 			delete char1;
-
+			if (MyImage != nullptr)
+			{
+				delete MyImage; // destructor needed obviously
+			}
 			if (components)
 			{
 				delete components;
@@ -56,6 +59,7 @@ namespace ConsoleCharacterSheet {
 	private: CharacterRace * raceClass;
 	private: CharacterClass * charClass;
 
+	private: Bitmap^ MyImage;  
 	private: String^ genItem;
 	private: String^ racItem;
 	private: String^ clasItem;
@@ -1675,6 +1679,7 @@ private: System::Windows::Forms::Label^  shieldProfLabel;
 		saveButton->Enabled = true;
 
 		std::string backgroundString;
+		std::string fileName;
 		std::string raceString;
 		std::string charName2;
 		std::string playerString;
@@ -1880,38 +1885,34 @@ private: System::Windows::Forms::Label^  shieldProfLabel;
 		this->performBox->Text = (chaMod > 0 ? "+" + chaMod.ToString() : chaMod.ToString());
 		this->persuaBox->Text = (chaMod > 0 ? "+" + chaMod.ToString() : chaMod.ToString());
 
+		//Loads character image
+		if (raceString.compare("Human") == 0)
+		{
+			if (genderString.compare("Male") == 0)
+				fileName = "D:\\VisualStudioProjects\\ConsoleCharacterSheet\\ConsoleCharacterSheet\\maleHuman.bmp";
+			else // Defaults to Female character
+				fileName = "D:\\VisualStudioProjects\\ConsoleCharacterSheet\\ConsoleCharacterSheet\\femaleHuman.bmp";
+		}
+		else if (raceString.compare("Elf") == 0)
+		{
+			if (genderString.compare("Male") == 0)
+				fileName = "D:\\VisualStudioProjects\\ConsoleCharacterSheet\\ConsoleCharacterSheet\\maleElf.bmp";
+			else 
+				fileName = "D:\\VisualStudioProjects\\ConsoleCharacterSheet\\ConsoleCharacterSheet\\femaleElf.bmp";
+		}
+		else if (raceString.compare("Dwarf") == 0)
+		{
+			if (genderString.compare("Male") == 0)
+				fileName = "D:\\VisualStudioProjects\\ConsoleCharacterSheet\\ConsoleCharacterSheet\\maleDwarf.bmp";
+			else 
+				fileName = "D:\\VisualStudioProjects\\ConsoleCharacterSheet\\ConsoleCharacterSheet\\femaleDwarf.bmp";
+		}
 
-
-		//Works only from image here.......not sure how to get it to pass an path from human?
-
-		//Bitmap^ MyImage;   //creates new image object
-		//if (MyImage != nullptr)
-		//{
-		//	delete MyImage; // destructor needed obviously
-		//}
-
-		//std::string fileName;
-
-		//this is if you cant pass it from Human class
-
-		//if (genderString.compare("Male") == 0)
-			//fileName = "\\arnie2.bmp";
-		//else // Defaults to Female character
-			//fileName = "C:\\Users\\A\\My Documents\\bath.bmp";
-
-		//String^ fileToDisplay = gcnew String(fileName.c_str());
-
-		//for testing purposes
-
-		//String^ fileToDisplay; // new string object needed for file path
-		//fileToDisplay = "C:\\Users\\A\\My Documents\\arnie2.bmp";// NOTE REQUIRES DOUBLE \\
-		
-		//displays the image
-
-		//charImageBox->SizeMode = PictureBoxSizeMode::StretchImage; // tells it to stretch
-		//MyImage = gcnew Bitmap(fileToDisplay);                    // tells where to get image from
-		//charImageBox->ClientSize = System::Drawing::Size(213, 192); // sets size of photo
-		//charImageBox->Image = dynamic_cast<Image^>(MyImage);              // draws the image
+		String^ fileToDisplay = gcnew String(fileName.c_str());
+		charImageBox->SizeMode = PictureBoxSizeMode::StretchImage; 
+		MyImage = gcnew Bitmap(fileToDisplay);                  
+		charImageBox->ClientSize = System::Drawing::Size(213, 192); 
+		charImageBox->Image = dynamic_cast<Image^>(MyImage);            
 	}
 
 	private: System::Void saveButton_Click(System::Object^  sender, System::EventArgs^  e) {

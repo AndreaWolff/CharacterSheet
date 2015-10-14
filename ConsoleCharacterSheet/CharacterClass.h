@@ -22,7 +22,6 @@ class CharacterClass
 	protected:
 		string classType;
 		int hitPointsMax;
-		int	skill;
 		bool hasLightArmorProf;
 		bool hasMediumArmorProf;
 		bool hasHeavyArmorProf;

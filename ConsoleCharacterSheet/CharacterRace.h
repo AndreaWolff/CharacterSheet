@@ -16,8 +16,6 @@ class CharacterRace
 		virtual ~CharacterRace();
 		virtual void setName( string ) = 0; // Pure virtual function denoting this class as an abstract class, from which Derived objects will override
 		virtual string getName() = 0;
-		//void setCharacterImage( string );
-		//string getCharacterImage();
 		string getRaceType();
 		string getGender();
 		int getSpeed();

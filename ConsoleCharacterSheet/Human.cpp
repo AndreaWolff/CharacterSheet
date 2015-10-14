@@ -44,14 +44,6 @@ void Human::populateHumanNameMap()
 		charName = humanFemaleName.at(die1D6->rollDie());
 }
 
-//void Human::setImage( string gender )
-//{
-//	if (gender.compare("Male") == 0)
-//		 fileName = "C:\\Users\\A\\My Documents\\arnie2.bmp";
-//	else // Defaults to Female character
-//		fileName = "C:\\Users\\A\\My Documents\\bath.bmp";
-//}
-
  string Human::getName()
  {
 	 return charName;

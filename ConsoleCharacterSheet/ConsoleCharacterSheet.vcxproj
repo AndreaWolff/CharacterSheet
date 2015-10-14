@@ -166,7 +166,6 @@
     </ClInclude>
     <ClInclude Include="Ranger.h" />
     <ClInclude Include="resource.h" />
-    <ClInclude Include="Skill.h" />
     <ClInclude Include="stdafx.h" />
     <ClInclude Include="targetver.h" />
     <ClInclude Include="Wizard.h" />
@@ -185,7 +184,6 @@
     <ClCompile Include="Human.cpp" />
     <ClCompile Include="MyForm1.cpp" />
     <ClCompile Include="Ranger.cpp" />
-    <ClCompile Include="Skill.cpp" />
     <ClCompile Include="stdafx.cpp">
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">Create</PrecompiledHeader>
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">Create</PrecompiledHeader>
