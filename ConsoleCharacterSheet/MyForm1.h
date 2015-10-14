@@ -1456,6 +1456,8 @@ private: System::Windows::Forms::Label^  shieldProfLabel;
 			this->lightArmorProfBox->ReadOnly = true;
 			this->lightArmorProfBox->Size = System::Drawing::Size(36, 20);
 			this->lightArmorProfBox->TabIndex = 122;
+			this->lightArmorProfBox->TextAlign = System::Windows::Forms::HorizontalAlignment::Center;
+			this->lightArmorProfBox->TextChanged += gcnew System::EventHandler(this, &MyForm::lightArmorProfBox_TextChanged);
 			// 
 			// lightArmorProfLabel
 			// 
@@ -1473,6 +1475,7 @@ private: System::Windows::Forms::Label^  shieldProfLabel;
 			this->medArmorProfBox->ReadOnly = true;
 			this->medArmorProfBox->Size = System::Drawing::Size(36, 20);
 			this->medArmorProfBox->TabIndex = 124;
+			this->medArmorProfBox->TextAlign = System::Windows::Forms::HorizontalAlignment::Center;
 			// 
 			// MedArmorProfLabel
 			// 
@@ -1490,6 +1493,7 @@ private: System::Windows::Forms::Label^  shieldProfLabel;
 			this->heavyArmorProfBox->ReadOnly = true;
 			this->heavyArmorProfBox->Size = System::Drawing::Size(37, 20);
 			this->heavyArmorProfBox->TabIndex = 126;
+			this->heavyArmorProfBox->TextAlign = System::Windows::Forms::HorizontalAlignment::Center;
 			// 
 			// heavyArmorProfLabel
 			// 
@@ -1507,6 +1511,7 @@ private: System::Windows::Forms::Label^  shieldProfLabel;
 			this->shieldProfBox->ReadOnly = true;
 			this->shieldProfBox->Size = System::Drawing::Size(37, 20);
 			this->shieldProfBox->TabIndex = 128;
+			this->shieldProfBox->TextAlign = System::Windows::Forms::HorizontalAlignment::Center;
 			// 
 			// shieldProfLabel
 			// 
@@ -1521,8 +1526,8 @@ private: System::Windows::Forms::Label^  shieldProfLabel;
 			// 
 			this->AutoScaleDimensions = System::Drawing::SizeF(6, 13);
 			this->AutoScaleMode = System::Windows::Forms::AutoScaleMode::Font;
-			this->BackColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(192)), static_cast<System::Int32>(static_cast<System::Byte>(192)),
-				static_cast<System::Int32>(static_cast<System::Byte>(255)));
+			this->BackColor = System::Drawing::Color::Silver;
+			this->BackgroundImageLayout = System::Windows::Forms::ImageLayout::Stretch;
 			this->ClientSize = System::Drawing::Size(1158, 586);
 			this->Controls->Add(this->shieldProfLabel);
 			this->Controls->Add(this->shieldProfBox);
@@ -1889,23 +1894,23 @@ private: System::Windows::Forms::Label^  shieldProfLabel;
 		if (raceString.compare("Human") == 0)
 		{
 			if (genderString.compare("Male") == 0)
-				fileName = "D:\\VisualStudioProjects\\ConsoleCharacterSheet\\ConsoleCharacterSheet\\maleHuman.bmp";
+				fileName = "C:\\Users\\A\\My Documents\\maleHuman.bmp";
 			else // Defaults to Female character
-				fileName = "D:\\VisualStudioProjects\\ConsoleCharacterSheet\\ConsoleCharacterSheet\\femaleHuman.bmp";
+				fileName = "C:\\Users\\A\\My Documents\\femaleHuman.bmp";
 		}
 		else if (raceString.compare("Elf") == 0)
 		{
 			if (genderString.compare("Male") == 0)
-				fileName = "D:\\VisualStudioProjects\\ConsoleCharacterSheet\\ConsoleCharacterSheet\\maleElf.bmp";
+				fileName = "C:\\Users\\A\\My Documents\\maleElf.bmp";
 			else 
-				fileName = "D:\\VisualStudioProjects\\ConsoleCharacterSheet\\ConsoleCharacterSheet\\femaleElf.bmp";
+				fileName = "C:\\Users\\A\\My Documents\\femaleElf.bmp";
 		}
 		else if (raceString.compare("Dwarf") == 0)
 		{
 			if (genderString.compare("Male") == 0)
-				fileName = "D:\\VisualStudioProjects\\ConsoleCharacterSheet\\ConsoleCharacterSheet\\maleDwarf.bmp";
+				fileName = "C:\\Users\\A\\My Documents\\maleDwarf.bmp";
 			else 
-				fileName = "D:\\VisualStudioProjects\\ConsoleCharacterSheet\\ConsoleCharacterSheet\\femaleDwarf.bmp";
+				fileName = "C:\\Users\\A\\My Documents\\femaleDwarf.bmp";
 		}
 
 		String^ fileToDisplay = gcnew String(fileName.c_str());
@@ -2001,6 +2006,7 @@ private: System::Windows::Forms::Label^  shieldProfLabel;
 	}
 	private: System::Void speedBox_TextChanged(System::Object^  sender, System::EventArgs^  e) {
 	}
-	
+	private: System::Void lightArmorProfBox_TextChanged(System::Object^  sender, System::EventArgs^  e) {
+	}
 };
 }
