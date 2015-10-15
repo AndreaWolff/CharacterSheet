@@ -1845,7 +1845,13 @@ namespace ConsoleCharacterSheet {
 		ageVal = (int)ageBox->Value;
 
 		// Player Name
-		player = playerName->Text;
+		try{ 
+			player = playerName->Text; 
+		}
+		catch (NullReferenceException^ e) {
+			// If player does not enter in a name, it will default to an empty string
+			player = "";
+		}
 		MarshalString( player, playerString );
 
 		//generates alignment drop down box
@@ -1876,7 +1882,6 @@ namespace ConsoleCharacterSheet {
 		char1 = new CharacterGenerator( playerString, raceString, genderString, backgroundString, classString, alignmentString, ageVal );
 
 		//set Character Generator
-		playerString = char1->getPlayerName();
 		player = gcnew String(playerString.c_str());
 		this->playerNameBox1->Text = player;
 
@@ -2050,10 +2055,22 @@ namespace ConsoleCharacterSheet {
 		}
 
 		String^ fileToDisplay = gcnew String(fileName.c_str());
-		charImageBox->SizeMode = PictureBoxSizeMode::StretchImage; 
-		MyImage = gcnew Bitmap(fileToDisplay);                  
-		charImageBox->ClientSize = System::Drawing::Size(213, 192); 
-		charImageBox->Image = dynamic_cast<Image^>(MyImage);            
+		charImageBox->SizeMode = PictureBoxSizeMode::StretchImage;
+		try {
+			MyImage = gcnew Bitmap(fileToDisplay);
+			charImageBox->ClientSize = System::Drawing::Size(213, 192);
+			charImageBox->Image = dynamic_cast<Image^>(MyImage);
+		}
+		catch (ArgumentException^ ae) 
+		{
+			// If image files can't be found, will display error image
+			charImageBox->Image = charImageBox->ErrorImage;
+		}
+	}
+
+	private: System::Void playerName_TextChanged(System::Object^  sender, System::EventArgs^  e) {
+		// Player cannot generate a character until a name is entered
+		this->StartGeneration->Enabled = true;
 	}
 
 	private: System::Void saveButton_Click(System::Object^  sender, System::EventArgs^  e) {
@@ -2144,8 +2161,5 @@ namespace ConsoleCharacterSheet {
 	}
 	private: System::Void lightArmorProfBox_TextChanged(System::Object^  sender, System::EventArgs^  e) {
 	}
-private: System::Void playerName_TextChanged(System::Object^  sender, System::EventArgs^  e) {
-	this->StartGeneration->Enabled = true;
-}
 };
 }
